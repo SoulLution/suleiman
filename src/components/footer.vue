@@ -1,15 +1,15 @@
 <template>
-  <div class="footer">
+  <div class="footer" ref="item-4">
     <div class="footer-content content">
-      <div class="footer-content-row">
+      <div class="footer-content-row" v-if="$route.path === '/'">
         <div class="footer-title">Участвуйте в конференции!</div>
         <div class="footer-buttons">
-          <v-button :title="'Регистрация на участие'" />
-          <v-button class="__next" :title="'Оставить заявку'" />
+          <v-button :title="'Регистрация на участие'" @click="$router.push('/registrate')" />
+          <v-button class="__next" :title="'Оставить заявку'" @click="$router.push('/request')" />
         </div>
       </div>
       <div class="footer-content-row">
-        <div class="footer-column" v-for="link in links">
+        <div class="footer-column" v-for="link in links" v-if="$route.path === '/'">
           <div class="footer-column-title">{{link.title}}</div>
           <div class="footer-column-childs">
             <div class="footer-column-childs-child" v-for="child in link.childs">
@@ -18,8 +18,9 @@
             </div>
           </div>
         </div>
-        <div class="footer-column">
-          <div class="footer-column-title">Мы в соц. сетях</div>
+        <div class="footer-column" :class="{'center': $route.path !== '/'}">
+          <div class="footer-column-title" v-if="$route.path === '/'">Мы в соц. сетях</div>
+          <div class="footer-column-title" v-else><img src="/static/img/logo_min.png"></div>
           <div class="footer-column-icons">
             <a class="footer-column-icons-icon" :href="icon.href" v-for="icon in icons"><img :src="'static/img/' + icon.img"></a>
           </div>
@@ -108,8 +109,9 @@
   .footer{
     width: 100vw;
     background-color: $footer;
+    z-index: 0;
     &-content{
-      padding: 70px 5px;
+      padding: 70px 16px;
       &-row{
         flex-direction: row;
         justify-content: space-between;
@@ -146,6 +148,13 @@
     }
     &-column{
       align-items: flex-start;
+      &.center{
+        max-width: 100vw;
+        align-items: center;
+        .footer-column-icons{
+          justify-content: center;
+        }
+      }
       &-title{
         width: auto;
         margin-bottom: 12px;
@@ -185,6 +194,39 @@
           &>img{
 
           }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 760px){
+    .footer{
+      &-content-row{
+        flex-direction: column;
+      }
+      &-title{
+        font-size: 24px;
+        line-height: 32px;
+        width: 50%;
+      }
+      &-buttons{
+        flex-direction: column;
+        &>div{
+          margin: 12px 0;
+        }
+      }
+      &-column{
+        max-width: 250px;
+        &-title{
+          font-weight: 800;
+          font-size: 16px;
+          line-height: 24px;
+        }
+        &-childs-child>a{
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 24px;
+          overflow-wrap: break-word;
         }
       }
     }

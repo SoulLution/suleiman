@@ -10,6 +10,7 @@
   $grey: #5C6F8A;
 
   $blue_d: #001F48;
+  $blue_about: #A2AFC0;
   $blue_l: #4585DC;
   $blue_text: #4A5C78;
 
@@ -71,12 +72,13 @@
   
 
   .main{
-    overflow: hidden;
+    overflow-y: visible;
+    z-index: 1;
   }
 
   .content{
     max-width: 1260px;
-    padding: 0 5px;
+    padding: 0 16px;
   }
 
   .web{
@@ -87,12 +89,69 @@
     display: none;
   }
 
+  .form{
+    align-items: flex-start;
+    max-width: 460px;
+    margin-top: 120px;
+    z-index: 1;
+    &-title{
+      display: block;
+      text-align: left;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 44px;
+      color: $blue_d;
+      width: auto;
+    }
+    &-body{
+      &-content{
+        align-items: flex-start;
+        &-item{
+          &-pre{
+            display: block;
+            text-align: left;
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 16px;
+            margin: 40px 0 12px;
+          }
+        }
+        &-about{
+          display: block;
+          text-align: left;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 22px;
+          color: #828282;
+          margin: 40px 0;
+        }
+        &-ending{
+          display: block;
+          text-align: left;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 22px;
+          margin-bottom: 40px;
+          &>span{
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    &-footer{
+
+    }
+  }
+
+
   @media screen and (max-width: 760px){
     .web{
       display: none;
     }
-
     .mob{
       display: flex;
+    }
+    .form{
+      margin-top: unset;
     }
   }

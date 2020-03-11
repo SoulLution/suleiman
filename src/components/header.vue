@@ -3,7 +3,7 @@
     <div class="header-content content">
       <div class="header-content-pre">
         
-        <div class="header-content-logo logo">
+        <div class="header-content-logo logo" @click="$router.push('/')">
           <img src="static/img/logo.png">
           <img src="static/img/suleiman.svg">
         </div>
@@ -51,10 +51,18 @@
         current_lang: localStorage.getItem('language') || 0
       }
     },
+    watch:{
+      $route(to, from){
+        document.scrollingElement.scrollTo({
+          top: 0,
+        })
+      }
+    }, 
     created(){
     },
     methods: {
       comeToElem(ref, index){
+        console.log(this.$refs)
         let top
         if(index || index === 0)
           top = this.$refs[ref][index].offsetTop
@@ -84,7 +92,7 @@
     top: 0;
     z-index: 5;
     &-content{
-      height: 95px;
+      height: 70px;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -106,6 +114,7 @@
     flex-direction: row;
     width: auto;
     margin-right: 18px;
+    cursor: pointer;
     &>img{
       &:first-child{
         padding: 0 15px;
@@ -184,6 +193,19 @@
 
         }
       }
+    }
+  }
+  @media screen and (max-width: 760px){
+    .logo{
+      &>img{
+        width: 30%;
+        &:first-child{
+          padding: 0 7px;
+        }
+      }
+    }
+    .links{
+      display: none;
     }
   }
 </style>

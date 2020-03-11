@@ -15,7 +15,7 @@
 		},
 		methods: {
 			sendData(){
-				this.$emit('event', true)
+				this.$emit('click', true)
 			}
 		}
 	}
@@ -28,7 +28,50 @@
 		border-radius: 25px;
 		padding: 14px;
 		cursor: pointer;
+		z-index: 1;
+		overflow: hidden;
+		&:hover{
+			&:after{
+				left: 115%;
+				transition: 0.4s;
+			}
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			background: linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.0) 100%);
+			width: 25%;
+			left: -30%;
+			height: 200%;
+			transform: rotate(22.5deg);
+		}
+		&.__pluses{
+			width: auto;
+			&:after{
+				background: linear-gradient(90deg, rgba(69,133,220,0.0) 0%, rgba(69,133,220,0.5) 50%, rgba(69,133,220,0.0) 100%);
+			}
+			&>.bg{
+				background-color: #EBF3FF;
+			}
+			&>.title{
+				color: $blue_l;
+				&:before{
+					content: "";
+					margin-left: 14px;
+					margin-right: 8px;
+					width: 20px;
+					height: 18px;
+					background-image: url("/static/img/plus.svg");
+					background-repeat: no-repeat; 
+					background-position: 0 0; 
+					background-size: 100% 100%; 
+				}
+			}
+		}
 		&.__next{
+			&:after{
+				background: linear-gradient(90deg, rgba(69,133,220,0.0) 0%, rgba(69,133,220,0.5) 50%, rgba(69,133,220,0.0) 100%);
+			}
 			&>.bg{
 				background-color: $white;
 				box-shadow: 0px 5px 10px rgba(75,93,104,0.5);
