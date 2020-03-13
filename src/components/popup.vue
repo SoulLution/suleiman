@@ -57,7 +57,7 @@
   		width: 80%;
   		max-height: 80%;
   		padding: 2.5%;
-  		max-width: 400px;
+  		max-width: 550px;
   		justify-content: flex-start;
   		&-ava{
         min-height: 200px;

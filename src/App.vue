@@ -1,11 +1,11 @@
 <template>
   <div id="app">
 
-    <v-header />
+    <v-header :refs="refs"/>
     <v-popup :data="data" :popup="popup" @close="e => popup = e" />
 
-    <router-view @popupsend="popupMessage" />
-    <v-footer />
+    <router-view :amount="amount" @sendAmount="e => amount = e" @refs="addRefs" @popupsend="popupMessage" />
+    <v-footer @refs="addRefs"/>
   </div>
 </template>
 
@@ -18,12 +18,18 @@ export default {
   data(){
   	return{
   		popup: false,
-  		data: {}
+  		data: {},
+      amount: 0,
+      refs: {}
   	}
   },
   mounted(){
 	},
   methods:{
+    addRefs(e){
+      for(let item in e) 
+        this.$set(this.refs, item, e[item])
+    },
   	popupMessage(e){
   		this.data = e
       this.popup = true

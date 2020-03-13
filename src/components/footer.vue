@@ -57,7 +57,7 @@
             childs: [
               {
                 name: 'О компании',
-                href: '/'
+                href: '/about_us'
               }
             ]
           },
@@ -97,7 +97,8 @@
         ]
       }
     },
-    created(){
+    mounted(){
+      this.$emit('refs', this.$refs)
     },
     methods: {
     }
@@ -207,7 +208,9 @@
       &-title{
         font-size: 24px;
         line-height: 32px;
-        width: 50%;
+        width: 75%;
+        display: block;
+        text-align: left;
       }
       &-buttons{
         flex-direction: column;

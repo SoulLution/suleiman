@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="form-footer">
-        <v-button title="Отправить"/>
+        <v-button title="Отправить" @click="pay()" />
       </div>
     </form>
   </div>
@@ -25,6 +25,7 @@
   export default {
     data: () => {
       return{
+        amount: 0,
         members: []
       }
     },
@@ -32,18 +33,37 @@
       this.addMember()
     },
     methods: {
+      pay(){
+        let end = true
+        for(let i = 0; i < this.members.length; i++)
+          for(let j = 0; j < this.members[i].length; j++)
+            if(!this.members[i][j].data){
+              end = false
+              break
+            }
+        if(end){
+          this.$emit('sendAmount', this.amount)
+          this.$router.push('/payment')
+        }
+      },
       checkDate(){
-        let end , type
-        if(this.members.length <= 1)
-          type = 0
-        else
-          type = 1
-
-        if(new Date().valueOf() >= 1592157600000)
-          end = type ? 200 * this.members.length : 300
-        else
-          end = type ? 150 * this.members.length : 200
-
+        let end = 0, type
+        for(let i = 0; i < this.members.length; i++){
+          for(let j = 0; j < this.members.length; j++){
+            if(i === j)
+              continue
+            else
+              if(this.members[i][0].data === this.members[j][0].data)
+                type = 1
+              else
+                type = 0
+          }
+          if(new Date().valueOf() >= 1592157600000)
+            end += type ? 200 : 300
+          else
+            end += type ? 150 : 200 
+        }
+        this.amount = end
         return end
       },
       addMember(){
@@ -65,7 +85,7 @@
 <style lang="scss" scoped>
   @import "@/assets/main.scss";
   .registrate{
-    padding: 15px 15px 0;
+    padding: 15px 15px 40px;
     min-height: 100vh;
     justify-content: flex-start;
     background-color: $white;

@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import index from '@/components/index'
 import registrate from '@/components/registrate'
 import request from '@/components/request'
+import payment from '@/components/payment'
+import about_us from '@/components/about_us'
 
 Vue.use(Router)
 
@@ -24,5 +26,15 @@ export default new Router({
       name: 'request',
       component: request
     },
+    {
+      path: '/payment',
+      name: 'payment',
+      component: payment
+    },
+    {
+      path: '/about_us',
+      name: 'about_us',
+      component: about_us
+    }
   ]
 })

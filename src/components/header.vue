@@ -9,7 +9,7 @@
         </div>
         
         <div class="header-content-links links">
-          <div class="links-link" v-for="(link, i) in links" @click="comeToElem('item-' + index)">{{link.name}}</div>
+          <div class="links-link" v-for="(link, i) in links" @click="comeToElem('item-' + i)">{{link.name}}</div>
         </div>
       </div>
       <div class="header-content-languages languages">
@@ -27,6 +27,14 @@
 
 <script>
   export default {
+    props: {
+      refs: {
+        type: Object,
+        default(){
+          return {}
+        }
+      }
+    },
     data: () => {
       return{
         links: [
@@ -57,20 +65,18 @@
           top: 0,
         })
       }
-    }, 
-    created(){
     },
     methods: {
       comeToElem(ref, index){
-        console.log(this.$refs)
+        console.log(this.refs)
         let top
         if(index || index === 0)
-          top = this.$refs[ref][index].offsetTop
+          top = this.refs[ref][index].offsetTop
         else
-          top = this.$refs[ref].offsetTop
+          top = this.refs[ref].offsetTop
         if(top || top === 0)
           window.scrollTo({
-            top: top + (document.scrollingElement.clientHeight / 2.5),
+            top: top + (document.scrollingElement.clientHeight / 5),
             behavior: 'smooth'
           });
       },

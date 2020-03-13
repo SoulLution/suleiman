@@ -1,11 +1,11 @@
 <template>
 	<label class="input" :for="id"  @click="type === 'select' ? checkInp(!focus) : ''">
 		<div class="input-title" :class="{ 'active': focus || data }">{{title}}</div>
-		<input class="input-input" :id="id" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="$emit('input', data)" v-model="data" v-if="type !== 'select' && type !== 'textarea'">
+		<input class="input-input" :type="type" :id="id" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="$emit('input', data)" v-model="data" v-if="type !== 'select' && type !== 'textarea'">
 		<div class="input-select" :class="{ 'active': focus }" :id="id" v-else-if="type === 'select'">{{data}}</div>
 		<textarea class="input-textarea" :id="id" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="$emit('input', data)" v-model="data" v-else></textarea>
 
-		<div class="input-childs" v-if="childs.length" :class="{ 'active': focus }" @click="checkInp(false)">
+		<div class="input-childs" v-if="childs.length" :class="{ 'active': focus }">
 			<div class="input-childs-content">
 				<div class="input-childs-content-item" @click="changeSelect(item)" v-for="item in childs">{{item.name}}</div>
 			</div>
@@ -19,6 +19,10 @@
 			title: {
 				type: String,
 				default: 'Input title'
+			},
+			max: {
+				type: [Number, String],
+				defalt: ''
 			},
 			id: {
 				type: [Number, String],
@@ -39,6 +43,24 @@
 				default: ''
 			}
 		},
+		watch:{
+			value(newData){
+				this.data = newData
+			},
+			data(newData){
+				if(this.max)
+					if(newData.length >= this.max)
+			// 			if(this.type === 'number'){
+			// 				if(isNaN(parseInt(newData[newData.length-1]))){
+			// 					this.data = newData.substr(0, newData.length-1)
+			// 				}
+			// 			}
+			// 			this.$emit('input', this.data)
+
+			// 	}else
+					this.data = this.data.substr(0, this.max)
+			}
+		},
 		data(){
 			return {
 				data: this.value,
@@ -49,27 +71,35 @@
 			changeSelect(item){
 				this.$emit('input', item.id)
 				this.data = item.name
-				this.checkInp(false)
 			},
 			closeSelect(){
 				if(this.focus)
-					this.checkInp(false)
+					setTimeout(()=>{this.checkInp(false)},0)
 			},
 			checkInp(type){
 				this.focus = type
 				if(this.type === 'select')
-				setTimeout(()=>{
+				
 					if(type)
-						document.addEventListener('click', ()=>this.closeSelect())
+						document.addEventListener('click', ()=>this.closeSelect(), true)
 					else 
-						document.removeEventListener('click', this.closeSelect(), true)
-				},0)
+						document.removeEventListener('click', ()=>this.closeSelect(), true)
+				
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	}
+	input[type=number] {
+	  -moz-appearance: textfield;
+	}
+
 	.input{
 		padding: 22px 16px;
 		background: #efefef;
@@ -91,7 +121,8 @@
 			color: #828282;
 			transition: 0.3s;
 			&.active{
-				transform: scale(0.8) translate(-10%, -100%);
+				font-size: 12px;
+				transform: translate(-5%, -100%);
 			}
 		}
 		&-input, &-textarea, &-select{
