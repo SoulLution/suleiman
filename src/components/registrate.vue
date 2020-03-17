@@ -1,21 +1,23 @@
 <template>
   <div class="main registrate">
     <form class="form">
-      <div class="form-title">Регистрация на конференцию</div>
+      <div class="form-title">{{$languages.registrate.title}}</div>
       <div class="form-body">
         <div class="form-body-content">
           <div class="form-body-content-item" v-for="(member, i) in members">
-            <div class="form-body-content-item-pre">Участник {{i+1}}</div>
+            <div class="form-body-content-item-pre">{{$languages.registrate.member}} {{i+1}}</div>
             <v-input :id="('input-' + ((Math.random() * 10000)^0) + '-data[' + ((Math.random() * 10000)^0) + ']')" :title="input.title" type="text" v-model="input.data" v-for="input in member"/>
           </div>
-          <v-button class="__pluses" @click="addMember()" title="Участник"/>
+          <v-button class="__pluses" @click="addMember()" :title="$languages.registrate.member"/>
 
-          <div class="form-body-content-about">1 участник конференции 300 EUR, стоимость для 2 участника с одной компании 200 EUR.<br>При оплате до 15.6.2020 стоимость 1 участника 200 EUR для 2 участника с одной компании 150 EUR</div>
-          <div class="form-body-content-ending">Итоговая сумма: <span>{{checkDate()}}</span> EUR</div>
+          <div class="form-body-content-about">{{$languages.registrate.about}}</div>
+          <div class="form-body-content-ending">{{$languages.registrate.ending}} <span>{{checkDate()}}</span> EUR</div>
         </div>
       </div>
       <div class="form-footer">
         <v-button title="Отправить" @click="pay()" />
+        <div class="registrate-title">{{$languages.registrate.if_title}}</div>
+        <div class="registrate-router">{{$languages.registrate.rout}}</div>
       </div>
     </form>
   </div>
@@ -43,6 +45,7 @@
             }
         if(end){
           this.$emit('sendAmount', this.amount)
+          this.$emit('sendMembers', this.members)
           this.$router.push('/payment')
         }
       },
@@ -89,5 +92,16 @@
     min-height: 100vh;
     justify-content: flex-start;
     background-color: $white;
+    &-title{
+      font-size: 16px;
+      line-height: 22px;
+      margin: 20px 0 10px;
+      color: #828282;
+    }
+    &-router{
+      width: auto;
+      cursor: pointer;
+      color: $blue_l;
+    }
   }
 </style>

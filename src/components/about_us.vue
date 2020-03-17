@@ -1,11 +1,11 @@
 <template>
 	<div class="main about">
 		<div class="content">
-			<div class="about-title">О нас</div>
-			<div class="about-text">{{text_1}}</div>
-			<div class="about-text">{{text_2}}</div>
-			<div class="about-text">{{text_3}}</div>
-			<div class="about-text">{{text_4}}</div>
+			<div class="about-title">{{$languages.about_us.title}}</div>
+			<div class="about-text">{{$languages.about_us.text_1}}</div>
+			<div class="about-text">{{$languages.about_us.text_2}}</div>
+			<div class="about-text">{{$languages.about_us.text_3}}</div>
+			<div class="about-text">{{$languages.about_us.text_4}}</div>
 			<a :href="link" target="_blank" class="about-link">{{link}}</a>
 		</div>
 	</div>
@@ -15,13 +15,6 @@
 	export default{
 		data(){
 			return{
-				text_1: `Казахстанская юридическая компания Suleiman&Partners, является лидером по решению сложных вопросов в области экономических, налоговых и инвестиционных споров.  Наша компания отлично 	зарекомендовала себя как в бизнес – сообществе, так и в работе с органами государственного управления. 
-				`,
-				text_2: `Мы первая юридическая казахстанская компания, которая на территории Европы для бизнес- сообщества европейских стран, проведет юридическую конференцию о защите европейских инвесторов, компаний и торгово-экономических сделок в постсоветских республиках.
-				`,
-				text_3: `Высокой оценкой нашей работы, является то, что наши клиенты доверили нам право  представить Вам их инвестиционные проекты из первых рук. 
-				`,
-				text_4: `Кнопка читать о компании больше`,
 				link: 'http://suleimanpartners.com'
 			}
 		}

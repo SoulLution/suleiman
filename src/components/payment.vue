@@ -1,258 +1,181 @@
 <template>
-	<div class="payment">
-		<div class="payment-title">Оплата</div>
+	<form ref="form" class="payment" @submit.prevent="sendPay()">
+		<div class="payment-title">{{$languages.payment.title}}</div>
 		<div class="card" id="card">
 			<div class="card-elem">
-				<div class="card-elem-title">Номер карты</div>
-				<!-- <div class="card-number" id="card-elem1" @change="number = $event.complete"></div> -->
-				<card-number class="stripe-element card-number"
-		      ref="cardNumber"
-		      :stripe="stripeAPIToken"
-		      :options="options"
-		      @change="number = $event.complete"
-		    />
+				<div class="card-elem-title">{{$languages.payment.card[0]}}</div>
+				<input class="stripe-element" required inputmode="numeric" ref="cardNumber" maxlength="19" v-model="number" placeholder="XXXX XXXX XXXX XXXX" data-cp="cardNumber">
 		  </div>
 		  <div class="card-elem">
-		  	<div class="card-elem-title">Срок карты</div>
-				<!-- <div class="card-number" id="card-elem2" @change="expiry = $event.complete"></div> -->
-		    <card-expiry class="stripe-element card-expiry"
-		      ref="cardExpiry"
-		      :stripe="stripeAPIToken"
-		      :options="options"
-		      @change="expiry = $event.complete"
-		    />
+		  	<div class="card-elem-title">{{$languages.payment.card[1]}}</div>
+		  	<label class="stripe-element" for="month">
+					<input inputmode="numeric" required ref="cardMonth" maxlength="2" max="12" id="month" v-model="month" placeholder="ММ" data-cp="expDateMonth">/
+					<input inputmode="numeric" required ref="cardYear" maxlength="2" min="20" v-model="year" placeholder="ГГ" data-cp="expDateYear">
+		  	</label>
 		  </div>
 		  <div class="card-elem">
-		  	<div class="card-elem-title">CVV/ССV</div>
-				<!-- <div class="card-number" id="card-elem3" @change="cvc = $event.complete"></div> -->
-		    <card-cvc class="stripe-element card-cvc"
-		      ref="cardCvc"
-		      :stripe="stripeAPIToken"
-		      :options="options"
-		      @change="cvc = $event.complete"
-		    />
+		  	<div class="card-elem-title">{{$languages.payment.card[2]}}</div>
+				<input class="stripe-element" required inputmode="numeric" ref="cardCvc" maxlength="4" v-model="cvc" placeholder="XXX" data-cp="cvv">
 		  </div>
 		  <div class="card-images">
 		  	<img src="/static/img/master_card.png">
 		  	<img src="/static/img/visa.png">
 		  </div>
     </div>
-    <v-input class="input-pay" type="email" v-model="email" title="E-mail" />
-    <div class="sender">
+    <v-input class="input-pay" type="email" :required="true" v-model="email" title="E-mail" />
+    <!-- <div class="sender">
 	    <div class="checked" :class="{'active': check}" @click="check = !check"></div>
 	    <div class="sender-title" @click="check = !check">Получить квитанцию на e-mail</div>
-	    </div>
-		<v-button title="Опталить" @click="sendPay()" />
-	</div>
+    </div> -->
+    <input type="submit" style="display: none;" ref="send" @click="sendPay()">
+		<v-button :title="$languages.payment.button" @click="$refs['send'].click()" />
+	</form>
 </template>
 
 <script>
-	import { CardNumber, CardExpiry, CardCvc } from 'vue-stripe-elements-plus'
-	var stripe = null
 	export default {
 		props: {
 			amount: {
 				type: [Number, String],
 				default: 0
+			},
+			members: {
+				type: Array,
+				default: () => {return []}
 			}
-		},
-	  components: { CardNumber, CardExpiry, CardCvc },
-		watch:{
-	    number () { this.update() },
-	    expiry () { this.update() },
-	    cvc () { this.update() }
 		},
     data(){
       return {
       	check: false,
       	email: '',
       	complete: false,
-	      number: false,
-	      expiry: false,
-	      cvc: false,
-	      ip: null,
-	      currency: 'EUR',
-	      options: {
-	      	// locale: 'ru',
-	      	classes: {
-	      		// base: 'card-elem'
-	      	},
-	      	style: {
-				    base: {
-				      iconColor: '#c4f0ff',
-				      color: '#000000',
-				      fontWeight: 500,
-				      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
-				      fontSize: '16px',
-				      fontSmoothing: 'antialiased',
-				      '::placeholder': {
-				        color: '#828282',
-				      }
-				    },
-				    invalid: {
-				      iconColor: '#eb1c26',
-				      color: '#eb1c26',
-				    },
-				  }
-	      },
-	      stripeAPIToken: 'pk_test_Qd6D3hStD7MKiWxL4SurhdT700ZpZtbrZU',
+	      number: '',
+	      month: '',
+	      year: '',
+	      expiry: '',
+	      cvc: '',
+	      participants: []
       }
     },
+		watch:{
+			number(newData, oldData){
+				if(!isNaN(newData.replace(/\s/g, ''))){
+		    	this.number = newData
+		    	if(this.number.length === 4 || this.number.length === 9 || this.number.length === 14)
+		    		this.number += ' '
+		    	if(this.number.length === 19)
+		        this.$refs.cardMonth.focus()
+		    }else{
+		    	this.number = oldData
+		    }
+	    },
+	    month(newData, oldData){
+	    	if(!isNaN(newData)){
+	    		if(newData[0]>2)
+	    			newData[0] = 1
+	    		if(newData[1])
+	    			if(newData[0] == 1 && newData[1]>2)
+		    			newData[1] = 2
+		    	this.month = newData
+		    	if(this.month.length === 2)
+		        this.$refs.cardYear.focus()
+	    	}
+		    else
+		    	this.cvc = oldData
+	    },
+	    year(newData, oldData){
+	    	if(!isNaN(newData)){
+	    		if(newData[0]<2)
+	    			newData[0] = 2
+		    	this.year = newData
+		    	if(this.year.length === 2)
+		        this.$refs.cardCvc.focus()
+	    	}
+		    else
+		    	this.cvc = oldData
+	    },
+	    cvc(newData, oldData){
+	    	if(!isNaN(newData))
+		    	this.cvc = newData
+		    else
+		    	this.cvc = oldData
+	    },
+		},
     created(){
     	if(!this.amount)
     		this.$router.push('/')
-    },
-    mounted(){
-
-			stripe = require('stripe')(
-				// 'pk_test_Qd6D3hStD7MKiWxL4SurhdT700ZpZtbrZU'
-				'sk_test_MeqEN0B7GVZlba4UpIZkFoZt00rrUqF2yb'
-				);
-
-			(async ()=> {
-		    console.log('popal')
-			  let paymentIntent = await 
-			  stripe.paymentMethods.create({
-			    amount: this.amount,
-			    currency: this.currency,
-			    metadata: {integration_check: 'accept_a_payment'},
-			  })
-			  .then(res => console.log('res', res))
-				console.log(paymentIntent)
-		    console.log('popal')
-			})()
-			stripe = Stripe('pk_test_Qd6D3hStD7MKiWxL4SurhdT700ZpZtbrZU')
-
-
-  		let elements = stripe.elements();
-  		// console.log(elements.create()._proto)
-  		// let card = null
-  		// card = elements.create("cardNumber", this.options);
-  		// card.mount("#card-elem1");
-  		// card = elements.create("cardExpiry", this.options);
-  		// card.mount("#card-elem2");
-  		// card = elements.create("cardCvc", this.options);
-  		// card.mount("#card-elem3");
-
-  		this.$axios.post('http://ip-api.com/json')
-  		.then(res => this.ip = res.data.query)
-  		.catch(err => {
-  			console.error(err)
-  			throw new Error(err)
-  		})    	
+    	for(let member of this.members)
+	    	this.participants.push({
+	    		company: member[0].data,
+	    		name: member[1].data,
+	    	})
     },
     methods: {
-    	update () {
-	      this.complete = this.number && this.expiry && this.cvc
-	      if (this.number) {
-	        if (!this.expiry) {
-	          this.$refs.cardExpiry.focus()
-	        } else if (!this.cvc) {
-	          this.$refs.cardCvc.focus()
-	        }
-	      } else if (this.expiry) {
-	        if (!this.cvc) {
-	          this.$refs.cardCvc.focus()
-	        } else if (!this.number) {
-	          this.$refs.cardNumber.focus()
-	        }
-	      }
-	    },
+  		secure3dRedirect(acsUrl, paReq, md) {
+        let form = document.createElement("form");
+        form.style = "display: none";
+        form.method = "POST";
+        form.action = acsUrl;
+
+        let paReqElement = document.createElement("input");
+        paReqElement.value = paReq;
+        paReqElement.name = "PaReq";
+
+        let mdElement = document.createElement("input");
+        mdElement.value = md;
+        mdElement.name = "MD";
+
+        let termUrlElement = document.createElement("input");
+        termUrlElement.value = 'http://62.151.182.98/api/orders/3d-secure-confirm/';
+        termUrlElement.name = "TermUrl";
+
+        form.appendChild(paReqElement);
+        form.appendChild(mdElement);
+        form.appendChild(termUrlElement);
+
+        document.body.appendChild(form);
+        form.submit();
+      },
     	sendPay(){
-    		console.log('popal')
+    		const checkout = new cp.Checkout(
+			    "pk_460d1f0273ffd46d9e217257308b2",
+			    this.$refs.form)
+    		const result = checkout.createCryptogramPacket();
+    		let data = {
+    			amount: this.amount,
+    			email: this.email,
+    			send_mail: true,
+    			participants: this.participants
+    		}
+    		this.$axios.post('/orders/create/', data)
+    		.then(res => {
+
+    			 data = {
+            cryptogram: result.packet,
+            return_url: top.location.origin + '/success/'
+          }
+    			this.$axios.post('/orders/pay/' + res.data.id + '/', data)
+	    		.then(res_1 => {
+    					if(res_1.status === 202){
+    					let acsUrl = res_1.data.acs_url;
+              let paReq = res_1.data.pa_req;
+              let md = res_1.data.transaction_id;
+
+              this.secure3dRedirect(acsUrl, paReq, md);
+    				}
+
+    			})
+	    		.catch(err_1 => {
+	    			console.error(err_1.response)
+	    			throw new Error(err_1)
+	    		})
 
 
-    		var widget = new cp.CloudPayments({language: "ru-RU"});
-		    widget.charge({ // options
-            publicId: 'test_api_00000000000000000000001',  //id из личного кабинета
-            description: 'Пример оплаты (деньги сниматься не будут)', //назначение
-            amount: this.amount, //сумма
-            currency: this.currency, //валюта
-            accountId: this.email, //идентификатор плательщика (необязательно)
-            skin: "modern", //дизайн виджета
-        },
-        function (options) { // success
-            //действие при успешной оплате
-        },
-        function (reason, options) { // fail
-            //действие при неуспешной оплате
-        });
-
-
-    	// 	const paymentIntent = await stripe.paymentIntents.create({
-			  //   amount: 1099,
-			  //   currency: this.currency,
-			  //   payment_method_types: ['card'],
-			  //   // metadata: {integration_check: 'accept_a_payment'},
-			  // })
-
-			  // console.log(paymentIntent)
-
-			   // stripe.confirmCardPayment('clientSecret', {
-				  //   payment_method: {
-				  //     card: {card_number: this.number, card_expiry: this.expiry, card_cvc: this.cvc},
-				  //     billing_details: {
-				  //       name: 'Jenny Rosen'
-				  //     }
-				  //   }
-				  // })
-				  // .then(res => {
-				  //   if (res.error)
-				  //     console.log(res.error.message)
-				  //   else
-				  //     if (res.paymentIntent.status === 'succeeded') {
-				  //     }
-				  // })
-				  // .catch(err => {
-	    	// 		console.error(err)
-	    	// 		throw new Error(err)
-	    	// 	})
-
-
-    		// this.$axios.post('https://api.cloudpayments.ru/test')
-    		// .then(res => console.log(res))
-    		// .catch(err => {
-    		// 	console.error(err)
-    		// 	throw new Error(err)
-    		// })
-
-
-
-    	// 	const paymentIntent = await stripe.paymentIntents.create({
-			  //   amount: 0,
-			  //   currency: this.currency
-			  // });
-    	// 	console.log(paymentIntent)
-    	// 	console.log('popal')
-    	// 	stripe.paymentMethods.create({
-			  //   amount: 0,
-			  //   currency: this.currency,
-			  //   card: {
-				 //    number: this.number, 
-				 //    expiry: this.expiry, 
-				 //    cvc: this.cvc
-				 //  }
-			  //   // Verify your integration in this guide by including this parameter
-			  //   // metadata: {integration_check: 'accept_a_payment'},
-			  // },
-			  // (err, paymentMethod) => {
-			  // 	console.log(err)
-			  // 	console.log(paymentMethod)
-			  // }
-			  // )
-    		// striple.createToken({card_number: this.number, card_expiry: this.expiry, card_cvc: this.cvc}).then(data => {
-    		// 	if(data.token)
-		    // 		striple.paymentRequest({
-		    // 			token: data.token,
-		    // 			amount: 0,
-		    // 			currency: this.currency
-		    // 		})
-		    // 		.then(res => console.log(res))
-		    // 		.catch(err => {
-		    // 			console.error(err)
-		    // 			throw new Error(err)
-		    // 		})
-    		// })
+    		})
+    		.catch(err => {
+    			console.error(err.response)
+    			throw new Error(err)
+    		})
 		  },
     }
 	}
@@ -352,19 +275,27 @@
 				margin-right: 12px;
 			}
 		}
-		&-number{
-		}
-		&-expiry{
-		}
-		&-cvc{
-		}
 		.stripe-element{
-			padding: 22px 16px;
-			height: 60px;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			border: unset;
+			width: calc(100% - 32px);
+			outline: none;
+			padding: 0 16px;
+			height: 84px;
 			border-radius: 5px;
 			background-color: $white;
 			font-size: 16px;
 			line-height: 16px;
+			&>input{
+				font-size: 16px;
+				line-height: 16px;
+				text-align: center;
+				width: 32px;
+				border: unset;
+				outline: none;
+			}
 		}
 	}
 </style>

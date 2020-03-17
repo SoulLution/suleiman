@@ -4,8 +4,8 @@
       <div class="header-content-pre">
         
         <div class="header-content-logo logo" @click="$router.push('/')">
-          <img src="static/img/logo.png">
-          <img src="static/img/suleiman.svg">
+          <img src="/static/img/logo.png">
+          <img src="/static/img/suleiman.svg">
         </div>
         
         <div class="header-content-links links">
@@ -13,10 +13,10 @@
         </div>
       </div>
       <div class="header-content-languages languages">
-        <div class="languages-select" @click="open = !open"><img :src="'static/img/lang_' + current_lang + '.png'">{{langs[current_lang]}}<img :class="{'open': open}" src="static/img/arrow_min.svg"></div>
+        <div class="languages-select" @click="open = !open"><img :src="'/static/img/lang_' + $language + '.png'">{{$language}}<img :class="{'open': open}" src="/static/img/arrow_min.svg"></div>
         <div class="languages-selector" :class="{'open': open}">
-          <div class="languages-selector-item" :class="{'active': current_lang === i}" v-for="(lang, i) in langs" @click="changeLang(i)">
-            <img :src="'static/img/lang_' + i + '.png'">{{lang}}
+          <div class="languages-selector-item" :class="{'active': $language === lang}" v-for="lang in langs" @click="changeLang(lang)">
+            <img :src="'/static/img/lang_' + lang + '.png'">{{lang}}
           </div>
         </div>
       </div>
@@ -37,26 +37,9 @@
     },
     data: () => {
       return{
-        links: [
-          {
-            name: 'Конференция'
-          },
-          {
-            name: 'Докладчики'
-          },
-          {
-            name: 'Спонсоры/Партнеры'
-          },
-          {
-            name: 'Инвестиционные проекты'
-          },
-          {
-            name: 'Контакты'
-          },
-        ],
+        links: [],
         langs: ['ru', 'kz'],
         open: false,
-        current_lang: localStorage.getItem('language') || 0
       }
     },
     watch:{
@@ -66,24 +49,36 @@
         })
       }
     },
+    created(){
+      this.links = this.$languages.header.links
+    },
     methods: {
       comeToElem(ref, index){
-        console.log(this.refs)
         let top
         if(index || index === 0)
-          top = this.refs[ref][index].offsetTop
+          top = this.refs[ref][index]
         else
-          top = this.refs[ref].offsetTop
+          top = this.refs[ref]
+
+        if(top) top = top.offsetTop
+
         if(top || top === 0)
           window.scrollTo({
             top: top + (document.scrollingElement.clientHeight / 5),
             behavior: 'smooth'
-          });
+          })
+        else{
+          this.$router.push('/')
+          setTimeout(()=>{
+            this.comeToElem(ref, index)
+          },1000)
+        } 
       },
       changeLang(index){
         this.open = false
-        this.current_lang = index
+        this.$language = index
         localStorage.setItem('language', index)
+        location.reload()
       }
     }
   }

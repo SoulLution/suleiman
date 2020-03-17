@@ -5,6 +5,8 @@ import registrate from '@/components/registrate'
 import request from '@/components/request'
 import payment from '@/components/payment'
 import about_us from '@/components/about_us'
+import leads from '@/components/leads'
+import success from '@/components/success'
 
 Vue.use(Router)
 
@@ -35,6 +37,16 @@ export default new Router({
       path: '/about_us',
       name: 'about_us',
       component: about_us
+    },
+    {
+      path: '/leads/:id',
+      name: 'leads',
+      component: leads
+    },
+    {
+      path: '/success',
+      name: 'success',
+      component: success
     }
   ]
 })

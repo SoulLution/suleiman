@@ -7,13 +7,13 @@
         <div class="content">
           <div class="item-main">
             <div class="item-main-column">
-              <div class="item-main-column-title">Первая европейская юридическая конференция </div>
-              <div class="item-main-column-about">о защите европейских инвесторов, компаний и торгово-экономических сделок в постсоветских республиках</div>
-              <v-button class="web" title="Регистрация" @click="$router.push('/registrate')" />
+              <div class="item-main-column-title">{{$languages.index.header.title}}</div>
+              <div class="item-main-column-about">{{$languages.index.header.about}}</div>
+              <v-button class="web" :title="$languages.index.header.button" @click="$router.push('/registrate')" />
             </div>
             <div class="item-main-column">
               <img class="item-main-column-img" src="static/img/main.png">
-              <v-button class="mob" title="Регистрация" @click="$router.push('/registrate')" />
+              <v-button class="mob" :title="$languages.index.header.button" @click="$router.push('/registrate')" />
             </div>
           </div>
         </div>
@@ -31,19 +31,19 @@
             <div class="item-main-timer">
               <div class="item-main-timer-col">
                 <div class="item-main-timer-col-time"><span>{{now.days}}</span>:</div>
-                <div class="item-main-timer-col-date">Дни</div>
+                <div class="item-main-timer-col-date">{{$languages.index.date.days}}</div>
               </div>
               <div class="item-main-timer-col">
                 <div class="item-main-timer-col-time"><span>{{checkTime(now.hours)}}</span>:</div>
-                <div class="item-main-timer-col-date">Часы</div>
+                <div class="item-main-timer-col-date">{{$languages.index.date.hours}}</div>
               </div>
               <div class="item-main-timer-col">
                 <div class="item-main-timer-col-time"><span>{{checkTime(now.minuts)}}</span>:</div>
-                <div class="item-main-timer-col-date">Минуты</div>
+                <div class="item-main-timer-col-date">{{$languages.index.date.minuts}}</div>
               </div>
               <div class="item-main-timer-col">
                 <div class="item-main-timer-col-time"><span>{{checkTime(now.seconds)}}</span></div>
-                <div class="item-main-timer-col-date last">Секунды</div>
+                <div class="item-main-timer-col-date last">{{$languages.index.date.secconds}}</div>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
 
       <div class="index-item __white" ref="item-0">
         <div class="content">
-          <div class="item-title">Темы конференции:</div>
+          <div class="item-title">{{$languages.index.item_titles[0]}}</div>
           <div class="item-main">
             <div class="item-main-col">
               <div class="item-main-col-type" v-for="(type, i) in types" v-if="i < types.length/2">
@@ -73,19 +73,19 @@
 
       <div class="index-item __bg">
         <div class="content">
-          <div class="item-title">Кому это интересно</div>
+          <div class="item-title">{{$languages.index.item_titles[1]}}</div>
           <div class="item-main">
             <div class="item-main-col cell-4">
               <img class="item-main-col-svg" src="static/img/arrow_down.svg">
-              <div class="item-main-col-svg_about">Для Европейских компаний, работающих на Евразийском рынке и желающих усилить свою бизнес позицию.</div>
+              <div class="item-main-col-svg_about">{{$languages.index._bg[0]}}</div>
             </div>
             <div class="item-main-col cell-4">
               <img class="item-main-col-svg" src="static/img/arrow_down.svg">
-              <div class="item-main-col-svg_about">Для начинающих и планирующих работать на Евразийском рынке.</div>
+              <div class="item-main-col-svg_about">{{$languages.index._bg[1]}}</div>
             </div>
             <div class="item-main-col cell-4">
               <img class="item-main-col-svg" src="static/img/arrow_down.svg">
-              <div class="item-main-col-svg_about">Для тех, кому необходимо получить ответ в спорной ситуации.</div>
+              <div class="item-main-col-svg_about">{{$languages.index._bg[2]}}</div>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
       <div class="index-item __transaprent" ref="item-1">
         <div class="content">
           <img class="item-logo" src="static/img/title_0.svg">
-          <div class="item-title">Cпикеры конференции</div>
+          <div class="item-title">{{$languages.index.item_titles[2]}}</div>
           <div class="item-main">
             <div class="item-main-cell">
               <div class="item-main-cell-speakers" :class="{'row': i === 0 || i === 3, 'column': i === 1 || i === 2}" v-for="(speaker_list, i) in speakers">
@@ -113,23 +113,23 @@
 
       <div class="index-item __bg __blue">
         <div class="content">
-          <div class="item-title">ПРИЧИНы ПОСЕТИТЬ КОНФЕРЕНЦИЮ</div>
+          <div class="item-title">{{$languages.index.item_titles[3]}}</div>
           <div class="item-main">
             <div class="item-main-col cell-3">
               <img class="item-main-col-svg" src="static/img/cause_0.svg">
-              <div class="item-main-col-svg_about">Насыщенная программа конференции</div>
+              <div class="item-main-col-svg_about">{{$languages.index._bg[3]}}</div>
             </div>
             <div class="item-main-col cell-3">
               <img class="item-main-col-svg" src="static/img/cause_1.svg">
-              <div class="item-main-col-svg_about">Уникальная площадка для поиска ответов</div>
+              <div class="item-main-col-svg_about">{{$languages.index._bg[4]}}</div>
             </div>
             <div class="item-main-col cell-3">
               <img class="item-main-col-svg" src="static/img/cause_2.svg">
-              <div class="item-main-col-svg_about">Площадка для корпоративных коммуникаций</div>
+              <div class="item-main-col-svg_about">{{$languages.index._bg[5]}}</div>
             </div>
             <div class="item-main-col cell-3">
               <img class="item-main-col-svg" src="static/img/cause_3.svg">
-              <div class="item-main-col-svg_about">Атмосфера  по-настоящему живого и полезного общения</div>
+              <div class="item-main-col-svg_about">{{$languages.index._bg[6]}}</div>
             </div>
           </div>
         </div>
@@ -139,16 +139,16 @@
       <div class="index-item __main_2" ref="item-3">
         <div class="content">
           <img class="item-logo" src="static/img/title_1.svg">
-          <div class="item-title">Инвестиционные проекты</div>
+          <div class="item-title">{{$languages.index.item_titles[4]}}</div>
           <div class="item-main">
             <div class="item-main-cell cell-2" v-for="(project, i) in projects">
-              <div class="item-main-cell-body">
+              <div class="item-main-cell-body" @click="goLeads(i)">
                 <div class="item-main-cell-body-project"><img :src="`/static/img/project_${i}.png`"></div>
                 <div class="item-main-cell-body-fio">{{project.name}}</div>
               </div>
             </div>
           </div>
-          <div class="item-link">Вы можете разместить свои инвестпроекты на сайте. Свяжитесь с нами <a>conference@suleimanpartners.com</a></div>
+          <div class="item-link">{{$languages.index.item_link}}<a target="_blank" href="http://suleimanpartners.com/">conference@suleimanpartners.com</a></div>
           <v-button title="Связаться с нами" @click="$router.push('/request')" />
         </div>
       </div>
@@ -156,7 +156,7 @@
       <div class="index-item __transpatent" ref="item-2">
         <div class="content">
           <img class="item-logo" src="static/img/title_2.svg">
-          <div class="item-title">Спонсоры/Партнеры</div>
+          <div class="item-title">{{$languages.index.item_titles[5]}}</div>
           <div class="item-main">
             <div class="item-main-cell cell-4 __min" v-for="sponsor in sponsors">
               <div class="item-main-cell-body">
@@ -208,139 +208,20 @@
             logo: 'sponsor_0.png'
           }
         ],
-        projects: [
-          {
-            name: 'Сельское хозяйство'
-          },
-          {
-            name: 'Промышленность'
-          },
-          {
-            name: 'Фармацевтика и медицина'
-          },
-          {
-            name: 'Туризм'
-          },
-          {
-            name: 'Транспорт'
-          },
-          {
-            name: 'Нефтехимия'
-          },
-          {
-            name: 'Энергетика'
-          },
-          {
-            name: 'Логистика'
-          },
-          {
-            name: 'Инновации и высокие технологии'
-          },
-          {
-            name: 'Недвижимость и строительство'
-          },
-          {
-            name: 'Продажа бизнеса'
-          },
-          {
-            name: 'Другое'
-          }
-        ],
-        speakers: [
-          [
-            {
-              fio: 'Жангельды Сулейманов',
-              ava: '',
-              speciality: 'CEO международного холдинга PayBox.money',
-              about: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-            },
-            {
-              fio: 'Максим Тафинцев',
-              ava: '',
-              speciality: 'Специализация',
-              about: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-            }
-          ],
-          [
-            {
-              fio: 'Максим Черешнев',
-              ava: '',
-              speciality: 'Специализация',
-              about: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-            },
-            {
-              fio: 'Дариуш',
-              ava: '',
-              speciality: '',
-              about: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-            }
-          ],
-          [
-            {
-              fio: 'представитель МФЦА',
-              ava: '',
-              speciality: '',
-              about: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-            },
-            {
-              fio: 'Мартина',
-              ava: '',
-              speciality: '',
-              about: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-            }
-          ],
-          [
-            {
-              fio: 'Жангельды Сулейманов',
-              ava: '',
-              speciality: 'CEO международного холдинга PayBox.money',
-              about: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-            },
-            {
-              fio: 'Максим Тафинцев',
-              ava: '',
-              speciality: 'Специализация',
-              about: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-            }
-          ]
-        ],
-        types: [
-          {
-            number: 1,
-            content: `ТОП 5  проблем, почему европейские инвестора не работают с рынком постсоветских республик.`
-          },
-          {
-            number: 2,
-            content: `Правовые основы сотрудничества Европейского союза со странами постсоветских республик в таможенной сфере.`
-          },
-          {
-            number: 3,
-            content: `ТОП 5 ответов на озвученные проблемы. Правовое регулирование иностранных инвестиций. Инвестиционные и налоговые преференции.`
-          },
-          {
-            number: 4,
-            content: `Когда и почему возникает потребность в защитных механизмах и охрана каких прав зарубежных инвесторов обеспечивается.`
-          },
-          {
-            number: 5,
-            content: `Механизмы защиты прав иностранных инвесторов 3 области:`
-          },
-          {
-            number: 5.1,
-            content: `Создание и управление совместной компанией.`
-          },
-          {
-            number: 5.2,
-            content: `Проверка партнеров путем получения информации из открытых источников. - Как проводить переговоры с партнерами. - Особенности составления договоров с партнерами. - Документальное оформление сделок.`
-          },
-          {
-            number: 5.3,
-            content: `Порядок рассмотрения судебных споров -Взыскание  задолженности и понуждение к исполнению договоров.`
-          },
-        ]
+        projects: [],
+        speakers: [],
+        types: []
       }
     },
+    beforeRouteLeave (to, from, next) {
+      this.$emit('removeRefs', this.$refs)
+      next()
+    },
     async created(){
+      this.projects = this.$languages.projects
+      this.speakers = this.$languages.index.speakers
+      this.types = this.$languages.index.types
+
       this.now.seconds = this.end_time.getSeconds() - new Date().getSeconds()
       this.now.minuts = this.end_time.getMinutes() - new Date().getMinutes()
       this.now.hours = this.end_time.getHours() - new Date().getHours()
@@ -388,6 +269,9 @@
       this.$emit('refs', this.$refs)
     },
     methods: {
+      goLeads(index){
+        this.$router.push('/leads/'+index)
+      },
       setPopup(item){
         this.$emit('popupsend', item)
       },
@@ -474,9 +358,6 @@
   }
   .cell-4{
     flex: 33% 0 0;
-    &.min{
-
-    }
   }
   .cell-3{
     flex: 25% 0 0;

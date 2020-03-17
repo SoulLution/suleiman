@@ -2,10 +2,10 @@
   <div class="footer" ref="item-4">
     <div class="footer-content content">
       <div class="footer-content-row" v-if="$route.path === '/'">
-        <div class="footer-title">Участвуйте в конференции!</div>
+        <div class="footer-title">{{$languages.footer.title}}</div>
         <div class="footer-buttons">
-          <v-button :title="'Регистрация на участие'" @click="$router.push('/registrate')" />
-          <v-button class="__next" :title="'Оставить заявку'" @click="$router.push('/request')" />
+          <v-button :title="$languages.footer.buttons[0]" @click="$router.push('/registrate')" />
+          <v-button class="__next" :title="$languages.footer.buttons[0]" @click="$router.push('/request')" />
         </div>
       </div>
       <div class="footer-content-row">
@@ -13,16 +13,16 @@
           <div class="footer-column-title">{{link.title}}</div>
           <div class="footer-column-childs">
             <div class="footer-column-childs-child" v-for="child in link.childs">
-              <img :src="'static/img/' + child.img" v-if="child.img">
+              <img :src="'/static/img/' + child.img" v-if="child.img">
               <a :href="child.href">{{child.name}}</a>
             </div>
           </div>
         </div>
         <div class="footer-column" :class="{'center': $route.path !== '/'}">
-          <div class="footer-column-title" v-if="$route.path === '/'">Мы в соц. сетях</div>
+          <div class="footer-column-title" v-if="$route.path === '/'">$languages.footer.soc</div>
           <div class="footer-column-title" v-else><img src="/static/img/logo_min.png"></div>
           <div class="footer-column-icons">
-            <a class="footer-column-icons-icon" :href="icon.href" v-for="icon in icons"><img :src="'static/img/' + icon.img"></a>
+            <a class="footer-column-icons-icon" :href="icon.href" v-for="icon in icons"><img :src="'/static/img/' + icon.img"></a>
           </div>
         </div>
       </div>
@@ -51,51 +51,11 @@
             href: 'instagram.com'
           }
         ],
-        links: [
-          {
-            title: 'О нас',
-            childs: [
-              {
-                name: 'О компании',
-                href: '/about_us'
-              }
-            ]
-          },
-          {
-            title: 'Адрес',
-            childs: [
-              {
-                name: 'Чешская Республика, г. Прага, ул. Таборитска 1000/23',
-                href: 'geo:50.0828583,14.4552392,17'
-              }
-            ]
-          },
-          {
-            title: 'Контакты',
-            childs: [
-              {
-                name: '+420 777 182 012',
-                href: 'tel:+420777182012',
-                img: 'phone.svg'
-              },
-              {
-                name: 'conference@suleimanpartners.com',
-                href: 'mailto:conference@suleimanpartners.com',
-                img: 'mail.svg'
-              }
-            ]
-          },
-          {
-            title: 'Помощь',
-            childs: [
-              {
-                name: 'Поддержка',
-                href: '/'
-              }
-            ]
-          }
-        ]
+        links: []
       }
+    },
+    created(){
+      this.links = this.$languages.footer.links
     },
     mounted(){
       this.$emit('refs', this.$refs)
