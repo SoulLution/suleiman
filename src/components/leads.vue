@@ -10,10 +10,10 @@
 			{{$languages.leads.type}} {{projects[$route.params.id].name}}
 		</div>
 		<div class="leads-content">
-			<div class="cell-4" v-for="lead in leads">
+			<div class="cell-4" v-for="lead in leads" v-if="lead.industry === projects[$route.params.id].data">
 				<div class="leads-content-item">
-					<div class="leads-content-item-header">
-						{{lead.company_name}}
+					<div class="leads-content-item-header" :title="lead.company_name">
+						<div>{{lead.company_name}}</div>
 						<span><img src="/static/img/map.svg">{{lead.country}}</span>
 					</div>
 					<div class="leads-content-item-rows">
@@ -38,6 +38,14 @@
 				projects: []
 			}
 		},
+		watch:{
+			$route:{
+				handler(newData){
+					this.changeLeads(newData.params.id)
+				},
+				deep: true
+			}
+		},
 		created(){
 			this.projects = this.$languages.projects
 			this.changeLeads(this.$route.params.id)
@@ -48,6 +56,7 @@
 				this.$router.push('/leads/'+id)
 			},
 			changeLeads(id){
+				this.leads = []
 				this.$axios.get('leads')
 				.then(res => {
 					this.leads = res.data
@@ -61,6 +70,7 @@
   @import "@/assets/main.scss";
 	
 	.cell-4{
+		width: 33%;
     flex: 33% 0 0;
     align-items: flex-start;
   }
@@ -89,29 +99,54 @@
   			display: block;
   			text-align: left;
   			padding: 16px 12px;
+  			cursor: pointer;
   		}
   	}
   }
   .leads{
   	padding: 100px 16px;
+  	min-height: 100vh;
+  	align-items: flex-start;
+  	justify-content: flex-start;
 		&-header{
-			display: block;
+			width: auto;
 			text-align: left;
 			color: $blue_d;
 			font-weight: 800;
 			font-size: 32px;
 			line-height: 44px;
 			margin-bottom: 60px;
+			padding-right: 30px;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			&:after{
+				content: "";
+				right: 0;
+				margin-top: -5px;
+				height: 20px;
+				width: 20px;
+				border-right: 2px solid $blue_d;
+				border-bottom: 2px solid $blue_d;
+				transform: rotate(45deg);
+				position: absolute;
+			}
 		}
 		&-content{
 			flex-direction: row;
+			align-items: flex-start;
 			justify-content: flex-start;
 			flex-wrap: wrap;
 			&-item{
 				background-color: $white;
 				border-radius: 15px;
 				width: 95%;
+				max-width: 95%;
 				padding: 30px;
+				align-items: flex-start;
+				justify-content: flex-start;
+				// min-height: 400px;
+				max-height: 400px;
 				&-header{
 					flex-direction: row;
 					justify-content: flex-start;
@@ -120,7 +155,19 @@
 					font-size: 18px;
 					line-height: 16px;
 					margin-bottom: 32px;
+					&>div{
+						display: block;
+						white-space: nowrap;
+				    text-align: left;
+				    width: auto;
+				    max-width: 40%;
+				    overflow: hidden;
+				    text-overflow: ellipsis;
+					}
 					&>span{
+						// display: flex;
+						// width: auto;
+						// flex-direction: row;
 						color: #93979D;
 						&>img{
 							padding: 0 22px 0 10px;
@@ -131,11 +178,15 @@
 					margin-bottom: 12px;
 					&-row{
 						flex-direction: row;
+						align-items: flex-start;
 						justify-content: space-between;
 						margin-bottom: 12px;
 						&>span{
 							font-size: 16px;
 							line-height: 16px;
+							word-break: break-word;
+					    text-align: left;
+					    max-width: 50%;
 							color: #93979D;
 							&:last-child{
 								color: #333333;								
@@ -144,6 +195,12 @@
 					}
 				}
 				&-description{
+					overflow-y: auto;
+					word-break: break-word;
+			    text-align: left;
+			    // width: 50%;
+					align-items: flex-start;
+					text-align: left;
 					color: #333333;
 					font-weight: 500;
 					font-size: 16px;
@@ -161,11 +218,14 @@
   			padding-bottom: 20px;
   		}
   		&-content-item{
+
+				max-height: 90vh;
   			width: 100%;
   			margin-bottom: 20px;
   		}
   	}
   	.cell-4{
+  		width: 100%;
       flex: 100% 0 0;
     }
   }

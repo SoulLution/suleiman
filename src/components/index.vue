@@ -50,10 +50,22 @@
         </div>
       </div>
 
-
-      <div class="index-item __white" ref="item-0">
+      <div class="index-item __transparent" ref="item-0">
         <div class="content">
           <div class="item-title">{{$languages.index.item_titles[0]}}</div>
+          <div class="item-main">
+            <div class="item-img">
+              <img src="/static/img/conf_0.png">
+              <img src="/static/img/conf_1.png">
+            </div>
+            <div class="item-about">{{$languages.index.conf}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="index-item __white">
+        <div class="content">
+          <div class="item-title">{{$languages.index.item_titles[1]}}</div>
           <div class="item-main">
             <div class="item-main-col">
               <div class="item-main-col-type" v-for="(type, i) in types" v-if="i < types.length/2">
@@ -73,7 +85,7 @@
 
       <div class="index-item __bg">
         <div class="content">
-          <div class="item-title">{{$languages.index.item_titles[1]}}</div>
+          <div class="item-title">{{$languages.index.item_titles[2]}}</div>
           <div class="item-main">
             <div class="item-main-col cell-4">
               <img class="item-main-col-svg" src="static/img/arrow_down.svg">
@@ -95,7 +107,7 @@
       <div class="index-item __transaprent" ref="item-1">
         <div class="content">
           <img class="item-logo" src="static/img/title_0.svg">
-          <div class="item-title">{{$languages.index.item_titles[2]}}</div>
+          <div class="item-title">{{$languages.index.item_titles[3]}}</div>
           <div class="item-main">
             <div class="item-main-cell">
               <div class="item-main-cell-speakers" :class="{'row': i === 0 || i === 3, 'column': i === 1 || i === 2}" v-for="(speaker_list, i) in speakers">
@@ -113,7 +125,7 @@
 
       <div class="index-item __bg __blue">
         <div class="content">
-          <div class="item-title">{{$languages.index.item_titles[3]}}</div>
+          <div class="item-title">{{$languages.index.item_titles[4]}}</div>
           <div class="item-main">
             <div class="item-main-col cell-3">
               <img class="item-main-col-svg" src="static/img/cause_0.svg">
@@ -139,7 +151,7 @@
       <div class="index-item __main_2" ref="item-3">
         <div class="content">
           <img class="item-logo" src="static/img/title_1.svg">
-          <div class="item-title">{{$languages.index.item_titles[4]}}</div>
+          <div class="item-title">{{$languages.index.item_titles[5]}}</div>
           <div class="item-main">
             <div class="item-main-cell cell-2" v-for="(project, i) in projects">
               <div class="item-main-cell-body" @click="goLeads(i)">
@@ -148,15 +160,18 @@
               </div>
             </div>
           </div>
-          <div class="item-link">{{$languages.index.item_link}}<a target="_blank" href="http://suleimanpartners.com/">conference@suleimanpartners.com</a></div>
-          <v-button title="Связаться с нами" @click="$router.push('/request')" />
+          <div class="item-link">
+            {{$languages.index.item_link}}
+            <!-- <a target="_blank" href="http://suleimanpartners.com/">conference@suleimanpartners.com</a> -->
+          </div>
+          <v-button class="__next" :title="$languages.index.item_but" @click="$router.push('/request')" />
         </div>
       </div>
 
       <div class="index-item __transpatent" ref="item-2">
         <div class="content">
           <img class="item-logo" src="static/img/title_2.svg">
-          <div class="item-title">{{$languages.index.item_titles[5]}}</div>
+          <div class="item-title">{{$languages.index.item_titles[6]}}</div>
           <div class="item-main">
             <div class="item-main-cell cell-4 __min" v-for="sponsor in sponsors">
               <div class="item-main-cell-body">
@@ -164,7 +179,7 @@
               </div>
             </div>
           </div>
-          <v-button title="Стать партнером" @click="$router.push('/request')" />
+          <v-button :title="$languages.index.item_but2" @click="$router.push('/request')" />
         </div>
       </div>
 
@@ -366,6 +381,26 @@
     flex: 16.6666% 0 0;
   }
   .item{
+
+    &-img{
+      flex-direction: row;
+      width: 100vw;
+      max-width: 100vw;
+      min-width: 100vw;
+      margin-bottom: 20px;
+      &>img{
+        width: 50%;
+      }
+    }
+    &-about{
+      display: block;
+      text-align: left;
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 26px;
+      color: $black;
+      margin: 20px 16px;
+    }
     &-logo{
       margin: 12px 0 0;
     }
@@ -447,6 +482,8 @@
               content: "";
               position: absolute;
               z-index: -1;
+              left: 0;
+              top: -2px;
               height: 46px;
               width: 100%;
               background-image: url(/static/img/theme_arrow.svg);
@@ -518,9 +555,12 @@
         flex-wrap: wrap;
         &-speakers{
           &-body{
+            height: 100%;
+            justify-content: flex-start;
             width: 20%;
           }
           &.row{
+            height: 300px;
             flex: 100% 0 0;
             flex-direction: row;
             justify-content: center;
@@ -602,6 +642,13 @@
       flex: 50% 0 0;
     }
     .item{
+      &-img{
+        flex-direction: column;
+        &>img{
+          width: 100%;
+          margin-bottom: 5px;
+        }
+      }
       &-title{
         font-size: 24px;
         line-height: 33px;
@@ -615,6 +662,7 @@
               width: 100%;
             }
             &.row{
+              height: auto;
               flex: 100% 0 0;
               flex-direction: column;
               justify-content: center;

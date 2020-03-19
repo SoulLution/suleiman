@@ -9,6 +9,7 @@
 <script>
 	export default{
 		created(){
+			this.$emit('setLoad', false)
 			setTimeout(()=>{
 				this.$router.push('/')
 			},5000)

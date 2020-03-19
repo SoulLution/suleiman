@@ -91,7 +91,7 @@
     background-color: $blue_d;
     position: sticky;
     top: 0;
-    z-index: 5;
+    z-index: 2;
     &-content{
       height: 70px;
       flex-direction: row;

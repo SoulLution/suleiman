@@ -3,11 +3,12 @@
 
     <v-header :refs="refs"/>
     <v-popup :data="data" :popup="popup" @close="e => popup = e" />
-
+    <v-load :load="load" />
     <router-view 
     :amount="amount" @sendAmount="e => amount = e"
     :members="members" @sendMembers="e => members = e"
     @refs="addRefs"
+    @setLoad="e => load = e"
     @removeRefs="e => addRefs(e, true)"
     @popupsend="popupMessage" />
     <v-footer @refs="addRefs"/>
@@ -26,6 +27,7 @@ export default {
   		data: {},
       amount: 0,
       members: [],
+      load: false,
       refs: {}
   	}
   },

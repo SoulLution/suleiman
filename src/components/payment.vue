@@ -1,5 +1,5 @@
 <template>
-	<form ref="form" class="payment" @submit.prevent="sendPay()">
+	<form ref="form" class="payment content" @submit.prevent="sendPay()">
 		<div class="payment-title">{{$languages.payment.title}}</div>
 		<div class="card" id="card">
 			<div class="card-elem">
@@ -137,6 +137,7 @@
         form.submit();
       },
     	sendPay(){
+    		this.$emit('setLoad', true)
     		const checkout = new cp.Checkout(
 			    "pk_460d1f0273ffd46d9e217257308b2",
 			    this.$refs.form)
@@ -149,8 +150,7 @@
     		}
     		this.$axios.post('/orders/create/', data)
     		.then(res => {
-
-    			 data = {
+    			data = {
             cryptogram: result.packet,
             return_url: top.location.origin + '/success/'
           }
@@ -169,10 +169,12 @@
 	    			console.error(err_1.response)
 	    			throw new Error(err_1)
 	    		})
+	    		.finally( () => this.$emit('setLoad', false))
 
 
     		})
     		.catch(err => {
+    			this.$emit('setLoad', false)
     			console.error(err.response)
     			throw new Error(err)
     		})

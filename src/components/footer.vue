@@ -5,7 +5,7 @@
         <div class="footer-title">{{$languages.footer.title}}</div>
         <div class="footer-buttons">
           <v-button :title="$languages.footer.buttons[0]" @click="$router.push('/registrate')" />
-          <v-button class="__next" :title="$languages.footer.buttons[0]" @click="$router.push('/request')" />
+          <v-button class="__next" :title="$languages.footer.buttons[1]" @click="$router.push('/request')" />
         </div>
       </div>
       <div class="footer-content-row">
@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="footer-column" :class="{'center': $route.path !== '/'}">
-          <div class="footer-column-title" v-if="$route.path === '/'">$languages.footer.soc</div>
+          <div class="footer-column-title" v-if="$route.path === '/'">{{$languages.footer.soc}}</div>
           <div class="footer-column-title" v-else><img src="/static/img/logo_min.png"></div>
           <div class="footer-column-icons">
             <a class="footer-column-icons-icon" :href="icon.href" v-for="icon in icons"><img :src="'/static/img/' + icon.img"></a>

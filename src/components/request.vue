@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="form-footer">
-        <input type="submit" style="display: none;" ref="send" @click="createLead()">
+        <input type="submit" style="display: none;" ref="send" @click.prevent="createLead()">
         <v-button :title="$languages.request.button" @click="$refs['send'].click()"/>
       </div>
     </form>
@@ -38,10 +38,12 @@
           project_stage: this.inputs[5].data,
           description: this.inputs[6].data
         }
+        this.$emit('setLoad', true)
         this.$axios.post('/leads/create/', data)
         .then(res => {
           this.$router.push('/success')
         })
+        .finally( () => this.$emit('setLoad', false))
       }
     }
   }

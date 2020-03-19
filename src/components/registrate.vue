@@ -10,14 +10,14 @@
           </div>
           <v-button class="__pluses" @click="addMember()" :title="$languages.registrate.member"/>
 
-          <div class="form-body-content-about">{{$languages.registrate.about}}</div>
+          <div class="form-body-content-about" v-html="$languages.registrate.about"></div>
           <div class="form-body-content-ending">{{$languages.registrate.ending}} <span>{{checkDate()}}</span> EUR</div>
         </div>
       </div>
       <div class="form-footer">
         <v-button title="Отправить" @click="pay()" />
         <div class="registrate-title">{{$languages.registrate.if_title}}</div>
-        <div class="registrate-router">{{$languages.registrate.rout}}</div>
+        <a href="http://suleimanpartners.com" target="_blank" class="registrate-router">{{$languages.registrate.rout}}</a>
       </div>
     </form>
   </div>
