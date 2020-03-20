@@ -9,6 +9,10 @@
             <div class="item-main-column">
               <div class="item-main-column-title">{{$languages.index.header.title}}</div>
               <div class="item-main-column-about">{{$languages.index.header.about}}</div>
+              <div class="item-main-column-calendar">
+                <img src="/static/img/calendar.svg">
+                <span>{{$languages.index.header.calendar}}</span>
+              </div>
               <v-button class="web" :title="$languages.index.header.button" @click="$router.push('/registrate')" />
             </div>
             <div class="item-main-column">
@@ -112,9 +116,11 @@
             <div class="item-main-cell">
               <div class="item-main-cell-speakers" :class="{'row': i === 0 || i === 3, 'column': i === 1 || i === 2}" v-for="(speaker_list, i) in speakers">
                 <div class="item-main-cell-speakers-body" v-for="speaker in speaker_list">
-                  <div class="item-main-cell-body-ava" @click="setPopup(speaker)"><img :src="'/static/img/'+speaker.ava" v-if="speaker.ava"></div>
-                  <div class="item-main-cell-body-fio">{{speaker.fio}}</div>
-                  <div class="item-main-cell-body-speciality">{{speaker.speciality}}</div>
+                  <div class="item-main-cell-body-ava" @click="speaker['name_' + $language] ? setPopup(speaker) : ''">
+                    <img :src="speaker.image" v-if="speaker.image">
+                  </div>
+                  <div class="item-main-cell-body-fio" v-if="speaker['name_' + $language]">{{speaker['name_' + $language]}}</div>
+                  <div class="item-main-cell-body-speciality">{{speaker['specialization_' + $language]}}</div>
                 </div>
               </div>
             </div>
@@ -130,18 +136,22 @@
             <div class="item-main-col cell-3">
               <img class="item-main-col-svg" src="static/img/cause_0.svg">
               <div class="item-main-col-svg_about">{{$languages.index._bg[3]}}</div>
+              <div class="item-main-col-svg_about _min">{{$languages.index._blue[0]}}</div>
             </div>
             <div class="item-main-col cell-3">
               <img class="item-main-col-svg" src="static/img/cause_1.svg">
               <div class="item-main-col-svg_about">{{$languages.index._bg[4]}}</div>
+              <div class="item-main-col-svg_about _min">{{$languages.index._blue[1]}}</div>
             </div>
             <div class="item-main-col cell-3">
               <img class="item-main-col-svg" src="static/img/cause_2.svg">
               <div class="item-main-col-svg_about">{{$languages.index._bg[5]}}</div>
+              <div class="item-main-col-svg_about _min">{{$languages.index._blue[2]}}</div>
             </div>
             <div class="item-main-col cell-3">
               <img class="item-main-col-svg" src="static/img/cause_3.svg">
               <div class="item-main-col-svg_about">{{$languages.index._bg[6]}}</div>
+              <div class="item-main-col-svg_about _min _last">{{$languages.index._blue[3]}}</div>
             </div>
           </div>
         </div>
@@ -153,10 +163,13 @@
           <img class="item-logo" src="static/img/title_1.svg">
           <div class="item-title">{{$languages.index.item_titles[5]}}</div>
           <div class="item-main">
-            <div class="item-main-cell cell-2" v-for="(project, i) in projects">
-              <div class="item-main-cell-body" @click="goLeads(i)">
+            <div class="item-main-cell cell-2" :class="{'op-025': !project.leads}" v-for="(project, i) in projects">
+              <div class="item-main-cell-body" @click="project.leads ? goLeads(i) : ''">
                 <div class="item-main-cell-body-project"><img :src="`/static/img/project_${i}.png`"></div>
                 <div class="item-main-cell-body-fio">{{project.name}}</div>
+                <div class="item-main-cell-body-leads">
+                  {{project.leads ? project.leads + ' ' + $languages.index.yes_project : $languages.index.no_project}}
+                </div>
               </div>
             </div>
           </div>
@@ -233,9 +246,10 @@
       next()
     },
     async created(){
-      this.projects = this.$languages.projects
-      this.speakers = this.$languages.index.speakers
+      this.getProjects()
       this.types = this.$languages.index.types
+
+      this.getSpeakers()
 
       this.now.seconds = this.end_time.getSeconds() - new Date().getSeconds()
       this.now.minuts = this.end_time.getMinutes() - new Date().getMinutes()
@@ -284,6 +298,46 @@
       this.$emit('refs', this.$refs)
     },
     methods: {
+      async getProjects(){
+        for(let project of this.$languages.projects)
+          project.leads = 0
+        this.$axios.get('leads')
+        .then(res => {
+          for(let lead of res.data)
+            for(let project of this.$languages.projects)
+              if(lead.industry === project.data){
+                project.leads++
+                break
+              }
+        })
+        this.projects = this.$languages.projects
+      },
+      async getSpeakers(){
+        let end = await this.$axios.get('/speakers/')
+        .then(async res => {
+          for(let i = 0; i < res.data.length; i++){
+            let end = await this.$axios.get('/speakers/'+res.data[i].id)
+            .then(res_1 => {
+              res.data[i] = res_1.data
+            })
+            if((i+1)%2 !== 0)
+              this.speakers.push([])
+            this.speakers[this.speakers.length-1].push(res.data[i])
+          }
+        })
+
+        if(this.speakers.length)
+        if(this.speakers[this.speakers.length-1].length < 2)
+          this.speakers[this.speakers.length-1].push({['specialization_' + this.$language]: this.$languages.index.undefined_speaker})
+
+        while(this.speakers.length < 4){
+          this.speakers.push([
+            {['specialization_' + this.$language]: this.$languages.index.undefined_speaker},
+            {['specialization_' + this.$language]: this.$languages.index.undefined_speaker}
+          ])
+        }
+
+      },
       goLeads(index){
         this.$router.push('/leads/'+index)
       },
@@ -350,6 +404,16 @@
             font-weight: 800;
             font-size: 16px;
             line-height: 22px;
+
+            &._min{
+              margin-top: 12px;
+              font-weight: 500;
+              font-size: 13px;
+              line-height: 18px;
+              &._last{
+                margin-top: 28px;
+              }
+            }
           }
         }
       }
@@ -379,6 +443,13 @@
   }
   .cell-2{
     flex: 16.6666% 0 0;
+  }
+  .op-025{
+    opacity: 0.25;
+    .item-main-cell-body>div>img{
+      cursor: auto;
+      transform: unset;
+    }
   }
   .item{
 
@@ -434,6 +505,19 @@
         &:first-child{
           align-items: flex-start;
         }
+        &-calendar{
+          flex-direction: row;
+          width: 30%;
+          font-weight: 800;
+          font-size: 16px;
+          line-height: 22px;
+          color: #EB5757;
+          margin-bottom: 36px;
+          &>span{
+            margin-left: 8px;
+            text-align: left;
+          }
+        }
         &-title{
           margin-top: 120px;
           display: block;
@@ -450,7 +534,7 @@
           font-size: 16px;
           line-height: 22px;
           text-align: left;
-          padding: 12px 25% 78px 0;
+          padding: 12px 25% 36px 0;
         }
         &-img{
           z-index: -1;
@@ -560,7 +644,7 @@
             width: 20%;
           }
           &.row{
-            height: 300px;
+            min-height: 300px;
             flex: 100% 0 0;
             flex-direction: row;
             justify-content: center;
@@ -572,6 +656,8 @@
             }
           }
           &.column{
+            min-height: 400px;
+            justify-content: space-between;
             flex: 50% 0 0;
             flex-direction: column;
           }
@@ -682,6 +768,9 @@
         &-column{
           width: 100%;
           align-items: center;
+          &-calendar{
+            width: 100%;
+          }
           &-title{
             margin-top: unset;
             font-size: 24px;

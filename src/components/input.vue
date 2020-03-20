@@ -26,7 +26,7 @@
 			},
 			id: {
 				type: [Number, String],
-				default: ('input-' + ((Math.random() * 10000)^0) + '-data[' + ((Math.random() * 10000)^0) + ']')
+				default: this._uid
 			},
 			type: {
 				type: String,

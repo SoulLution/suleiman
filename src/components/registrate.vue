@@ -5,8 +5,9 @@
       <div class="form-body">
         <div class="form-body-content">
           <div class="form-body-content-item" v-for="(member, i) in members">
+            <div class="close" @click="removeMember" v-if="members.length > 1"><img src="/static/img/exit.svg"></div>
             <div class="form-body-content-item-pre">{{$languages.registrate.member}} {{i+1}}</div>
-            <v-input :id="('input-' + ((Math.random() * 10000)^0) + '-data[' + ((Math.random() * 10000)^0) + ']')" :title="input.title" type="text" v-model="input.data" v-for="input in member"/>
+            <v-input :title="input.title" type="text" v-model="input.data" v-for="input in member"/>
           </div>
           <v-button class="__pluses" @click="addMember()" :title="$languages.registrate.member"/>
 
@@ -69,6 +70,9 @@
         this.amount = end
         return end
       },
+      removeMember(index){
+        this.members.splice(index, 1)
+      },
       addMember(){
         this.members.push([
           {
@@ -102,6 +106,17 @@
       width: auto;
       cursor: pointer;
       color: $blue_l;
+    }
+  }
+  .close{
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: auto;
+    cursor: pointer;
+    z-index: 1;
+    &>img{
+      width: 12px;
     }
   }
 </style>

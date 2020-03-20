@@ -117,6 +117,10 @@
         }
       }
       &-title{
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 24px;
+        color: $blue_d;
         width: auto;
         margin-bottom: 12px;
       }
