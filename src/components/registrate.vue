@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="form-footer">
-        <v-button title="Отправить" @click="pay()" />
+        <v-button :title="$languages.registrate.send" @click="pay()" />
         <div class="registrate-title">{{$languages.registrate.if_title}}</div>
         <a href="http://suleimanpartners.com" target="_blank" class="registrate-router">{{$languages.registrate.rout}}</a>
       </div>

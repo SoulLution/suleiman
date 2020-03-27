@@ -163,11 +163,11 @@
           <img class="item-logo" src="static/img/title_1.svg">
           <div class="item-title">{{$languages.index.item_titles[5]}}</div>
           <div class="item-main">
-            <div class="item-main-cell cell-2" :class="{'op-025': !project.leads}" v-for="(project, i) in projects">
+            <div class="item-main-cell cell-2" v-for="(project, i) in projects">
               <div class="item-main-cell-body" @click="project.leads ? goLeads(i) : ''">
                 <div class="item-main-cell-body-project"><img :src="`/static/img/project_${i}.png`"></div>
                 <div class="item-main-cell-body-fio">{{project.name}}</div>
-                <div class="item-main-cell-body-leads">
+                <div class="item-main-cell-body-leads" :class="{'op-025': !project.leads}">
                   {{project.leads ? project.leads + ' ' + $languages.index.yes_project : $languages.index.no_project}}
                 </div>
               </div>
@@ -267,6 +267,9 @@
         this.now.hours += 24
         this.now.days--
       }
+      if(this.now.days < 0)
+        this.now.days = 0
+
       let inter = setInterval(()=>{
         if(this.now.seconds <= 0){
           this.now.seconds = 59
@@ -648,11 +651,12 @@
             flex: 100% 0 0;
             flex-direction: row;
             justify-content: center;
+            align-items: flex-start;
             &:first-child{
-              margin-bottom: -5%;
+              margin-bottom: -10%;
             }
             &:last-child{
-              margin-top: -5%; 
+              margin-top: 0%; 
             }
           }
           &.column{
