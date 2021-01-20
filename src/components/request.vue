@@ -39,7 +39,7 @@
           description: this.inputs[6].data
         }
         this.$emit('setLoad', true)
-        this.$axios.post('/leads/create/', data)
+        this.$axios.post('/leads/create', data)
         .then(res => {
           this.$router.push('/success')
         })

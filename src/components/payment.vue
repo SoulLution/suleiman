@@ -148,30 +148,27 @@
     			send_mail: true,
     			participants: this.participants
     		}
-    		this.$axios.post('/orders/create/', data)
+    		this.$axios.post('/orders/create', data)
     		.then(res => {
     			data = {
-            cryptogram: result.packet,
-            return_url: top.location.origin + '/success/'
-          }
-    			this.$axios.post('/orders/pay/' + res.data.id + '/', data)
+					cryptogram: result.packet,
+					return_url: top.location.origin + '/success/'
+				}
+    			this.$axios.post('/orders/pay/' + res.data.ID, data)
 	    		.then(res_1 => {
-    					if(res_1.status === 202){
+    				if(res_1.status === 202){
     					let acsUrl = res_1.data.acs_url;
-              let paReq = res_1.data.pa_req;
-              let md = res_1.data.transaction_id;
+						let paReq = res_1.data.pa_req;
+						let md = res_1.data.transaction_id;
 
-              this.secure3dRedirect(acsUrl, paReq, md);
+						this.secure3dRedirect(acsUrl, paReq, md);
     				}
-
     			})
 	    		.catch(err_1 => {
 	    			console.error(err_1.response)
 	    			throw new Error(err_1)
 	    		})
 	    		.finally( () => this.$emit('setLoad', false))
-
-
     		})
     		.catch(err => {
     			this.$emit('setLoad', false)

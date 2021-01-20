@@ -59,9 +59,11 @@
 				this.leads = []
 				this.$axios.get('leads')
 				.then(res => {
-					for(let lead of res.data)
+					for(let lead of res.data.data){
+						console.log(lead)
 						if(this.$languages.projects[id].data === lead.industry)
 							this.leads.push(lead)
+					}
 				})
 			}
 		}

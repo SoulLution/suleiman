@@ -8,7 +8,7 @@ import router from './router'
 import languages from './assets/languages.js'
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://62.151.182.98/api'
+axios.defaults.baseURL = 'http://localhost:8081/suleiman-api/v1/'
 Vue.prototype.$axios = axios
 
 if(!localStorage.getItem('language'))

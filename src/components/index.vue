@@ -306,27 +306,33 @@
           project.leads = 0
         this.$axios.get('leads')
         .then(res => {
-          for(let lead of res.data)
-            for(let project of this.$languages.projects)
+          for(let lead of res.data.data){
+            for(let project of this.$languages.projects){
               if(lead.industry === project.data){
                 project.leads++
-                break
+                break 
               }
+            }
+          }
+
+            
         })
         this.projects = this.$languages.projects
       },
       async getSpeakers(){
-        let end = await this.$axios.get('/speakers/')
+        let end = await this.$axios.get('/speakers')
         .then(async res => {
-          for(let i = 0; i < res.data.length; i++){
-            let end = await this.$axios.get('/speakers/'+res.data[i].id)
-            .then(res_1 => {
-              res.data[i] = res_1.data
-            })
+          for(let i = 0; i < res.data.data.length; i++){
+            console.log(res.data.data[i])
+            // let end = await this.$axios.get('/speakers/'+res.data.data[i].id)
+            // .then(res_1 => {
+            //   res.data.data[i] = res_1.data.data
+            // })
             if((i+1)%2 !== 0)
               this.speakers.push([])
-            this.speakers[this.speakers.length-1].push(res.data[i])
+            this.speakers[this.speakers.length-1].push(res.data.data[i])
           }
+          console.log(this.speakers)
         })
 
         if(this.speakers.length)
