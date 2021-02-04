@@ -2,7 +2,7 @@
 	<form ref="form" class="payment content" @submit.prevent="sendPay()">
 		<div class="payment-title">{{$languages.payment.title}}</div>
 		<div class="card" id="card">
-			<div class="card-elem">
+			<div class="card-elem w-full">
 				<div class="card-elem-title">{{$languages.payment.card[0]}}</div>
 				<input class="stripe-element" required inputmode="numeric" ref="cardNumber" maxlength="19" v-model="number" placeholder="XXXX XXXX XXXX XXXX" data-cp="cardNumber">
 		  </div>
@@ -16,6 +16,10 @@
 		  <div class="card-elem">
 		  	<div class="card-elem-title">{{$languages.payment.card[2]}}</div>
 				<input class="stripe-element" required inputmode="numeric" ref="cardCvc" maxlength="4" v-model="cvc" placeholder="XXX" data-cp="cvv">
+		  </div>
+			<div class="card-elem w-full">
+				<div class="card-elem-title">{{$languages.payment.card[3]}}</div>
+				<input class="stripe-element upper" required v-model="name" placeholder="хххххххххххххххххххх">
 		  </div>
 		  <div class="card-images">
 		  	<img src="/static/img/master_card.png">
@@ -35,10 +39,6 @@
 <script>
 	export default {
 		props: {
-			amount: {
-				type: [Number, String],
-				default: 0
-			},
 			members: {
 				type: Array,
 				default: () => {return []}
@@ -53,8 +53,8 @@
 	      month: '',
 	      year: '',
 	      expiry: '',
-	      cvc: '',
-	      participants: []
+				cvc: '',
+				name: '',
       }
     },
 		watch:{
@@ -102,13 +102,11 @@
 	    },
 		},
     created(){
-    	if(!this.amount)
-    		this.$router.push('/')
-    	for(let member of this.members)
-	    	this.participants.push({
-	    		company: member[0].data,
-	    		name: member[1].data,
-	    	})
+			console.log(this.members)
+    	if(!this.members.price)
+				this.$router.push('/request')
+				this.email = this.members.email
+				this.name = this.members.name
     },
     methods: {
   		secure3dRedirect(acsUrl, paReq, md) {
@@ -143,10 +141,11 @@
 			    this.$refs.form)
     		const result = checkout.createCryptogramPacket();
     		let data = {
-    			amount: this.amount,
-    			email: this.email,
+					...this.members,
+    			amount: this.members.price,
+					email: this.email,
+					name: this.name,
     			send_mail: true,
-    			participants: this.participants
     		}
     		this.$axios.post('/orders/create', data)
     		.then(res => {
@@ -251,7 +250,7 @@
 			margin: 12px 0;
 			flex: 47.5% 0 0;
 			align-items: flex-start;
-			&:first-child{
+			&.w-full {
 			flex: 100% 0 0;
 			}
 			&-title{
@@ -296,5 +295,8 @@
 				outline: none;
 			}
 		}
+	}
+	.upper{
+		text-transform: uppercase;
 	}
 </style>

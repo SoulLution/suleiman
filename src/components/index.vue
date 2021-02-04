@@ -57,12 +57,12 @@
       <div class="index-item __transparent" ref="item-0">
         <div class="content">
           <div class="item-title">{{$languages.index.item_titles[0]}}</div>
-          <div class="item-main">
+          <!-- <div class="item-main">
             <div class="item-img">
               <img src="/static/img/conf_0.png">
               <img src="/static/img/conf_1.png">
-            </div>
-            <div class="item-about">{{$languages.index.conf}}</div>
+            </div> -->
+            <div class="item-about" v-html="$languages.index.conf"></div>
           </div>
         </div>
       </div>
@@ -72,15 +72,9 @@
           <div class="item-title">{{$languages.index.item_titles[1]}}</div>
           <div class="item-main">
             <div class="item-main-col">
-              <div class="item-main-col-type" v-for="(type, i) in types" v-if="i < types.length/2">
+              <div class="item-main-col-type" v-for="(type, i) in types" v-if="i < types.length">
                 <div class="item-main-col-type-number">{{type.number}}</div>
                 <div class="item-main-col-type-content">{{type.content}}</div>
-              </div>
-            </div>
-            <div class="item-main-col">
-              <div class="item-main-col-type" v-for="(type, i) in types" v-if="i >= types.length/2">
-                <div class="item-main-col-type-number" :class="{'float': type.number * 10 % 10 !== 0 }">{{type.number}}</div>
-                <div class="item-main-col-type-content" :class="{'float': type.number * 10 % 10 !== 0 }">{{type.content}}</div>
               </div>
             </div>
           </div>
@@ -114,7 +108,7 @@
           <div class="item-title">{{$languages.index.item_titles[3]}}</div>
           <div class="item-main">
             <div class="item-main-cell">
-              <div class="item-main-cell-speakers" :class="{'row': i === 0 || i === 3, 'column': i === 1 || i === 2}" v-for="(speaker_list, i) in speakers">
+              <div class="item-main-cell-speakers" v-for="(speaker_list, i) in speakers">
                 <div class="item-main-cell-speakers-body" v-for="speaker in speaker_list">
                   <div class="item-main-cell-body-ava" @click="speaker['name_' + $language] ? setPopup(speaker) : ''">
                     <img :src="speaker.image" v-if="speaker.image">
@@ -163,11 +157,11 @@
           <img class="item-logo" src="static/img/title_1.svg">
           <div class="item-title">{{$languages.index.item_titles[5]}}</div>
           <div class="item-main">
-            <div class="item-main-cell cell-2" v-for="(project, i) in projects">
+            <div class="item-main-cell cell-2" :class="{'op-025': !project.leads}" v-for="(project, i) in projects">
               <div class="item-main-cell-body" @click="project.leads ? goLeads(i) : ''">
                 <div class="item-main-cell-body-project"><img :src="`/static/img/project_${i}.png`"></div>
                 <div class="item-main-cell-body-fio">{{project.name}}</div>
-                <div class="item-main-cell-body-leads" :class="{'op-025': !project.leads}">
+                <div class="item-main-cell-body-leads" :class="{'op-5': !project.leads}">
                   {{project.leads ? project.leads + ' ' + $languages.index.yes_project : $languages.index.no_project}}
                 </div>
               </div>
@@ -205,7 +199,7 @@
   export default {
     data: () => {
       return{
-        end_time: new Date(new Date().valueOf() + (1000 * 60 * 59 * 24 * 7)),
+        end_time: new Date(2021,4,20),
         now: {days: 0, hours: 0, minuts: 0, seconds: 0},
         sponsors: [
           {
@@ -237,7 +231,33 @@
           }
         ],
         projects: [],
-        speakers: [],
+        speakers: [[
+          {
+            name_ru: 'test',
+            specialization_ru: '1'
+          },
+          {
+            name_ru: 'test',
+            specialization_ru: '1'
+          },
+          {
+            name_ru: 'test',
+            specialization_ru: '1'
+          }
+        ],[
+          {
+            name_ru: 'test',
+            specialization_ru: '1'
+          },
+          {
+            name_ru: 'test',
+            specialization_ru: '1'
+          },
+          {
+            name_ru: 'test',
+            specialization_ru: '1'
+          }
+        ]],
         types: []
       }
     },
@@ -249,12 +269,15 @@
       this.getProjects()
       this.types = this.$languages.index.types
 
-      this.getSpeakers()
+      // this.getSpeakers()
 
       this.now.seconds = this.end_time.getSeconds() - new Date().getSeconds()
       this.now.minuts = this.end_time.getMinutes() - new Date().getMinutes()
       this.now.hours = this.end_time.getHours() - new Date().getHours()
-      this.now.days = this.end_time.getDate() - new Date().getDate()
+      this.now.days = Math.floor(
+        (this.end_time.valueOf() - new Date().valueOf()) / (24 * 60 * 60 * 1000)
+        )
+      // this.now.days = this.end_time.getDate() - new Date().getDate()
       if(this.now.seconds < 0){
         this.now.seconds += 60
         this.now.minuts--
@@ -376,7 +399,7 @@
       &.__bg{
         z-index: 1;
         &:before{
-          content: "";
+          // content: "";
           position: absolute;
           background-color: rgba(66, 40, 25, 0.65);
           backdrop-filter: blur(5px);
@@ -392,15 +415,16 @@
           z-index: -1;
           background-repeat: no-repeat;
           background-size: 100% 100%;
-          background-image: url(/static/img/bg_0.png);
-          background-attachment: fixed;
+          background-image: url('/static/img/bg_0.png');
+          // background-attachment: fixed;
         }
         &.__blue{
           &:before{
             background-color: rgba(2, 56, 86, 0.68);
           }
           &:after{
-            background-image: url(/static/img/bg_1.png);
+            background-color: #001F48;
+            background-image: none;
           }
         }
         .item{
@@ -453,6 +477,9 @@
   .cell-2{
     flex: 16.6666% 0 0;
   }
+  .op-5{
+    opacity: 0.5;
+  }
   .op-025{
     opacity: 0.25;
     .item-main-cell-body>div>img{
@@ -476,8 +503,8 @@
       display: block;
       text-align: left;
       font-weight: 800;
-      font-size: 16px;
-      line-height: 26px;
+      font-size: 18px;
+      line-height: 24.6px;
       color: $black;
       margin: 20px 16px;
     }
@@ -501,7 +528,7 @@
       font-size: 32px;
       line-height: 44px;
       text-transform: uppercase;
-      margin: 56px 0 80px;
+      margin: 56px 0 50px;
     }
     &-main{
       flex-direction: row;
@@ -556,7 +583,7 @@
         width: 50%;
         padding: 0 0 0 40px; 
         &:first-child{
-          padding: 0 40px 0 0; 
+          // padding: 0 40px 0 0; 
         }
         &-type{
           flex-direction: row;
@@ -613,6 +640,9 @@
       }
       &-timer{
         flex-direction: row;
+              &-col-time:first-child>span{
+                margin: 0 16px;
+              }
         &-col{
           width: auto;
           &-time{
@@ -620,16 +650,16 @@
             color: $blue_l;
             font-weight: 800;
             font-size: 44px;
-            width: 88px;
+            width: 104px;
             line-height: 60px;
             &>span{
-              margin: 0 24px 0 24px;
+              margin: 0 24px;
             }
           }
           &-date{
             display: block;
             color: $black;
-            width: 88px;
+            width: 104px;
             // margin-left: -1px;
             font-weight: 800;
             font-size: 16px;
@@ -647,10 +677,12 @@
         flex-direction: row;
         flex-wrap: wrap;
         &-speakers{
+          flex-direction: row;
           &-body{
             height: 100%;
             justify-content: flex-start;
-            width: 20%;
+            flex: 33.33334% 0 0;
+            width: 33.33334%;
           }
           &.row{
             min-height: 300px;
@@ -754,6 +786,7 @@
         padding: 0 2.5%;
         &-cell{
           &-speakers{
+            flex-direction: column;
             &-body{
               width: 100%;
             }

@@ -11,7 +11,7 @@
 
   $blue_d: #001F48;
   $blue_about: #A2AFC0;
-  $blue_l: #4585DC;
+  $blue_l: #0072B1;
   $blue_text: #4A5C78;
 
   $orange: #BE800E;
@@ -47,6 +47,33 @@
     text-decoration: none;
     // color: $white;
     @include gilroy();
+  }
+  .form-flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .my-2{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .my-8{
+    margin: 2rem 0;
+    & p, & label {
+      text-align: left;
+      // margin-top: 0.5rem;
+    }
+    & a{
+      color: #0072B1;
+      border-bottom: 1px solid #0072B1;
+      cursor: pointer;
+      &:hover{
+      color: $red;
+      border-bottom: 1px solid $red;
+
+      } 
+    }
   }
   img{
     user-select: none;

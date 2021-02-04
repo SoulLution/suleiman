@@ -2,11 +2,9 @@
 	<div class="main about">
 		<div class="content">
 			<div class="about-title">{{$languages.about_us.title}}</div>
-			<div class="about-text">{{$languages.about_us.text_1}}</div>
-			<div class="about-text">{{$languages.about_us.text_2}}</div>
-			<div class="about-text">{{$languages.about_us.text_3}}</div>
-			<div class="about-text">{{$languages.about_us.text_4}}</div>
-			<a :href="link" target="_blank" class="about-link">{{link}}</a>
+			<div class="about-text" v-html="$languages.about_us.text">{{}}</div>
+			<v-button class="about-link" :title="$languages.about_us.button" />
+			<!-- <a :href="link" target="_blank" class="about-link">{{link}}</a> -->
 		</div>
 	</div>
 </template>
@@ -48,11 +46,7 @@
 			margin-bottom: 2px;
 		}
 		&-link{
-			display: block;
-			text-align: left;
-			width: auto;
-			color: $blue_l;
-			cursor: pointer;
+			margin-top: 2rem;
 		}
 	}
 </style>

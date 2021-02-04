@@ -3,8 +3,10 @@
 		<div class="input-title" :class="{ 'active': focus || data }">{{title}}</div>
 		<input class="input-input" :required="required" :type="type" :id="id" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="$emit('input', data)" v-model="data" v-if="type !== 'select' && type !== 'textarea'">
 		<div class="input-select" :class="{ 'active': focus }" :id="id" v-else-if="type === 'select'">{{data}}</div>
-		<textarea class="input-textarea" :id="id" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="$emit('input', data)" v-model="data" v-else></textarea>
-
+		<textarea class="input-textarea" :id="id" :maxlength="maxlength" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="$emit('input', data)" v-model="data" v-else>
+			
+		</textarea>
+		<span class="maxlength" v-if="maxlength">{{value.length}} / {{ maxlength }}</span>
 		<div class="input-childs" v-if="childs.length" :class="{ 'active': focus }">
 			<div class="input-childs-content">
 				<div class="input-childs-content-item" @click="changeSelect(item)" v-for="item in childs">{{item.name}}</div>
@@ -21,6 +23,10 @@
 				default: 'Input title'
 			},
 			max: {
+				type: [Number, String],
+				defalt: ''
+			},
+			maxlength: {
 				type: [Number, String],
 				defalt: ''
 			},
@@ -104,10 +110,20 @@
 	  -moz-appearance: textfield;
 	}
 
+
+	.maxlength{
+		position: absolute;
+		right: 0.5rem;
+		bottom: 0.5rem;
+		font-size: 12px;
+		line-height: 16px;
+		color: #828282;
+
+	}
 	.input{
 		padding: 22px 16px;
-		background: #efefef;
-		border-radius: 5px;
+		background: #FAFAFA;
+		border-radius: 2px;
 		justify-content: flex-start;
 		align-items: flex-start;
 		cursor: text;

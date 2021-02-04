@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App'
 import button from './components/button.vue'
+import radio from './components/radio.vue'
+import checkBox from './components/checkBox.vue'
 import input from './components/input.vue'
 import popup from './components/popup.vue'
 import load from './components/load.vue'
@@ -21,6 +23,8 @@ Vue.prototype.$language = localStorage.getItem('language')
 Vue.prototype.$languages = languages[localStorage.getItem('language')]
 
 Vue.component('vButton', button)
+Vue.component('vRadio', radio)
+Vue.component('vCheckBox', checkBox)
 Vue.component('vInput', input)
 Vue.component('vPopup', popup)
 Vue.component('vLoad', load)

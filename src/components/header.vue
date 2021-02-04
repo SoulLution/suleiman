@@ -13,10 +13,10 @@
         </div>
       </div>
       <div class="header-content-languages languages">
-        <div class="languages-select" @click="open = !open"><img :src="'/static/img/lang_' + $language + '.png'">{{$language}}<img :class="{'open': open}" src="/static/img/arrow_min.svg"></div>
+        <div class="languages-select" @click="open = !open"><img class="lang" :src="'/static/img/lang_' + $language + '.svg'">{{$language}}<img :class="{'open': open}" src="/static/img/arrow_min.svg"></div>
         <div class="languages-selector" :class="{'open': open}">
           <div class="languages-selector-item" :class="{'active': $language === lang}" v-for="lang in langs" @click="changeLang(lang)">
-            <img :src="'/static/img/lang_' + lang + '.png'">{{lang}}
+            <img class="lang" :src="'/static/img/lang_' + lang + '.svg'">{{lang}}
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@
     data: () => {
       return{
         links: [],
-        langs: ['ru', 'kz'],
+        langs: ['ru', 'en', 'cs'],
         open: false,
       }
     },
@@ -146,8 +146,14 @@
     font-weight: 800;
     font-size: 16px;
     line-height: 22px;
-      justify-content: flex-start;
+    justify-content: flex-start;
     color: $white;
+    & img.lang{
+      max-height: 20px;
+      max-width: 30px;
+      min-height: 20px;
+      min-width: 30px;
+    }
     &-select{
       flex-direction: row;
       width: auto;

@@ -1,18 +1,21 @@
 <template>
   <div class="main registrate">
-    <form class="form">
+    <form class="form" @submit.prevent="pay()">
       <div class="form-title">{{$languages.registrate.title}}</div>
       <div class="form-body">
         <div class="form-body-content">
           <div class="form-body-content-item" v-for="(member, i) in members">
             <div class="close" @click="removeMember" v-if="members.length > 1"><img src="/static/img/exit.svg"></div>
             <div class="form-body-content-item-pre">{{$languages.registrate.member}} {{i+1}}</div>
-            <v-input :title="input.title" type="text" v-model="input.data" v-for="input in member"/>
+            <v-input :required="true" :title="input.title" type="text" v-model="input.data" v-for="input in member"/>
           </div>
-          <v-button class="__pluses" @click="addMember()" :title="$languages.registrate.member"/>
+          <v-button class="__pluses my-8" @click="addMember()" :title="$languages.registrate.member"/>
+          <v-input :required="true" title="E-mail" type="email" v-model="email"/>
 
-          <div class="form-body-content-about" v-html="$languages.registrate.about"></div>
-          <div class="form-body-content-ending">{{$languages.registrate.ending}} <span>{{checkDate()}}</span> EUR</div>
+          <div class="form-flex-row my-8">
+            <v-check-box v-model="check" :checked="check" />
+            <p v-html="$languages.registrate.link"></p>
+          </div>
         </div>
       </div>
       <div class="form-footer">
@@ -29,7 +32,9 @@
     data: () => {
       return{
         amount: 0,
-        members: []
+        members: [],
+        email: '',
+        check: false
       }
     },
     created(){
@@ -40,14 +45,13 @@
         let end = true
         for(let i = 0; i < this.members.length; i++)
           for(let j = 0; j < this.members[i].length; j++)
-            if(!this.members[i][j].data){
+            if(!this.members[i][j].data || !this.check || !this.email){
               end = false
               break
             }
         if(end){
-          this.$emit('sendAmount', this.amount)
-          this.$emit('sendMembers', this.members)
-          this.$router.push('/payment')
+        // this.$emit('setLoad', true)
+          this.$router.push('/success')
         }
       },
       checkDate(){
@@ -89,7 +93,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "@/assets/main.scss";
   .registrate{
     padding: 15px 15px 40px;
@@ -105,7 +109,8 @@
     &-router{
       width: auto;
       cursor: pointer;
-      color: $blue_l;
+      color: #2F80ED;
+      font-weight: 800;
     }
   }
   .close{
@@ -118,5 +123,8 @@
     &>img{
       width: 12px;
     }
+  }
+  p{
+    margin-top: 0.5rem;
   }
 </style>

@@ -25,7 +25,7 @@
 @import "@/assets/main.scss";
 	.button{
 		max-width: 336px;
-		border-radius: 25px;
+		border-radius: 2px;
 		padding: 14px;
 		cursor: pointer;
 		z-index: 1;
@@ -51,10 +51,10 @@
 				background: linear-gradient(90deg, rgba(69,133,220,0.0) 0%, rgba(69,133,220,0.5) 50%, rgba(69,133,220,0.0) 100%);
 			}
 			&>.bg{
-				background-color: #EBF3FF;
+				background-color: #FAFAFA
 			}
 			&>.title{
-				color: $blue_l;
+				color: #252525;
 				&:before{
 					content: "";
 					margin-left: 14px;
