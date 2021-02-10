@@ -137,7 +137,7 @@
     	sendPay(){
     		this.$emit('setLoad', true)
     		const checkout = new cp.Checkout(
-			    "pk_460d1f0273ffd46d9e217257308b2",
+			    "pk_72ed675f591c1b3e39ac376c6b120",
 			    this.$refs.form)
     		const result = checkout.createCryptogramPacket();
     		let data = {
@@ -156,9 +156,9 @@
     			this.$axios.post('/orders/pay/' + res.data.ID, data)
 	    		.then(res_1 => {
     				if(res_1.status === 202){
-    					let acsUrl = res_1.data.acs_url;
-						let paReq = res_1.data.pa_req;
-						let md = res_1.data.transaction_id;
+    					let acsUrl = res_1.acs_url;
+						let paReq = res_1.pa_req;
+						let md = res_1.transaction_id;
 
 						this.secure3dRedirect(acsUrl, paReq, md);
     				}
