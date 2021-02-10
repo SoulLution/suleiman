@@ -109,7 +109,7 @@
 				this.name = this.members.name
     },
     methods: {
-  		secure3dRedirect(acsUrl, paReq, md) {
+  		secure3dRedirect(acsUrl, paReq, md, id) {
         let form = document.createElement("form");
         form.style = "display: none";
         form.method = "POST";
@@ -124,7 +124,7 @@
         mdElement.name = "MD";
 
         let termUrlElement = document.createElement("input");
-        termUrlElement.value = 'http://62.151.182.98/api/orders/3d-secure-confirm/';
+        termUrlElement.value = 'https://admin.suleimanpartners.com:9001/suleiman-api/v1/orders/3d-secure-confirm/'+id;
         termUrlElement.name = "TermUrl";
 
         form.appendChild(paReqElement);
@@ -155,13 +155,11 @@
 				}
     			this.$axios.post('/orders/pay/' + res.data.ID, data)
 	    		.then(res_1 => {
-    				if(res_1.status === 202){
     					let acsUrl = res_1.acs_url;
 						let paReq = res_1.pa_req;
 						let md = res_1.transaction_id;
-
-						this.secure3dRedirect(acsUrl, paReq, md);
-    				}
+						console.log(acsUrl+" "+paReq+" "+md)
+						this.secure3dRedirect(acsUrl, paReq, md, res.data.ID);
     			})
 	    		.catch(err_1 => {
 	    			console.error(err_1.response)
