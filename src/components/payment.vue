@@ -109,7 +109,9 @@
 			this.name = this.members.name
     },
     methods: {
-  		secure3dRedirect(acsUrl, paReq, md) {
+  		secure3dRedirect(acsUrl, paReq, md, id) {
+			  console.log("sec")
+			  console.log(acsUrl+" "+paReq+" "+md)
         let form = document.createElement("form");
         form.style = "display: none";
         form.method = "POST";
@@ -124,7 +126,7 @@
         mdElement.name = "MD";
 
         let termUrlElement = document.createElement("input");
-        termUrlElement.value = 'http://62.151.182.98/api/orders/3d-secure-confirm/';
+        termUrlElement.value = 'https://admin.suleimanpartners.com:9001/suleiman-api/v1/orders/3d-secure-confirm/'+id;
         termUrlElement.name = "TermUrl";
 
         form.appendChild(paReqElement);
@@ -137,9 +139,10 @@
     	sendPay(){
     		this.$emit('setLoad', true)
     		const checkout = new cp.Checkout(
-			    "pk_460d1f0273ffd46d9e217257308b2",
+			    "pk_72ed675f591c1b3e39ac376c6b120",
 			    this.$refs.form)
     		const result = checkout.createCryptogramPacket();
+			console.log(result)
     		let data = {
 					...this.members,
     			amount: this.members.price,
@@ -153,15 +156,15 @@
 					cryptogram: result.packet,
 					return_url: top.location.origin + '/success/'
 				}
+				console.log(data)
     			this.$axios.post('/orders/pay/' + res.data.ID, data)
 	    		.then(res_1 => {
-    				if(res_1.status === 202){
+					console.log(res_1)
     					let acsUrl = res_1.data.acs_url;
 						let paReq = res_1.data.pa_req;
 						let md = res_1.data.transaction_id;
-
-						this.secure3dRedirect(acsUrl, paReq, md);
-    				}
+						
+						this.secure3dRedirect(acsUrl, paReq, md, res.data.ID);
     			})
 	    		.catch(err_1 => {
 	    			console.error(err_1.response)
@@ -172,6 +175,7 @@
     		.catch(err => {
     			this.$emit('setLoad', false)
     			console.error(err.response)
+				this.$router.push('/error')
     			throw new Error(err)
     		})
 		  },
