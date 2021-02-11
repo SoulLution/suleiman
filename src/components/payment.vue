@@ -110,6 +110,8 @@
     },
     methods: {
   		secure3dRedirect(acsUrl, paReq, md, id) {
+			  console.log("sec")
+			  console.log(acsUrl+" "+paReq+" "+md)
         let form = document.createElement("form");
         form.style = "display: none";
         form.method = "POST";
@@ -140,6 +142,7 @@
 			    "pk_72ed675f591c1b3e39ac376c6b120",
 			    this.$refs.form)
     		const result = checkout.createCryptogramPacket();
+			console.log(result)
     		let data = {
 					...this.members,
     			amount: this.members.price,
@@ -153,12 +156,14 @@
 					cryptogram: result.packet,
 					return_url: top.location.origin + '/success/'
 				}
+				console.log(data)
     			this.$axios.post('/orders/pay/' + res.data.ID, data)
 	    		.then(res_1 => {
-    					let acsUrl = res_1.acs_url;
-						let paReq = res_1.pa_req;
-						let md = res_1.transaction_id;
-						console.log(acsUrl+" "+paReq+" "+md)
+					console.log(res_1)
+    					let acsUrl = res_1.data.acs_url;
+						let paReq = res_1.data.pa_req;
+						let md = res_1.data.transaction_id;
+						
 						this.secure3dRedirect(acsUrl, paReq, md, res.data.ID);
     			})
 	    		.catch(err_1 => {
@@ -170,6 +175,7 @@
     		.catch(err => {
     			this.$emit('setLoad', false)
     			console.error(err.response)
+				this.$router.push('/error')
     			throw new Error(err)
     		})
 		  },
