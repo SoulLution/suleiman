@@ -1,5 +1,5 @@
 <template>
-  <div class="footer" ref="item-4">
+  <div class="footer" ref="item-5">
     <div class="footer-content content">
       <div class="footer-content-row" v-if="$route.path === '/'">
         <div class="footer-title">{{$languages.footer.title}}</div>
@@ -27,7 +27,8 @@
         </div>
       </div>
       <div class="footer-content-copy">
-        ©suleimanpartners, 2020. All rights reserved.
+        <span>©suleimanpartners, 2020. All rights reserved.</span>
+        <span>Developer by <a target="_blank" href="https://itscorpio.com">itscorpio.com</a></span>
       </div>
     </div>
   </div>
@@ -42,14 +43,14 @@
             img:'facebook.png',
             href: 'facebook.com'
           },
-          {
-            img:'twitter.png',
-            href: 'twitter.com'
-          },
-          {
-            img:'instagram.png',
-            href: 'instagram.com'
-          }
+          // {
+          //   img:'twitter.png',
+          //   href: 'twitter.com'
+          // },
+          // {
+          //   img:'instagram.png',
+          //   href: 'instagram.com'
+          // }
         ],
         links: []
       }
@@ -81,11 +82,23 @@
       }
       &-copy{
         padding-top: 24px;
+        flex-direction: row;
         align-items: flex-start;
+        justify-content: space-between;
         border-top: 1px solid #DAE3F0;
         font-size: 12px;
         line-height: 180%;
         color: #212353;
+        &>*{
+          display: block;
+          white-space: nowrap; 
+          text-align: left;
+          &>a{
+            display: inline;
+            color: #1278d7;
+            border-bottom: 1px solid #1278d7;
+          }
+        }
       }
     }
 

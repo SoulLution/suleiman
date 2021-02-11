@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header class="header">
     <div class="header-content content">
       <div class="header-content-pre">
         
@@ -22,7 +22,7 @@
       </div>
 
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -64,7 +64,7 @@
 
         if(top || top === 0)
           window.scrollTo({
-            top: top + (document.scrollingElement.clientHeight / 5),
+            top: top + (document.scrollingElement.clientHeight / 100),
             behavior: 'smooth'
           })
         else{
@@ -87,9 +87,11 @@
 <style lang="scss" scoped>
   @import "@/assets/main.scss";
   .header{
+    display: flex;
+    justify-content: center;
     width: 100vw;
     background-color: $blue_d;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 2;
     &-content{

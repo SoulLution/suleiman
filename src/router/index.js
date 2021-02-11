@@ -7,6 +7,7 @@ import payment from '@/components/payment'
 import about_us from '@/components/about_us'
 import leads from '@/components/leads'
 import success from '@/components/success'
+import error from '@/components/error'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/success',
       name: 'success',
       component: success
+    },
+    {
+      path: '/error',
+      name: 'error',
+      component: error
     }
   ]
 })

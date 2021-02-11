@@ -1,12 +1,18 @@
 <template>
 	<div class="content">
-		<div class="green">{{$languages.success.text_1}}</div>
-		<div class="min">{{$languages.success.text_2}}</div>
+		<div class="green">{{$languages.error.text_1}}</div>
+		<div class="min">{{error_message}}</div>
 	</div>
 </template>
 
 <script>
 	export default{
+    props: {
+      error_message: {
+        type: String,
+        default: ""
+      }
+    },
 		created(){
 			this.$emit('setLoad', false)
 			setTimeout(()=>{
@@ -24,7 +30,7 @@
 		font-weight: 800;
 		font-size: 32px;
 		line-height: 44px;
-		color: #00A32E;
+		color: #EB0000;
 	}
 	.min{
 		font-weight: 800;

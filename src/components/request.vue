@@ -9,6 +9,10 @@
           </div>
         </div>
       </div>
+      <label class="pdf">
+        <input type="file" @change="e => addFile(e)" accept="application/pdf" class="hidden">
+        <span>{{$languages.request.pdf}}</span>
+      </label>
       <div class="form-pretitle">{{$languages.request.who}}</div>
       <div class="form-body">
         <div class="form-body-content">
@@ -19,7 +23,7 @@
       </div>
       <div class="form-pretitle">{{$languages.request._package}}</div>
       <div class="form-flex-row my-8" v-for="_package in packages">
-        <v-radio v-model="_package.data" :checked="_package.data" :id="_package.value" />
+        <v-check-box v-model="_package.data" :checked="_package.data" :id="_package.value" />
         <label style="" :for="_package.value" v-html="_package.key"></label>
       </div>
       <label class="my-2">{{$languages.request.final}} <strong>{{getPrice}}€</strong></label>
@@ -42,6 +46,7 @@
         inputs: [],
         inputs_who: [],
         packages: [],
+        file: null,
         check: false
       }
     },
@@ -61,22 +66,26 @@
       this.packages = this.$languages.request.packages
     },
     methods: {
+      addFile(e) {
+        if(e.target.files.length)
+          this.file = e.target.files[0]
+      },
       createLead(){
         if(this.getPrice && this.check){
           console.log(this.inputs.length)
-        let data = {
-          company_name: this.inputs[0].data,
-          country: this.inputs[1].data,
-          industry: this.inputs[2].data,
-          required_investment: this.inputs[3].data,
-          investment_type: this.inputs[4].data,
-          project_stage: this.inputs[5].data,
-          description: this.inputs[6].data,
-          fio: this.inputs_who[0].data,
-          contacts: this.inputs_who[1].data,
-          email: this.inputs_who[2].data,
-          price: this.getPrice
-        }
+        let data = new FormData()
+        data.append("file", this.file)
+        data.append("company_name", this.inputs[0].data)
+        data.append("country", this.inputs[1].data)
+        data.append("industry", this.inputs[2].data)
+        data.append("required_investment", this.inputs[3].data)
+        data.append("investment_type", this.inputs[4].data)
+        data.append("project_stage", this.inputs[5].data)
+        data.append("description", this.inputs[6].data)
+        data.append("fio", this.inputs_who[0].data)
+        data.append("contacts", this.inputs_who[1].data)
+        data.append("email", this.inputs_who[2].data)
+        data.append("price", this.getPrice)
         // this.$axios.post('/leads/create', data)
         // .then(res => {
           this.$emit('sendMembers', data)
@@ -115,4 +124,22 @@
   p{
     margin-top: 0.5rem;
   }  
+  .hidden{
+    display: none;
+  }
+  .pdf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    width: 100%;
+    border: 1px solid #80868C;
+    border-radius: 2px;
+    padding: 1.25rem;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000D1A;
+    cursor: pointer;
+  }
 </style>

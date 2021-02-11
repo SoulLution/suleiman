@@ -66,13 +66,30 @@
           </div>
         </div>
       </div>
+      <div class="index-item __transparent" ref="item-1">
+        <div class="content">
+          <div class="item-title">{{$languages.about_us.title}}</div>
+          <div class="item-main">
+            <a target="_blank" href="https://suleimanpartners.com" class="item-img">
+              <img src="/static/img/sandp.png">
+            </a>
+            <div class="item-about" v-html="$languages.about_us.text"></div>
+          </div>
+        </div>
+      </div>
 
       <div class="index-item __white">
         <div class="content">
           <div class="item-title">{{$languages.index.item_titles[1]}}</div>
           <div class="item-main">
             <div class="item-main-col">
-              <div class="item-main-col-type" v-for="(type, i) in types" v-if="i < types.length">
+              <div class="item-main-col-type" v-for="(type, i) in types" v-if="i < types.length-3">
+                <div class="item-main-col-type-number">{{type.number}}</div>
+                <div class="item-main-col-type-content">{{type.content}}</div>
+              </div>
+            </div>
+            <div class="item-main-col">
+              <div class="item-main-col-type" v-for="(type, i) in types" v-if="i >= types.length-3">
                 <div class="item-main-col-type-number">{{type.number}}</div>
                 <div class="item-main-col-type-content">{{type.content}}</div>
               </div>
@@ -102,7 +119,7 @@
       </div>
 
 
-      <div class="index-item __transaprent" ref="item-1">
+      <div class="index-item __transaprent" ref="item-2">
         <div class="content">
           <img class="item-logo" src="static/img/title_0.svg">
           <div class="item-title">{{$languages.index.item_titles[3]}}</div>
@@ -152,7 +169,7 @@
       </div>
 
 
-      <div class="index-item __main_2" ref="item-3">
+      <div class="index-item __main_2" ref="item-4">
         <div class="content">
           <img class="item-logo" src="static/img/title_1.svg">
           <div class="item-title">{{$languages.index.item_titles[5]}}</div>
@@ -175,7 +192,7 @@
         </div>
       </div>
 
-      <div class="index-item __transpatent" ref="item-2">
+      <div class="index-item __transpatent" ref="item-3">
         <div class="content">
           <img class="item-logo" src="static/img/title_2.svg">
           <div class="item-title">{{$languages.index.item_titles[6]}}</div>
@@ -183,6 +200,19 @@
             <div class="item-main-cell cell-4 __min" v-for="sponsor in sponsors">
               <div class="item-main-cell-body">
                 <div class="item-main-cell-body-sponsor"><img :src="'/static/img/'+sponsor.logo"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="index-item __transpatent">
+        <div class="content">
+          <img class="item-logo" src="static/img/title_2.svg">
+          <div class="item-title">{{$languages.index.item_titles[7]}}</div>
+          <div class="item-main">
+            <div class="item-main-cell cell-4 __min" v-for="partner in partners">
+              <div class="item-main-cell-body">
+                <div class="item-main-cell-body-sponsor"><img :src="'/static/img/'+partner.logo"></div>
               </div>
             </div>
           </div>
@@ -202,6 +232,35 @@
         end_time: new Date(2021,4,20),
         now: {days: 0, hours: 0, minuts: 0, seconds: 0},
         sponsors: [
+          {
+            logo: 'sponsor_0.png'
+          },
+          {
+            logo: 'sponsor_1.png'
+          },
+          {
+            logo: 'sponsor_2.png'
+          },
+          {
+            logo: 'sponsor_2.png'
+          },
+          {
+            logo: 'sponsor_0.png'
+          },
+          {
+            logo: 'sponsor_1.png'
+          },
+          {
+            logo: 'sponsor_1.png'
+          },
+          {
+            logo: 'sponsor_2.png'
+          },
+          {
+            logo: 'sponsor_0.png'
+          }
+        ],
+        partners: [
           {
             logo: 'sponsor_0.png'
           },
@@ -387,6 +446,7 @@
   @import "@/assets/main.scss";
 
   .index{
+    padding-top: 70px;
     &-item{
       width: 100vw;
       padding: 24px 0 40px;
@@ -494,7 +554,7 @@
       width: 100vw;
       max-width: 100vw;
       min-width: 100vw;
-      margin-bottom: 20px;
+      margin-bottom: 2rem;
       &>img{
         width: 50%;
       }

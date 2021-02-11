@@ -10,7 +10,6 @@
             <v-input :required="true" :title="input.title" type="text" v-model="input.data" v-for="input in member"/>
           </div>
           <v-button class="__pluses my-8" @click="addMember()" :title="$languages.registrate.member"/>
-          <v-input :required="true" title="E-mail" type="email" v-model="email"/>
 
           <div class="form-flex-row my-8">
             <v-check-box v-model="check" :checked="check" />
@@ -31,9 +30,7 @@
   export default {
     data: () => {
       return{
-        amount: 0,
         members: [],
-        email: '',
         check: false
       }
     },
@@ -45,34 +42,15 @@
         let end = true
         for(let i = 0; i < this.members.length; i++)
           for(let j = 0; j < this.members[i].length; j++)
-            if(!this.members[i][j].data || !this.check || !this.email){
+            if(!this.members[i][j].data || !this.check){
               end = false
               break
             }
         if(end){
         // this.$emit('setLoad', true)
-          this.$router.push('/success')
+        this.$axios.post('/registrate', this.members)
+        .then(res => this.$router.push('/success'))
         }
-      },
-      checkDate(){
-        let end = 0, type
-        for(let i = 0; i < this.members.length; i++){
-          for(let j = 0; j < this.members.length; j++){
-            if(i === j)
-              continue
-            else
-              if(this.members[i][0].data === this.members[j][0].data)
-                type = 1
-              else
-                type = 0
-          }
-          if(new Date().valueOf() >= 1592157600000)
-            end += type ? 200 : 300
-          else
-            end += type ? 150 : 200 
-        }
-        this.amount = end
-        return end
       },
       removeMember(index){
         this.members.splice(index, 1)
@@ -80,11 +58,11 @@
       addMember(){
         this.members.push([
           {
-            title: 'Наименование компании',
+            title: 'Наименование компании или ФИО *',
             data: this.members.length ? this.members[this.members.length-1][0].data : ''
           },
           {
-            title: 'Фио',
+            title: 'E-mail *',
             data: ''
           }
         ])

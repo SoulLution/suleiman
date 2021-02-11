@@ -105,8 +105,8 @@
 			console.log(this.members)
     	if(!this.members.price)
 				this.$router.push('/request')
-				this.email = this.members.email
-				this.name = this.members.name
+			this.email = this.members.email
+			this.name = this.members.name
     },
     methods: {
   		secure3dRedirect(acsUrl, paReq, md) {
@@ -229,7 +229,7 @@
 		background-color: #EFF2F7 !important;
 	}
 	.payment{
-		padding-top: 50px;
+		padding-top: 120px;
 		max-width: 580px;
 		&-title{
 			color: $blue_d;
