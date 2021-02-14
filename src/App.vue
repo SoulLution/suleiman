@@ -26,7 +26,7 @@ export default {
   		popup: false,
   		data: {},
       amount: 0,
-      members: [],
+      members: new FormData(),
       load: false,
       refs: {}
   	}

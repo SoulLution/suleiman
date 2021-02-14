@@ -40,8 +40,8 @@
 	export default {
 		props: {
 			members: {
-				type: Array,
-				default: () => {return []}
+				type: Object,
+				default: () => {return {}}
 			}
 		},
     data(){
@@ -143,6 +143,7 @@
 			    this.$refs.form)
     		const result = checkout.createCryptogramPacket();
 			console.log(result)
+			
     		let data = {
 					...this.members,
     			amount: this.members.price,

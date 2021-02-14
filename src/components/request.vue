@@ -73,21 +73,23 @@
       createLead(){
         if(this.getPrice && this.check){
           console.log(this.inputs.length)
-        let data = new FormData()
-        data.append("file", this.file)
-        data.append("company_name", this.inputs[0].data)
-        data.append("country", this.inputs[1].data)
-        data.append("industry", this.inputs[2].data)
-        data.append("required_investment", this.inputs[3].data)
-        data.append("investment_type", this.inputs[4].data)
-        data.append("project_stage", this.inputs[5].data)
-        data.append("description", this.inputs[6].data)
-        data.append("fio", this.inputs_who[0].data)
-        data.append("contacts", this.inputs_who[1].data)
-        data.append("email", this.inputs_who[2].data)
-        data.append("price", this.getPrice)
+        var data = {}
+        // data.append("file", this.file)
+        data.company_name = this.inputs[0].data
+        data.country = this.inputs[1].data
+        data.industry = this.inputs[2].data
+        data.required_investment = this.inputs[3].data
+        data.investment_type = this.inputs[4].data
+        data.project_stage = this.inputs[5].data
+        data.description = this.inputs[6].data
+        data.fio = this.inputs_who[0].data
+        data.contacts = this.inputs_who[1].data
+        data.email = this.inputs_who[2].data
+        data.price = this.getPrice
         // this.$axios.post('/leads/create', data)
         // .then(res => {
+          console.log(data)
+          console.log(this.file)
           this.$emit('sendMembers', data)
           this.$router.push('/payment')
         // })
