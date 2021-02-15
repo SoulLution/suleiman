@@ -3,10 +3,10 @@
   	<div class="popup-bg" @click="$emit('close', false)"></div>
   	<transition name="fade-popup">
 	  	<div class="popup-content" v-show="popup">
-		  	<div class="popup-content-ava"><img :src="'/static/img/'+ data.ava"></div>
-		  	<div class="popup-content-fio">{{data['name_' + $language]}}</div>
-		  	<div class="popup-content-speciality">{{data['specialization_' + $language]}}</div>
-		  	<div class="popup-content-about">{{data['description_' + $language]}}</div>
+		  	<div class="popup-content-ava"><img :src="'https://admin.suleimanpartners.com:9002/suleiman-api/v1/uploads/' + data.image"></div>
+		  	<div class="popup-content-fio" v-html="data['name_' + $language]"></div>
+		  	<div class="popup-content-speciality" v-html="data['specialization_' + $language]"></div>
+		  	<div class="popup-content-about" v-html="data['description_' + $language]"></div>
 		  	<div class="popup-content-button" @click="$emit('close', false)"></div>
 	  	</div>
 	  </transition>
@@ -61,10 +61,15 @@
   		justify-content: flex-start;
   		&-ava{
         min-height: 200px;
-        width: 200px;
+				max-height: 200px;
+        max-width: 200px;
+				min-width: 200px;
         border-radius: 50%;
         background-color: #cacaca;
         overflow: hidden;
+				&>img{
+					height: 100%;
+				}
   		}
 	  	&-fio{
 	  		font-weight: 800;

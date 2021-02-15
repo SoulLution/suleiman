@@ -128,10 +128,10 @@
               <div class="item-main-cell-speakers" v-for="(speaker_list, i) in speakers">
                 <div class="item-main-cell-speakers-body" v-for="speaker in speaker_list">
                   <div class="item-main-cell-body-ava" @click="speaker['name_' + $language] ? setPopup(speaker) : ''">
-                    <img :src="speaker.image" v-if="speaker.image">
+                    <img :src="'https://admin.suleimanpartners.com:9002/suleiman-api/v1/uploads/' + speaker.image" v-if="speaker.image">
                   </div>
-                  <div class="item-main-cell-body-fio" v-if="speaker['name_' + $language]">{{speaker['name_' + $language]}}</div>
-                  <div class="item-main-cell-body-speciality">{{speaker['specialization_' + $language]}}</div>
+                  <div class="item-main-cell-body-fio" v-if="speaker['name_' + $language]" v-html="speaker['name_' + $language]"></div>
+                  <div class="item-main-cell-body-speciality" v-html="speaker['specialization_' + $language]"></div>
                 </div>
               </div>
             </div>
@@ -291,31 +291,31 @@
         ],
         projects: [],
         speakers: [[
-          {
-            name_ru: 'test',
-            specialization_ru: '1'
-          },
-          {
-            name_ru: 'test',
-            specialization_ru: '1'
-          },
-          {
-            name_ru: 'test',
-            specialization_ru: '1'
-          }
-        ],[
-          {
-            name_ru: 'test',
-            specialization_ru: '1'
-          },
-          {
-            name_ru: 'test',
-            specialization_ru: '1'
-          },
-          {
-            name_ru: 'test',
-            specialization_ru: '1'
-          }
+        //   {
+        //     name_ru: 'test',
+        //     specialization_ru: '1'
+        //   },
+        //   {
+        //     name_ru: 'test',
+        //     specialization_ru: '1'
+        //   },
+        //   {
+        //     name_ru: 'test',
+        //     specialization_ru: '1'
+        //   }
+        // ],[
+        //   {
+        //     name_ru: 'test',
+        //     specialization_ru: '1'
+        //   },
+        //   {
+        //     name_ru: 'test',
+        //     specialization_ru: '1'
+        //   },
+        //   {
+        //     name_ru: 'test',
+        //     specialization_ru: '1'
+        //   }
         ]],
         types: []
       }
@@ -414,23 +414,24 @@
             // .then(res_1 => {
             //   res.data.data[i] = res_1.data.data
             // })
-            if((i+1)%3 !== 0)
+            if((i+1)%3 === 0)
               this.speakers.push([])
-            this.speakers[this.speakers.length-1].push(res.data.data[i])
+            this.speakers[this.speakers.length-1].push(
+              {...res.data.data[i], image: res.data.data[i].image.replace('<p>','').replace('</p>','')}
+            )
           }
-          console.log(this.speakers)
         })
 
-        if(this.speakers.length)
-        if(this.speakers[this.speakers.length-1].length < 2)
-          this.speakers[this.speakers.length-1].push({['specialization_' + this.$language]: this.$languages.index.undefined_speaker})
+        // if(this.speakers.length)
+        // if(this.speakers[this.speakers.length-1].length < 3)
+        //   this.speakers[this.speakers.length-1].push({['specialization_' + this.$language]: this.$languages.index.undefined_speaker})
 
-        while(this.speakers.length < 4){
-          this.speakers.push([
-            {['specialization_' + this.$language]: this.$languages.index.undefined_speaker},
-            {['specialization_' + this.$language]: this.$languages.index.undefined_speaker}
-          ])
-        }
+        // while(this.speakers.length < 2){
+        //   this.speakers.push([
+        //     {['specialization_' + this.$language]: this.$languages.index.undefined_speaker},
+        //     {['specialization_' + this.$language]: this.$languages.index.undefined_speaker}
+        //   ])
+        // }
 
       },
       goLeads(index){
@@ -781,6 +782,9 @@
             background-color: #cacaca;
             overflow: hidden;
             cursor: pointer;
+            &>img{
+              height: 100%;
+            }
           }
           &-fio{
             margin: 20px 0 8px;
