@@ -67,34 +67,31 @@
     },
     methods: {
       addFile(e) {
-        if(e.target.files.length)
-          this.file = e.target.files[0]
+        if(e.target && e.target.files.length){
+          let data = new FormData()
+          data.apend("uploadFile", e.target.files[0])
+          this.$axios.post("/orders/pdf/save", data)
+          .then(res => this.file = res.data.file)
+        }
       },
       createLead(){
         if(this.getPrice && this.check){
-          console.log(this.inputs.length)
-        var data = {}
-        // data.append("file", this.file)
-        data.company_name = this.inputs[0].data
-        data.country = this.inputs[1].data
-        data.industry = this.inputs[2].data
-        data.required_investment = this.inputs[3].data
-        data.investment_type = this.inputs[4].data
-        data.project_stage = this.inputs[5].data
-        data.description = this.inputs[6].data
-        data.fio = this.inputs_who[0].data
-        data.contacts = this.inputs_who[1].data
-        data.email = this.inputs_who[2].data
-        data.price = this.getPrice
-        // this.$axios.post('/leads/create', data)
-        // .then(res => {
+          var data = {}
+          data.file = this.file
+          data.company_name = this.inputs[0].data
+          data.country = this.inputs[1].data
+          data.industry = this.inputs[2].data
+          data.required_investment = this.inputs[3].data
+          data.investment_type = this.inputs[4].data
+          data.project_stage = this.inputs[5].data
+          data.description = this.inputs[6].data
+          data.fio = this.inputs_who[0].data
+          data.contacts = this.inputs_who[1].data
+          data.email = this.inputs_who[2].data
+          data.price = this.getPrice
           console.log(data)
-          console.log(this.file)
           this.$emit('sendMembers', data)
           this.$router.push('/payment')
-        // })
-        // .finally( () => this.$emit('setLoad', false))
-        
         }
       }
     }

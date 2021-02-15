@@ -5,7 +5,7 @@ export default
 				header: {
 					title: 'Конференция ICOSO 2021 Центр инвестиционных проектов по принципу «единого офиса» Прага',
 					about: 'Pandemie covid 19',
-          calendar: '20 Мая 2021 года в 09:30',
+          calendar: '20 Мая 2021 года в 10:00',
 					button: 'Регистрация на конференцию'
 				},
 				date: {
@@ -151,7 +151,7 @@ export default
 				about: '',
 				ending: 'Итоговая сумма:',
         send: 'Зарегистрироваться',
-        link: '<span>Подтверждаю согласие на </span><a style="display: inline" href="#">обработку персональных данных</a>',
+        link: '<span>Подтверждаю согласие на </span><a style="display: inline" target="_blank" href="/static/pp/privacy_policy_ru.htm">обработку персональных данных</a>',
 				if_title: 'в случае невозможности оплатить',
 				rout: 'Связаться с нами'
 			},
@@ -261,17 +261,29 @@ export default
             data: '',
             childs: [
               {
-                id: 'Кредитование',
-                name: 'Кредитование'
+                id: "Создание совместного предприятия",
+                name: "Создание совместного предприятия"
               },
               {
-                id: 'Участие в капитале',
-                name: 'Участие в капитале'
+                id: "Участие в капитале",
+                name: "Участие в капитале"
               },
               {
-                id: 'Иное',
-                name: 'Иное'
-              }
+                id: "Кредитование",
+                name: "Кредитование"
+              },
+              {
+                id: "Лизинг",
+                name: "Лизинг"
+              },
+              {
+                id: "Консорциум",
+                name: "Консорциум"
+              },
+              {
+                id: "Иная форма участия",
+                name: "Иная форма участия"
+              },
             ]
           },
           {
@@ -441,58 +453,60 @@ export default
     en: {
 			index: {
 				header: {
-					title: 'Конференция ICOSO 2021 «Центр инвестиционных проектов по принципу «единого офиса» Прага',
+					title: 'Conference ICOSO 2021 Investment Center Project of Single Office',
 					about: 'Pandemie covid 19',
-          calendar: '20 May 2021 year in 09:30',
-					button: 'Registrate'
+          calendar: 'on May 20, 2021  10:00 Prague',
+					button: 'Registration for the conference'
 				},
 				date: {
-					days: 'day',
+					days: 'days',
 					hours: 'hours',
-					minuts: 'minuts',
+					minuts: 'minutes',
 					secconds: 'seconds'
 				},
-        conf: `The Kazakhstan law firm Suleiman&Partners gladly invites you to take part in the ICOSO 2021 (Investment Center of Single Office) conference,  which is to be held on May 20, 2021.
+        conf: `The Kazakhstan law firm Suleiman&Partners gladly invites you to take part in the ICOSO 2021 Investment Center  Project of Single Office conference,  which is to be held on May 20, 2021.
         <br><br>
         The conference will be held online in Prague which allows European companies to be the first to invest in Kazakhstan businesses and then be able to manage their investments from the territory of Prague.
         <br><br>
-        The ICOSO-2021 conference will be the central event of the business communities of Kazakhstan and the Czech Republic to get acquainted with Kazakhstan investment projects first-hand in Prague. In the current reality of limited movement caused by the COVID-19 pandemic, it is quite important for the business sector to have a single Center for investment projects located in Prague providing options to manage the investments.
+        The ICOSO-2021 conference will be the central event for the business communities of Kazakhstan and the Czech Republic to get acquainted with Kazakhstan investment projects first-hand in Prague. In the current reality of limited movement caused by the COVID-19 pandemic, it is quite important for the business sector to have the Center for investment projects, working by the single office principle, located in Prague, which provides options to manage the investments.
         <br><br>
-        The principle of a "single office"<br>
-        - eliminates the time gap between Kazakhstan and the Czech Republic as  the Center for Investment projects has been established by Suleiman&Partners in Prague.<br>
-        - allows to solve the complex tasks - from any single investment project review to  preparation for investment itself as well as its legal support during the whole procedure of investment.<br>
-        We will be sincerely happy to meet our old friends and make new acquaintances during the ICOSO-2021 conference.<br>
-        
-        `,
+        The principle of a "single office"
+        <br>
+        - eliminates the time gap between Kazakhstan and the Czech Republic as  the Center for Investment projects has been established by Suleiman&Partners in Prague.
+        <br>
+        - allows to solve all the complex tasks from the very start, including single project review, preparation for investment, its legal support with the whole systematic control, everyday reporting to the investor, with compliance-control on all stages of investment procedure.
+        <br><br>
+        We will be sincerely happy to meet our old friends and make new acquaintances during the ICOSO-2021 conference.`,
 				item_titles: [
           'The Conference',
 					'Conference Topics:',
-					'Who might be interested',
+					'Who might be interested:',
 					'Speakers',
-					'Reasons to attend',
+					'Reasons to attend ',
 					'Investment projects',
-					'Sponsors / Partners'
+					'Sponsors',
+          'Partners'
 				],
 				item_link: 'You can place your investment projects on the site',
-        item_but: 'Submit your application',
+        item_but: 'Submit a project',
         item_but2: 'Become a partner',
 				_bg: [
-					'European companies working in the Kazakhstan market and willing to strengthen their business position',
+					'European companies working in the Kazakhstan market and willing to strengthen their business position.',
 					'Those who are planning to work in the Kazakhstan market.',
 					'Those already working  in the Kazakhstan market and need answers to their questions in a controversial situation.',
-					'Discussions',
+					'A varied program of the conference',
 					'A unique platform for finding answers',
 					'Platform for corporate communications',
 					'Atmosphere'
 				],
-        undefined_speaker: 'confirmed',
+        undefined_speaker: 'Speaker to be confirmed',
         yes_project: 'projects',
         no_project: 'In process',
         _blue: [
-          'A varied program of the conference - discussions included',
-					'You will receive individual advice from speakers on organizing business.',
-					'Expand your business contacts with representatives of leading regions of Kazakhstan and Europe. The conference will provide you with different opportunities to find people in your niche and expand your business in the right direction',
-					'The atmosphere of productive business communication'
+          'Discussions included',
+          'You will receive individual advice from our speakers on organizing business.',
+          'Expand your business contacts with representatives of leading regions of Kazakhstan and Europe. The conference will provide you with different opportunities to find people in your niche and expand your business in the right direction.',
+          'The atmosphere of productive business communication'
         ],
         types: [
           {
@@ -505,7 +519,7 @@ export default
           },
           {
             number: 3,
-            content: `Risks of investing in Kazakhstan from European business`
+            content: `Risks of investing in Kazakhstan by the view of a European business.`
           },
           {
             number: 4,
@@ -515,85 +529,93 @@ export default
             number: 5,
             content: `Advantages of the jurisdiction of the Astana International Financial Center.`
           },
+          {
+            number: 6,
+            content: `Presentation of investment projects.`
+          },
+          {
+            number: 7,
+            content: `Questions and answers.`
+          }
         ],
 			},
 			projects: [
         {
           data: 'Сельское хозяйство',
-          name: 'Сельское хозяйство'
+          name: 'Agriculture'
         },
         {
           data: 'Промышленность',
-          name: 'Промышленность'
+          name: 'Production sector'
         },
         {
           data: 'Фармацевтика и медицина',
-          name: 'Фармацевтика и медицина'
+          name: 'Medicine and pharmaceutical'
         },
         {
           data: 'Туризм',
-          name: 'Туризм'
+          name: 'Tourism'
         },
         {
           data: 'Транспорт',
-          name: 'Транспорт'
+          name: 'Transport'
         },
         {
           data: 'Нефтехимия',
-          name: 'Нефтехимия'
+          name: 'Petrochemical'
         },
         {
           data: 'Энергетика',
-          name: 'Энергетика'
+          name: 'Energy sector'
         },
         {
           data: 'Логистика',
-          name: 'Логистика'
+          name: 'Logistics'
         },
         {
           data: 'Инновации и высокие технологии',
-          name: 'Инновации и высокие технологии'
+          name: 'High Tech and Innovations'
         },
         {
           data: 'Недвижимость и строительство',
-          name: 'Недвижимость и строительство'
+          name: 'Real Estate Sector'
         },
         {
           data: 'Продажа бизнеса',
-          name: 'Продажа бизнеса'
+          name: 'Business for sale'
         },
         {
           data: 'Другое',
-          name: 'Другое'
+          name: 'Other'
         }
       ],
 			leads: {
-				type: 'Тип проекта:',
+				type: 'Project type:',
 				rows: [
-					'Требуемые ивестиции',
-					'Тип инвестиций',
-					'Стадия проекта'
+					'Required investments',
+					'Investment type',
+					'Stage of the project'
 				]
 			},
 			registrate: {
-				title: 'Регистрация на конференцию',
-				member: 'Участник',
+				title: 'Registration for the conference',
+				member: 'Participant ',
 				about: '',
-				ending: 'Итоговая сумма:',
-        send: 'Зарегистрироваться',
-        link: '<span>Подтверждаю согласие на </span><a style="display: inline" href="#">обработку персональных данных</a>',
-				if_title: 'в случае невозможности оплатить',
-				rout: 'Связаться с нами'
+				ending: 'Total price:',
+        send: 'Register now',
+        link: '<span>I agree that </span><a style="display: inline" target="_blank" href="/static/pp/privacy_policy_en.htm">my personal data be processed</a>',
+				if_title: 'Difficulties with registration?',
+				rout: 'Contact us!'
 			},
 			request: {
-				title: 'Conference Application Form',
-        button: 'Оплатить',
-        who: 'Ответственный представитель',
-        final: 'Итоговая сумма: ',
-        _package: 'Investment project placement',
+				title: 'Application form for investment projects',
+        button: 'Go to Payment',
+        who: 'Project responsible representative ',
+        final: 'Total price: ',
+        _package: 'Select package',
         packages: [
           {
-            key: 'Placing your project and active logo as a partner <strong>50€</strong>',
+            key: 'Placing your project and active logo as a partner  on the conference <strong>50€</strong>',
             value: 50,
             data: true,
           },
@@ -603,6 +625,7 @@ export default
             data: false,
           }
         ],
+        pdf: "Attach PDF presentation in English",
 				inputs: [
           {
             title: 'Company name',
@@ -616,122 +639,134 @@ export default
             childs: [
               {
                 id: 'Казахстан',
-                name: 'Kazakhstan'
+                name: 'Казахстан'
               },
               {
                 id: 'Чешская Республика',
-                name: 'Czech Republic'
+                name: 'Чешская Республика'
               },
             ]
           },
           {
-            title: 'Industry',
+            title: 'Отрасль',
             type: 'select',
             data: '',
             childs: [
               {
                 id: 'Сельское хозяйство',
-                name: 'Сельское хозяйство'
+                name: 'Agriculture'
               },
               {
                 id: 'Промышленность',
-                name: 'Промышленность'
+                name: 'Production sector'
               },
               {
                 id: 'Фармацевтика и медицина',
-                name: 'Фармацевтика и медицина'
+                name: 'Medicine and pharmaceutical'
               },
               {
                 id: 'Туризм',
-                name: 'Туризм'
+                name: 'Tourism'
               },
               {
                 id: 'Транспорт',
-                name: 'Транспорт'
+                name: 'Transport'
               },
               {
                 id: 'Нефтехимия',
-                name: 'Нефтехимия'
+                name: 'Petrochemical'
               },
               {
                 id: 'Энергетика',
-                name: 'Энергетика'
+                name: 'Energy sector'
               },
               {
                 id: 'Логистика',
-                name: 'Логистика'
+                name: 'Logistics'
               },
               {
                 id: 'Инновации и высокие технологии',
-                name: 'Инновации и высокие технологии'
+                name: 'High Tech and Innovations'
               },
               {
                 id: 'Недвижимость и строительство',
-                name: 'Недвижимость и строительство'
+                name: 'Real Estate Sector'
               },
               {
                 id: 'Продажа бизнеса',
-                name: 'Продажа бизнеса'
+                name: 'Business for sale'
               },
               {
                 id: 'Другое',
-                name: 'Другое'
+                name: 'Other'
               }
           ]
           },
           {
-            title: 'Required investments:',
+            title: 'Required investments (show the amount in EUR):',
             type: 'textarea',
             data: ''
           },
           {
-            title: 'Type of investment',
+            title: 'Investment type',
             type: 'select',
             data: '',
             childs: [
               {
-                id: 'Кредитование',
-                name: 'Кредитование'
+                id: "Создание совместного предприятия",
+                name: "Creation of a joint venture"
               },
               {
-                id: 'Участие в капитале',
-                name: 'Участие в капитале'
+                id: "Участие в капитале",
+                name: "Equity participation"
               },
               {
-                id: 'Иное',
-                name: 'Иное'
-              }
+                id: "Кредитование",
+                name: "Lending"
+              },
+              {
+                id: "Лизинг",
+                name: "Leasing"
+              },
+              {
+                id: "Консорциум",
+                name: "Consortium"
+              },
+              {
+                id: "Иная форма участия",
+                name: "Another form of participation"
+              },
             ]
           },
           {
-            title: 'Stage of project:',
+            title: 'Stage of the project:',
             type: 'select',
             data: '',
             childs: [
               {
                 id: 'Идея',
-                name: 'Идея'
+                name: 'Idea'
               },
               {
                 id: 'Разработка',
-                name: 'Разработка'
+                name: 'Development'
               },
               {
                 id: 'Исполнение',
-                name: 'Исполнение'
+                name: 'Fulfillment'
               },
               {
                 id: 'Завершение',
-                name: 'Завершение'
+                name: 'Finishing'
               },
               {
                 id: 'Реализация',
-                name: 'Реализация'
+                name: 'Implementation'
               },
             ]
           },
           {
-            title: 'Brief description',
+            title: 'Short description in English',
             type: 'textarea',
             maxlength: 2500,
             data: ''
@@ -739,12 +774,12 @@ export default
         ],
         inputs_who: [
           {
-            title: 'ФИО',
+            title: 'Full name',
             type: 'text',
             data: ''
           },
           {
-            title: 'Contact details',
+            title: 'Contacts',
             type: 'text',
             data: ''
           },
@@ -758,32 +793,36 @@ export default
 			about_us:{
 				title: 'About us',
 				text: `The Kazakhstan law firm Suleiman & Partners is one of the most experienced companies in Kazakhstan, specializing in tax and investment disputes resolution, selling and purchasing of businesses, as well as overall support for complex projects, restructuring and optimization of corporate management.
+        <br><br>
         Thanks to wide expertise of our lawyers the firm has earned a reputation of a successful consultant in the field of interaction between corporate business sector and government institutions. 
-        For many years our senior partner Mr. Zhangeldy Suleymanov is considered to be the most recommended legal experts in Kazakhstan by the top business periodicals Zákon.kz, NUR.kz, Tengrinews.kz. 
+        <br><br>
+        For many years our senior partner Mr. Zhangeldy Suleymanov is considered to be the most recommended legal expert in Kazakhstan by the top business periodicals Zákon.kz, NUR.kz, Tengrinews.kz., 365Info.kz, Kaztag
+        <br><br>
         Since 2020 Suleiman&Partners is the first Kazakhstan law firm that has introduced a new way of work by establishing the Center of Investment Projects in Prague, which operates on the principle of a "single office".
+        <br><br>
         The clients of Suleiman&Partners are companies from the oil and gas sector, transport sector, energy sector, mining sector, road construction, alcohol industry, international companies and companies representing well-known brands in Kazakhstan as well as internationally.
-        
-        We highly appreciate our clients’ trust in the matter of introduction their investing projects to you from the first hand.        
+        <br>
+        We highly appreciate our clients’ trust in the matter of introducing their investing projects to you from the first hand.
+        . 
         `,
-        button: 'Читать о компании больше'
+        // button: 'Читать о компании больше'
 			},
 			payment: {
 				title: 'Payment',
 				card: [
 					'Card number',
-					'Card expiration date',
+					'Expiration date',
           'CVV/ССV',
-          'Имя на карте'
+          'Name on card'
 				],
-				button: 'Pay'
+				button: 'pay'
+			},
+			error:{
+				text_1: `Payment error`
 			},
 			success:{
-				text_1: `Ваша заявка принята!
-				`,
-				text_2: `На вашу почту отправлен чек о транзакции.
-				`,
-				text_3: `Через 5 секунд вы будете отправленны на главную страницу!
-				`
+				text_1: `Successful payment`,
+				text_2: `Your project will soon be available on the site`,
 			},
 			header: {
         links: [
@@ -791,32 +830,35 @@ export default
             name: 'The Conference'
           },
           {
+            name: 'About us'
+          },
+          {
             name: 'Speakers'
           },
           {
-            name: 'Sponsors / Partners'
+            name: 'Sponsors/Partners'
           },
           {
             name: 'Investment projects'
           },
           {
-            name: 'Contacts'
+            name: 'Contacs'
           },
         ]
 			},
 			footer: {
-				title: 'Участвуйте в конференции!',
+				title: 'Participate in the conference!',
 				buttons: [
-					'Регистрация на участие',
-					'Оставить заявку'
+					'Registration for the conference',
+					'Registration for projects'
 				],
-				soc: 'Мы в соц. сетях',
+				soc: 'Find us on social networks',
 				links: [
           {
             title: 'About us',
             childs: [
               {
-                name: 'About company',
+                name: 'About the company',
                 href: '/about_us'
               }
             ]
@@ -825,7 +867,7 @@ export default
             title: 'Address',
             childs: [
               {
-                name: 'Czech Republic, Praga, Taboritska 1000/23',
+                name: 'Czech Republic, Prague, st. Taboritska 1000/23',
                 href: 'geo:50.0828583,14.4552392,17'
               }
             ]
@@ -845,189 +887,198 @@ export default
               }
             ]
           },
-          {
-            title: 'Help',
-            childs: [
-              {
-                name: 'Help',
-                href: '/'
-              }
-            ]
-          }
+          // {
+          //   title: 'Помощь',
+          //   childs: [
+          //     {
+          //       name: 'Поддержка',
+          //       href: '/'
+          //     }
+          //   ]
+          // }
         ]
 			}
-    },
+		},
 
     
     cs: {
 			index: {
 				header: {
-					title: 'Конференция ICOSO 2021 «Центр инвестиционных проектов по принципу «единого офиса» Прага',
+					title: 'Konference ICOSO 2021 Centrum pro investiční projekty na principu „jediné kanceláře',
 					about: 'Pandemie covid 19',
-          calendar: '20 May 2021 year in 09:30',
-					button: 'Registrate'
+          calendar: '20. května 2021  10:00 Praha',
+					button: 'Registrace na konferenci'
 				},
 				date: {
-					days: 'day',
-					hours: 'hours',
-					minuts: 'minuts',
-					secconds: 'seconds'
+					days: 'Dny',
+					hours: 'hodiny',
+					minuts: 'minuty',
+					secconds: 'sekundy'
 				},
-        conf: `Kazachstánská právnická společnost  Suleiman & Partners Vás srdečně zve k účasti na konferenci „Centrum pro investiční projekty na principu „jediné kanceláře“ ICOSO 2021, která se bude konat 20. května 2021.
+        conf: `Kazašská právnická společnost  Suleiman & Partners Vás srdečně zve k účasti na konferenci Centrum pro investiční projekty na principu „jediné kanceláře“ ICOSO 2021, která se bude konat 20. května 2021.
         <br><br>
-        Tato konference se bude konat online v Praze a umožní evropským společnostem jako prvním investovat svůj kapitál v Kazachstáně prostřednictvím řízení kontroly z území Prahy.
+        Tato konference se bude konat online v Praze a umožní evropským společnostem jako prvním investovat svůj kapitál v Kazachstánu prostřednictvím řízení kontroly z území Prahy.
         <br><br>
-        Konference ICOSO 2021 se stane hlavní událostí podnikatelské komunity Kazachstánu a České republiky, kde se seznámíme s kazašskými investičními projekty z první ruky v Praze. V současných podmínkách způsobených pandemií COVID-19 a omezeným volným pohybem je pro podnikatelský sektor velmi důležité mít jediné Centrum investičních projektů, které se nachází v Praze a umožňuje Vám spravovat investice.
+        Konference ICOSO 2021 se stane hlavní událostí podnikatelské komunity Kazachstánu a České republiky, kde se seznámíme s kazašskými investičními projekty z první ruky v Praze. V současných podmínkách způsobených pandemií COVID-19 a omezeným volným pohybem je pro podnikatelský sektor velmi důležité mít jediné Centrum investičních projektů, které se nachází v Praze a umožní Vám spravovat investice na principu „jediné kanceláře“
         <br><br>
-        Princip jediné kanceláře <br>
-        - vymaže hodinovou mezeru mezi Kazachstánem a Českou republikou, protože Suleiman & Partners založila Centrum investičních projektů v Praze. <br>
-        - dovoluje řešit komplex otázek od začátku zvažování investičního projektu, přípravy na jeho investování a jeho právní podpory ve všech fázích investice.<br>
-        Během konference ICOSO 2021 budeme upřímně rádi, že se setkáme se starými přáteli a seznámíme se s novými.<br>
-        
-        
-        `,
+        Princip „jediné kanceláře“
+        - vymaže časový rozdíl mezi Kazachstánem a Českou republikou, protože Suleiman & Partners založila Centrum investičních projektů v Praze. 
+        <br>
+        - dovoluje řešit komplex otázek od začátku zvažování investičního projektu, přípravy investice a její právní podpory se systémem plné kontroly, každodenního podávání zpráv investorovi, compliance kontroly ve všech fázích investiční řízení.
+        <br><br>
+        Během konference ICOSO 2021 budeme upřímně rádi, že se setkáme se starými přáteli a seznámíme se s novými.`,
 				item_titles: [
           'Konference',
-					'Témata konference',
-					'Koho to zajímá',
-					'Řečníci',
+					'Témata konference:',
+					'Koho to zajímá:',
+					'Řečníci/Speakers',
 					'Důvody k účasti na konferenci',
-					'Investment projects',
-					'Sponsors / Partners'
+					'Investiční projekty',
+					'Sponzoři',
+          'Partneři'
 				],
-				item_link: 'You can place your investment projects on the site',
-        item_but: 'Submit your application',
-        item_but2: 'Become a partner',
+				item_link: 'Na web můžete umístit své investiční projekty',
+        item_but: 'Umístit projekt',
+        item_but2: 'Stát se partnerem',
 				_bg: [
-          'Pro evropské společnosti působící na Kazachstánském trhu, které chtějí posílit své obchodní postavení',
-          'Pro zahájení a plánování práce na Kazachstánském trhu',
-          'Pro ty, kteří potřebují získat odpověď v kontroverzní situaci',
-          'Diskuse',
-          'Jedinečná platforma pro hledání odpovědí',
-          'Platforma pro firemní komunikaci',
-          'Atmosphere',
+					'Evropské společnosti působící na kazašském trhu, které chtějí posílit své obchodní postavení.',
+					'Zájemce o zahájení a plánování práce na kazašském trhu.',
+					'Ty, kteří potřebují získat odpověď v kontroverzní situaci.',
+					'Bohatý konferenční program',
+					'Jedinečná platforma pro hledání odpovědí',
+					'Platforma pro firemní komunikaci',
+					'Atmosphere'
 				],
-        undefined_speaker: 'confirmed',
+        undefined_speaker: 'Speaker to be confirmed',
         yes_project: 'projects',
         no_project: 'In process',
         _blue: [
-          'Bohatý konferenční program',
+          'Diskuse',
           'Získejte osobní doporučení od speakerů o organizaci a výkonu činnosti.',
-          'Rozšiřte obchodní kontakty se zástupci předních regionů Kazachstánu a Evropy a dalších zemí. Konference vám pomůže najít lidi ve vašem výklenku a rozšířit vaše podnikání.',
-          'Atmosféra obchodní a komunikační efektivity',
+          'Rozšiřte obchodní kontakty se zástupci předních regionů Kazachstánu a Evropy a dalších zemí. Konference Vám pomůže najít lidi ve Vašem oboru a rozšířit Vaše podnikání.',
+          ''
         ],
         types: [
           {
             number: 1,
-            content: `Investiční příležitosti v Kazachstánu`
+            content: `Investiční příležitosti v Kazachstánu. `
           },
           {
             number: 2,
-            content: `Investiční rizika v Kazachstánu`
+            content: `Investiční rizika v Kazachstánu.`
           },
           {
             number: 3,
-            content: `Investiční řizika  v Kazachstánu z pohledu evropského podnikatelé`
+            content: `Investiční rizika  v Kazachstánu z pohledu evropského podnikatele. `
           },
           {
             number: 4,
-            content: `Doporučení pro investory a ochrana investic`
+            content: `Doporučení pro investory a ochrana investic.`
           },
           {
             number: 5,
-            content: `Výhody jurisdikce Mezinárodního finančního centra v Astaně`
+            content: `Výhody jurisdikce Mezinárodního finančního centra v Astaně.`
           },
+          {
+            number: 6,
+            content: `Prezentace investičních projektů.`
+          },
+          {
+            number: 7,
+            content: `Dotazy a odpovědi.`
+          }
         ],
 			},
 			projects: [
         {
           data: 'Сельское хозяйство',
-          name: 'Сельское хозяйство'
+          name: 'Zemědělství'
         },
         {
           data: 'Промышленность',
-          name: 'Промышленность'
+          name: 'Průmysl'
         },
         {
           data: 'Фармацевтика и медицина',
-          name: 'Фармацевтика и медицина'
+          name: 'Farmacie a medicína'
         },
         {
           data: 'Туризм',
-          name: 'Туризм'
+          name: 'Cestovní ruch'
         },
         {
           data: 'Транспорт',
-          name: 'Транспорт'
+          name: 'Doprava'
         },
         {
           data: 'Нефтехимия',
-          name: 'Нефтехимия'
+          name: 'Petrochemie'
         },
         {
           data: 'Энергетика',
-          name: 'Энергетика'
+          name: 'Energetika'
         },
         {
           data: 'Логистика',
-          name: 'Логистика'
+          name: 'Logistika'
         },
         {
           data: 'Инновации и высокие технологии',
-          name: 'Инновации и высокие технологии'
+          name: 'Inovace a špičkové technologie'
         },
         {
           data: 'Недвижимость и строительство',
-          name: 'Недвижимость и строительство'
+          name: 'Nemovitosti a stavebnictví'
         },
         {
           data: 'Продажа бизнеса',
-          name: 'Продажа бизнеса'
+          name: 'Obchodní prodej'
         },
         {
           data: 'Другое',
-          name: 'Другое'
+          name: 'Jiný sektor'
         }
       ],
 			leads: {
-				type: 'Тип проекта:',
+				type: 'Typ projektu:',
 				rows: [
-					'Требуемые ивестиции',
-					'Тип инвестиций',
-					'Стадия проекта'
+					'Požadované investice',
+					'Typ investice',
+					'Fáze projektu'
 				]
 			},
 			registrate: {
 				title: 'Registrace na konferenci',
-				member: 'Участник',
+				member: 'Účastník  ',
 				about: '',
-				ending: 'Итоговая сумма:',
-        send: 'Зарегистрироваться',
-        link: '<span>Подтверждаю согласие на </span><a style="display: inline" href="#">обработку персональных данных</a>',
-				if_title: 'в случае невозможности оплатить',
-				rout: 'Связаться с нами'
+				ending: 'Celková cena:',
+        send: 'Zaregistrujte se nyní',
+        link: '<span>Potvrzuji svůj souhlas se </span><a style="display: inline" target="_blank" href="/static/pp/privacy_policy_cs.htm"zpracováním osobních údajů</a>',
+				if_title: 'V případě potíží s registrací?',
+				rout: 'Kontaktujte nás!'
 			},
 			request: {
-				title: 'Registrace na konferenci',
-        button: 'Оплатить',
-        who: 'Ответственный представитель',
-        final: 'Cena: ',
-        _package: 'Umístění investičního projektu',
+				title: 'Formulář žádosti o investiční projekt',
+        button: 'Zaplatit',
+        who: 'Odpovědný zástupce',
+        final: 'Celková cena: ',
+        _package: 'Vyberte balíček',
         packages: [
           {
-            key: 'Umístění Vašeho projektu a aktivní loga jako partnera <strong>50€</strong>',
+            key: 'Umístění Vašeho projektu a loga jako partnera na konferenci <strong>50€</strong>',
             value: 50,
             data: true,
           },
           {
-            key: 'Inzerovaná plíživá linka a živá prezentace investičního projektu po vystoupení speakera <strong>100€</strong>',
+            key: 'Plíživá linka a živá prezentace Vašeho investičního projektu po vystoupení řečníka <strong>100€</strong>',
             value: 100,
             data: false,
           }
         ],
+        pdf: "Přiložit PDF prezentaci v angličtině",
 				inputs: [
           {
-            title: 'Company name',
+            title: 'Název společnosti',
             type: 'text',
             data: ''
           },
@@ -1038,71 +1089,71 @@ export default
             childs: [
               {
                 id: 'Казахстан',
-                name: 'Kazachstán'
+                name: 'Казахстан'
               },
               {
-                id: 'Česká republika',
-                name: 'Czech Republic'
+                id: 'Чешская Республика',
+                name: 'Чешская Республика'
               },
             ]
           },
           {
-            title: 'Sektor bydlení',
+            title: 'Průmysl',
             type: 'select',
             data: '',
             childs: [
               {
                 id: 'Сельское хозяйство',
-                name: 'Сельское хозяйство'
+                name: 'Zemědělství'
               },
               {
                 id: 'Промышленность',
-                name: 'Промышленность'
+                name: 'Průmysl'
               },
               {
                 id: 'Фармацевтика и медицина',
-                name: 'Фармацевтика и медицина'
+                name: 'Farmacie a medicína'
               },
               {
                 id: 'Туризм',
-                name: 'Туризм'
+                name: 'Cestovní ruch'
               },
               {
                 id: 'Транспорт',
-                name: 'Транспорт'
+                name: 'Doprava'
               },
               {
                 id: 'Нефтехимия',
-                name: 'Нефтехимия'
+                name: 'Petrochemie'
               },
               {
                 id: 'Энергетика',
-                name: 'Энергетика'
+                name: 'Energetika'
               },
               {
                 id: 'Логистика',
-                name: 'Логистика'
+                name: 'Logistika'
               },
               {
                 id: 'Инновации и высокие технологии',
-                name: 'Инновации и высокие технологии'
+                name: 'Inovace a špičkové technologie'
               },
               {
                 id: 'Недвижимость и строительство',
-                name: 'Недвижимость и строительство'
+                name: 'Nemovitosti a stavebnictví'
               },
               {
                 id: 'Продажа бизнеса',
-                name: 'Продажа бизнеса'
+                name: 'Obchodní prodej'
               },
               {
                 id: 'Другое',
-                name: 'Другое'
+                name: 'Jiný sektor'
               }
-          ]
+            ]
           },
           {
-            title: 'Požadované investice:',
+            title: 'Požadované investice (uveďte částku v EUR):',
             type: 'textarea',
             data: ''
           },
@@ -1112,48 +1163,60 @@ export default
             data: '',
             childs: [
               {
-                id: 'Кредитование',
-                name: 'Кредитование'
+                id: "Создание совместного предприятия",
+                name: "Vytvoření společného podniku"
               },
               {
-                id: 'Участие в капитале',
-                name: 'Участие в капитале'
+                id: "Участие в капитале",
+                name: "Kapitálová účast"
               },
               {
-                id: 'Иное',
-                name: 'Иное'
-              }
+                id: "Кредитование",
+                name: "Kreditování"
+              },
+              {
+                id: "Лизинг",
+                name: "Leasing"
+              },
+              {
+                id: "Консорциум",
+                name: "Konsorcium"
+              },
+              {
+                id: "Иная форма участия",
+                name: "Jiná forma účasti"
+              },
             ]
           },
           {
-            title: 'Stage of project:',
+            title: 'Fáze projektu:',
             type: 'select',
             data: '',
             childs: [
               {
                 id: 'Идея',
-                name: 'Идея'
+                name: 'Idea'
               },
               {
                 id: 'Разработка',
-                name: 'Разработка'
+                name: 'Rozvoj'
               },
               {
                 id: 'Исполнение',
-                name: 'Исполнение'
+                name: 'Provedení'
               },
               {
                 id: 'Завершение',
-                name: 'Завершение'
+                name: 'Dokončení'
               },
               {
                 id: 'Реализация',
-                name: 'Реализация'
+                name: 'Implementace'
               },
             ]
           },
           {
-            title: 'Stručný popis',
+            title: 'Krátký popis v angličtině',
             type: 'textarea',
             maxlength: 2500,
             data: ''
@@ -1161,12 +1224,12 @@ export default
         ],
         inputs_who: [
           {
-            title: 'ФИО',
+            title: 'Titul, Jméno a Příjmení',
             type: 'text',
             data: ''
           },
           {
-            title: 'Kontaktní údaje',
+            title: 'Kontakty',
             type: 'text',
             data: ''
           },
@@ -1179,34 +1242,37 @@ export default
 			},
 			about_us:{
 				title: 'O nás',
-				text: `Kazachstánská právnická kancelář Suleiman & Partners je jednou z nejzkušenějších společností v Kazachstánu, která se specializuje na řešení daňových a investičních sporů, prodej a nákup podniků a také na celkovou podporu komplexních projektů, restrukturalizaci a optimalizaci řízení a správu společností. 
+				text: `Kazachstánská právní kancelář Suleiman & Partners je jednou z nejzkušenějších společností v Kazachstánu, která se specializuje na řešení daňových a investičních sporů, prodej a nákup podniků a také na celkovou podporu komplexních projektů, restrukturalizaci a optimalizaci řízení a správy společností.
+        <br><br>
         Na základě svých rozsáhlých zkušeností naši právníci nepřetržitě usilují o rozvoj a co nejefektivnější spolupráci mezi vládou a podniky.
-        Už mnoho let vedoucí rejtingové edice Zákon.kz, NUR. kz a Tengrinews.kz považují našeho hlavního partnera Zhangeldy Suleimanov za jednoho z nejzkušenějších právní expertů v Kazachstánu.
-          Od roku 2020 je Suleiman & Partners první kazachstánskou právnickou společností, která vstoupila do nového formátu práce tím, že se přemístila do Prahy a založila - Centrum pro investiční projekty na principu „jediné kanceláře“. 
-        
+        <br><br>
+        Už mnoho let vedoucí rejtingové edice Zákon.kz, NUR. Kz, Tengrinews.kz, 365Info.kz, Kaztag považují našeho hlavního partnera Zhangeldy Suleimanov za jednoho z nejzkušenějších právních expertů v Kazachstánu.
+        <br><br>
+        Od roku 2020 je Suleiman & Partners první kazašskou právnickou společností, která vstoupila do nového formátu práce tím, že se přemístila do Prahy a založila - Centrum pro investiční projekty na principu „jediné kanceláře“. 
+        <br><br>
         Klienty společnosti Suleiman & Partners jsou společnosti z ropného a plynárenského sektoru, dopravního sektoru, energetického komplexu, těžebního sektoru, oboru výstavby silnic, alkoholového průmyslu, mezinárodní společnosti a společnosti představující známé značky v Kazachstánu i na mezinárodní úrovni.
+        <br>
         Hodnocením naší práce je to, že naši klienti nám svěřili právo Vám z první ruky představit své investiční projekty.
-        
+        . 
         `,
-        button: 'Читать о компании больше'
+        // button: 'Читать о компании больше'
 			},
 			payment: {
-				title: 'Způsob platb',
+				title: 'Způsob platby',
 				card: [
-					'číslo karty',
-					'datum vypršení platnosti karty ',
+					'Číslo karty',
+					'Termín karty',
           'CVV/ССV',
-          'Имя на карте'
+          'Jméno na kartě'
 				],
-				button: 'Pay'
+				button: 'Zaplatit'
+			},
+			error:{
+				text_1: `Chyba platby`
 			},
 			success:{
-				text_1: `Ваша заявка принята!
-				`,
-				text_2: `На вашу почту отправлен чек о транзакции.
-				`,
-				text_3: `Через 5 секунд вы будете отправленны на главную страницу!
-				`
+				text_1: `Úspěšná platba`,
+				text_2: `Váš projekt bude brzy k dispozici na webu`,
 			},
 			header: {
         links: [
@@ -1214,47 +1280,50 @@ export default
             name: 'Konference '
           },
           {
-            name: 'Řečníci'
+            name: 'O nás'
           },
           {
-            name: 'Sponsors / Partners'
+            name: 'Řečníci/Speakers'
           },
           {
-            name: 'Investment projects'
+            name: 'Sponzoři/Partneři'
           },
           {
-            name: 'Contacts'
+            name: 'Investiční projekty'
+          },
+          {
+            name: 'Kontakty'
           },
         ]
 			},
 			footer: {
-				title: 'Участвуйте в конференции!',
+				title: 'Zúčastněte se konference',
 				buttons: [
-					'Регистрация на участие',
-					'Оставить заявку'
+					'Registrace na konferenci',
+					'Registrace projektů'
 				],
-				soc: 'Мы в соц. сетях',
+				soc: 'Jsme na sociálních sítích',
 				links: [
           {
             title: 'O nás',
             childs: [
               {
-                name: 'O nás',
+                name: 'O společnosti',
                 href: '/about_us'
               }
             ]
           },
           {
-            title: 'Address',
+            title: 'Adresa',
             childs: [
               {
-                name: 'Česká Republika, Praga, Taboritska 1000/23',
+                name: 'Česká republika, Praha, st. Taboritska 1000/23',
                 href: 'geo:50.0828583,14.4552392,17'
               }
             ]
           },
           {
-            title: 'Contacts',
+            title: 'Kontakty',
             childs: [
               {
                 name: '+420 777 182 012',
@@ -1268,17 +1337,17 @@ export default
               }
             ]
           },
-          {
-            title: 'Help',
-            childs: [
-              {
-                name: 'Help',
-                href: '/'
-              }
-            ]
-          }
+          // {
+          //   title: 'Помощь',
+          //   childs: [
+          //     {
+          //       name: 'Поддержка',
+          //       href: '/'
+          //     }
+          //   ]
+          // }
         ]
 			}
-    },
+		},
 
   }

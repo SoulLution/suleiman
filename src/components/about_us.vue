@@ -3,7 +3,7 @@
 		<div class="content">
 			<div class="about-title">{{$languages.about_us.title}}</div>
 			<div class="about-text" v-html="$languages.about_us.text"></div>
-			<v-button class="about-link" :title="$languages.about_us.button" />
+			<v-button class="about-link" :title="$languages.about_us.button" v-if="$languages.about_us.button" />
 			<!-- <a :href="link" target="_blank" class="about-link">{{link}}</a> -->
 		</div>
 	</div>
@@ -27,6 +27,7 @@
 	}
 	.about{
 		min-height:100vh;
+		margin-top: 70px;
 		justify-content: flex-start;
 		&-title{
 			display: block;
