@@ -10,19 +10,19 @@
 			{{$languages.leads.type}} {{projects[$route.params.id].name}}
 		</div>
 		<div class="leads-content">
-			<div class="cell-4" v-for="lead in leads" v-if="lead.industry === projects[$route.params.id].data">
+			<div class="cell-4" v-for="lead in leads" v-if="lead.Industry.IndustryName === projects[$route.params.id].data">
 				<div class="leads-content-item">
-					<div class="leads-content-item-header" :title="lead.company_name">
+					<div class="leads-content-item-header" :title="lead.CompanyName">
 						<div>{{lead.company_name}}</div>
-						<span><img src="/static/img/map.svg">{{lead.country}}</span>
+						<span><img src="/static/img/map.svg">{{lead.Country.Country}}</span>
 					</div>
 					<div class="leads-content-item-rows">
 						<div class="leads-content-item-rows-row"><span>{{$languages.leads.rows[0]}}</span><span>{{lead.required_investment}}</span></div>
-						<div class="leads-content-item-rows-row"><span>{{$languages.leads.rows[1]}}</span><span>{{lead.investment_type}}</span></div>
-						<div class="leads-content-item-rows-row"><span>{{$languages.leads.rows[2]}}</span><span>{{lead.project_stage}}</span></div>
+						<div class="leads-content-item-rows-row"><span>{{$languages.leads.rows[1]}}</span><span>{{lead.InvestmentType.InvestmentType}}</span></div>
+						<div class="leads-content-item-rows-row"><span>{{$languages.leads.rows[2]}}</span><span>{{lead.ProjectStage.ProjectStage}}</span></div>
 						<!-- <div class="leads-content-item-rows-row"><span>Доходность годовых</span><span>{{lead.project_stage}}</span></div> -->
 					</div>
-					<div class="leads-content-item-description">{{lead.description}}</div>
+					<div class="leads-content-item-description">{{lead.Description}}</div>
 				</div>
 			</div>
 		</div>
@@ -60,9 +60,11 @@
 				this.$axios.get('leads')
 				.then(res => {
 					for(let lead of res.data.data){
-						console.log(lead)
-						if(this.$languages.projects[id].data === lead.industry)
+						if(this.$languages.projects[id].data === lead.Industry.IndustryName){
+							console.log(this.projects[1].data)
+							console.log(lead)
 							this.leads.push(lead)
+						}
 					}
 				})
 			}
