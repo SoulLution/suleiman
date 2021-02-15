@@ -126,7 +126,9 @@
         mdElement.name = "MD";
 
         let termUrlElement = document.createElement("input");
-        termUrlElement.value = 'https://admin.suleimanpartners.com:9001/suleiman-api/v1/orders/3d-secure-confirm/'+id;
+        // termUrlElement.value = 'https://admin.suleimanpartners.com:9001/suleiman-api/v1/orders/3d-secure-confirm/'+id;
+		termUrlElement.value = 'http://localhost:9001/suleiman-api/v1/orders/3d-secure-confirm/'+id;
+
         termUrlElement.name = "TermUrl";
 
         form.appendChild(paReqElement);

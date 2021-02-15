@@ -386,11 +386,15 @@
       async getProjects(){
         for(let project of this.$languages.projects)
           project.leads = 0
+          console.log("lol")
         this.$axios.get('leads')
         .then(res => {
+          console.log(res.data)
           for(let lead of res.data.data){
+            console.log(lead)
             for(let project of this.$languages.projects){
-              if(lead.industry === project.data){
+              console.log(project)
+              if(lead.Industry.IndustryName === project.data){
                 project.leads++
                 break 
               }
