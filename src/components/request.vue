@@ -69,7 +69,7 @@
       addFile(e) {
         if(e.target && e.target.files.length){
           let data = new FormData()
-          data.apend("uploadFile", e.target.files[0])
+          data.append("uploadFile", e.target.files[0])
           this.$axios.post("/orders/pdf/save", data)
           .then(res => this.file = res.data.file)
         }
