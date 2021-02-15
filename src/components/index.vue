@@ -328,7 +328,7 @@
       this.getProjects()
       this.types = this.$languages.index.types
 
-      // this.getSpeakers()
+      this.getSpeakers()
 
       this.now.seconds = this.end_time.getSeconds() - new Date().getSeconds()
       this.now.minuts = this.end_time.getMinutes() - new Date().getMinutes()
@@ -410,7 +410,7 @@
             // .then(res_1 => {
             //   res.data.data[i] = res_1.data.data
             // })
-            if((i+1)%2 !== 0)
+            if((i+1)%3 !== 0)
               this.speakers.push([])
             this.speakers[this.speakers.length-1].push(res.data.data[i])
           }
