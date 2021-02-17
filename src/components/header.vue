@@ -38,7 +38,7 @@
     data: () => {
       return{
         links: [],
-        langs: ['ru', 'en', 'cs'],
+        langs: ['ru', 'en', 'cz'],
         open: false,
       }
     },

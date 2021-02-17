@@ -1,9 +1,9 @@
 <template>
-	<label class="input" :for="id"  @click="type === 'select' ? checkInp(!focus) : ''">
+	<label class="input" :for="id" @click="type === 'select' ? checkInp(!focus) : ''">
 		<div class="input-title" :class="{ 'active': focus || data }">{{title}}</div>
-		<input class="input-input" :required="required" :type="type" :id="id" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="$emit('input', data)" v-model="data" v-if="type !== 'select' && type !== 'textarea'">
+		<input class="input-input" :class="{focused: focus_check}" :required="!!required" :type="type" :id="id" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="sendData" v-model="data" v-if="type !== 'select' && type !== 'textarea'">
 		<div class="input-select" :class="{ 'active': focus }" :id="id" v-else-if="type === 'select'">{{data}}</div>
-		<textarea class="input-textarea" :id="id" :maxlength="maxlength" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="$emit('input', data)" v-model="data" v-else>
+		<textarea class="input-textarea" :class="{focused: focus_check}" :required="!!required" :id="id" :maxlength="maxlength" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="sendData" v-model="data" v-else>
 			
 		</textarea>
 		<span class="maxlength" v-if="maxlength">{{value.length}} / {{ maxlength }}</span>
@@ -74,10 +74,14 @@
 		data(){
 			return {
 				data: this.value,
-				focus: false
+				focus: false,
+				focus_check: false
 			}
 		},
 		methods:{
+			sendData(e){
+				this.$emit('input', this.data)
+			},
 			changeSelect(item){
 				this.$emit('input', item.id)
 				this.data = item.name
@@ -88,6 +92,7 @@
 			},
 			checkInp(type){
 				this.focus = type
+				this.focus_check = true
 				if(this.type === 'select')
 				
 					if(type)
@@ -121,8 +126,6 @@
 
 	}
 	.input{
-		padding: 22px 16px;
-		background: #FAFAFA;
 		border-radius: 2px;
 		justify-content: flex-start;
 		align-items: flex-start;
@@ -140,25 +143,37 @@
 			line-height: 16px;
 			color: #828282;
 			transition: 0.3s;
+			top: 22px;
+			left: 16px;
+			z-index: 1;
 			&.active{
 				font-size: 12px;
 				transform: translate(-5%, -100%);
 			}
 		}
 		&-input, &-textarea, &-select{
+			background: #FAFAFA;
+			padding: 22px 16px;
 			resize: unset;
-			border: unset;
-			background-color: unset;
 			width: 100%;
+			max-width: calc(100% - 32px);
 			outline: none;
 			font-size: 16px;
 			line-height: 16px;
+			border: 1px solid transparent;
+			&.focused:focus:invalid{
+				border-color: transparent;
+			}
+			&.focused:invalid{
+				border-color: red;
+			}
 		}
 		&-textarea{
 			height: 100px;
 		}
 		&-select{
-			height: 16px;
+			height: 64px;
+			max-width: 100%;
 			display: block;
 			overflow: hidden;
 			white-space: nowrap;

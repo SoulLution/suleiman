@@ -3,9 +3,9 @@ export default
 		ru: {
 			index: {
 				header: {
-					title: 'Конференция ICOSO 2021 Центр инвестиционных проектов по принципу «единого офиса» Прага',
+					title: 'Конференция ICOSO 2021<br>Центр инвестиционных проектов по принципу «единого офиса»',
 					about: 'Pandemie covid 19',
-          calendar: '20 Мая 2021 года в 10:00',
+          calendar: '20 Мая 2021  10:00 Прага',
 					button: 'Регистрация на конференцию'
 				},
 				date: {
@@ -14,17 +14,17 @@ export default
 					minuts: 'Минуты',
 					secconds: 'Секунды'
 				},
-        conf: `Казахстанская юридическая компания Suleiman&amp;Partners приглашает Вас принять участие в конференции «Центр инвестиционных проектов по принципу «единого офиса» ICOSO 2021, которая состоится 20 мая 2021 года.
+        conf: `Казахстанская юридическая компания Suleiman&Partners приглашает Вас принять участие в конференции Центр инвестиционных проектов по принципу «единого офиса» ICOSO 2021, которая состоится 20 мая 2021 года.
         <br><br>
-        Данная конференция пройдет в онлайн- формате в Праге и позволит  европейским компаниям  первыми инвестировать свой капитал в Казахстане, путем управления  контроля  с территории Праги. 
+        Данная конференция пройдет в онлайн- формате в Праге и позволит  европейским компаниям  первыми инвестировать свой капитал в Казахстане, путем управления и  контроля  с территории Праги.
         <br><br>
-        Конференция ICOS 2021 станет центральным событием бизнес сообщества Казахстана и Чехии, по ознакомлению с казахстанскими инвестиционными проектами из первых рук на территории Праги.  В современных реалиях вызванных пандемией COVID-19 и ограниченностью свободного передвижения, очень важно для бизнес сектора иметь единый Центр  инвестиционных проектов, который  расположен в Праге и позволяет управлять инвестициями.  
+        Конференция ICOSO 2021 станет центральным событием бизнес - сообщества Казахстана и Чехии, по ознакомлению с казахстанскими инвестиционными проектами из первых рук на территории Праги.  В современных реалиях, вызванных пандемией COVID-19 и ограниченностью свободного передвижения, очень важно для бизнес сектора иметь единый Центр  инвестиционных проектов, который  расположен в Праге и позволяет управлять инвестициями по принципу «единого офиса».
         <br><br>
-        Принцип «одного пространства»<br>
-        -стирает часовой разрыв между Казахстаном и Чехией, поскольку Suleiman&Partners разместила  Центр инвестиционных проектов в Праге. <br>
-        - позволяет решить комплекс вопрос от начала рассмотрения инвестиционного проекта, подготовки к его инвестированию и его правовое сопрвождение на всем этапе работы инвестиций. 
+        Принцип «единого офиса»<br>
+        - стирает часовую разницу между Казахстаном и Чехией, поскольку Suleiman&Partners разместила  Центр инвестиционных проектов в Праге. <br>
+        - позволяет решить комплекс вопрос от начала рассмотрения инвестиционного проекта, подготовки к его инвестированию и его правовое сопровождение с системой полного контроля, ежедневной отчетности перед инвестором,   комплаенс контроля на всем этапе работы инвестиций.
         <br><br>
-        Мы будем искренне рады встретить старых друзей и завести новые знакомства в ходе проведения конференции ICOS 2021.`,
+        Мы будем искренне рады встретить старых друзей и завести новые знакомства в ходе проведения конференции ICOSO 2021`,
 				item_titles: [
           'Конференция',
 					'Темы конференции:',
@@ -35,12 +35,13 @@ export default
 					'Спонсоры',
           'Партнеры'
 				],
-				item_link: 'Вы можете разместить свои инвестпроекты на сайте',
+				item_link: 'Вы можете разместить свои инвестиционные проекты на сайте',
         item_but: 'Разместить проект',
-        item_but2: 'Стать партнёром',
+        item_but2: 'Стать спонсором',
+        item_but3: 'Стать партнёром',
 				_bg: [
 					'Для Европейских компаний, работающих на Евразийском рынке и желающих усилить свою бизнес позицию.',
-					'Для начинающих и планирующих работать на Евразийском рынке.',
+					'•	Для начинающих и планирующих работать на рынке Казахстана.',
 					'Для тех, кому необходимо получить ответ в спорной ситуации.',
 					'Насыщенная программа конференции',
 					'Уникальная площадка для поиска ответов',
@@ -67,7 +68,7 @@ export default
           },
           {
             number: 3,
-            content: `Риски инвестирования в Казахстан со стороны европейского предпринимателя.`
+            content: `3.	Риски инвестирования в Казахстан - взгляд европейского предпринимателя.`
           },
           {
             number: 4,
@@ -139,6 +140,7 @@ export default
       ],
 			leads: {
 				type: 'Тип проекта:',
+        pdf: 'Скачать презентацию',
 				rows: [
 					'Требуемые ивестиции',
 					'Тип инвестиций',
@@ -156,7 +158,7 @@ export default
 				rout: 'Связаться с нами'
 			},
 			request: {
-				title: 'Форма заявки',
+				title: 'Форма заявки для инвестиционного проекта',
         button: 'Оплатить',
         who: 'Ответственный представитель',
         final: 'Итоговая сумма: ',
@@ -174,6 +176,7 @@ export default
           }
         ],
         pdf: "Приложить PDF презентации на английском",
+        logo: "Загрузить логотип",
 				inputs: [
           {
             title: 'Наименование компании',
@@ -185,14 +188,64 @@ export default
             type: 'select',
             data: '',
             childs: [
-              {
-                id: 'Казахстан',
-                name: 'Казахстан'
-              },
-              {
-                id: 'Чешская Республика',
-                name: 'Чешская Республика'
-              },
+              {id: "Azerbaijan", name: "Azerbaijan"},
+              {id: "Armenia", name: "Armenia"},
+              {id: "Belarusgeorgia", name: "Belarusgeorgia"},
+              {id: "Kazakhstan", name: "Kazakhstan"},
+              {id: "Kyrgyzstan", name: "Kyrgyzstan"},
+              {id: "Moldova", name: "Moldova"},
+              {id: "Tadjikistan", name: "Tadjikistan"},
+              {id: "Turkmenistan", name: "Turkmenistan"},
+              {id: "Ukraine", name: "Ukraine"},
+              {id: "Uzbekistan", name: "Uzbekistan"},
+              {id: "Albania", name: "Albania"},
+              {id: "Andorra", name: "Andorra"},
+              {id: "Austria", name: "Austria"},
+              {id: "Belarus", name: "Belarus"},
+              {id: "Belgium", name: "Belgium"},
+              {id: "Bosnia and Herzegovina", name: "Bosnia and Herzegovina"},
+              {id: "Bulgaria", name: "Bulgaria"},
+              {id: "Croatia", name: "Croatia"},
+              {id: "Cypruse", name: "Cypruse"},
+              {id: "Czech Republic", name: "Czech Republic"},
+              {id: "Denmark", name: "Denmark"},
+              {id: "Estonia", name: "Estonia"},
+              {id: "Finland", name: "Finland"},
+              {id: "Franceh", name: "Franceh"},
+              {id: "Germany", name: "Germany"},
+              {id: "Greece", name: "Greece"},
+              {id: "Hungary", name: "Hungary"},
+              {id: "Iceland", name: "Iceland"},
+              {id: "Ireland", name: "Ireland"},
+              {id: "Italy", name: "Italy"},
+              {id: "Kosovo", name: "Kosovo"},
+              {id: "Latvia", name: "Latvia"},
+              {id: "Liechtenstein", name: "Liechtenstein"},
+              {id: "Lithuania", name: "Lithuania"},
+              {id: "Luxembourg", name: "Luxembourg"},
+              {id: "North Macedonia", name: "North Macedonia"},
+              {id: "Malta", name: "Malta"},
+              {id: "Moldova", name: "Moldova"},
+              {id: "Monaco", name: "Monaco"},
+              {id: "Montenegro", name: "Montenegro"},
+              {id: "Netherlands", name: "Netherlands"},
+              {id: "Norway", name: "Norway"},
+              {id: "Poland", name: "Poland"},
+              {id: "Portugal", name: "Portugal"},
+              {id: "Romania", name: "Romania"},
+              {id: "Russia", name: "Russia"},
+              {id: "San marino", name: "San marino"},
+              {id: "Serbia", name: "Serbia"},
+              {id: "Slovakia", name: "Slovakia"},
+              {id: "Slovenia", name: "Slovenia"},
+              {id: "Spain", name: "Spain"},
+              {id: "Sweden", name: "Sweden"},
+              {id: "Switzerland", name: "Switzerland"},
+              {id: "Turkey", name: "Turkey"},
+              {id: "Ukraine", name: "Ukraine"},
+              {id: "United Kingdom", name: "United Kingdom"},
+              {id: "Vatican City", name: "Vatican City"},
+              {id: "The United States of America", name: "The United States of America"}
             ]
           },
           {
@@ -344,15 +397,16 @@ export default
         <br><br>
         Учитывая большой опыт работы, наши юристы на постоянной основе вносят свои рекомендации по наиболее эффективному сотрудничеству между государством и бизнесом. 
         <br><br>
-        Многие годы ведущие рейтинговые издания Zákon.kz, NUR. kz а Tengrinews.kz, 365Info.kz, Kaztag  относят нашего главного партнера Жангельды Сулейманова  к числу наиболее рекомендованных экспертов в Казахстане по юридическим вопросам.  
+        Многие годы ведущие рейтинговые издания Zákon.kz, NUR. Kz, Tengrinews.kz, 365Info.kz, Kaztag  относят нашего главного партнера Жангельды Сулейманова  к числу наиболее рекомендованных экспертов в Казахстане по юридическим вопросам.  
         <br><br>
         С 2020 Suleiman&Partners является первой казахстанской юридической компанией, которая вышла на новый формат работы и разместила в Праге - Центр инвестиционных проектов по принципу «единого офиса».  
         <br><br>
-        Клиенты Suleiman&Partners  - это компании из нефтегазового сектора, транспортного сектора, энергетического комплекса, горнодобывающего сектора, дорожного строительства,  алкогольной промышленности, международные компании и компании представляющие известные торговые марки в Казахстане и на международном уровне. <br>
+        Клиенты Suleiman&Partners  - это компании из нефтегазового сектора, транспортного сектора, энергетического комплекса, горнодобывающего сектора, дорожного строительства,  алкогольной промышленности, международные компании и компании представляющие известные торговые марки в Казахстане и на международном уровне. 
+        <br>
         Высокой оценкой нашей работы, является то, что наши клиенты доверили нам право представить Вам их инвестиционные проекты из первых рук. 
         . 
         `,
-        button: 'Читать о компании больше'
+        // button: 'Читать о компании больше'
 			},
 			payment: {
 				title: 'Оплата',
@@ -368,7 +422,7 @@ export default
 				text_1: `Ошибка оплаты`
 			},
 			success:{
-				text_1: `Успешная оплата`,
+				text_1: `Успешная регистрация`,
 				text_2: `Ваш проект в скором времени будет доступен на сайте`,
 			},
 			header: {
@@ -397,28 +451,10 @@ export default
 				title: 'Участвуйте в конференции!',
 				buttons: [
 					'Регистрация на участие',
-					'Оставить заявку'
+					'Разместить проект'
 				],
 				soc: 'Мы в соц. сетях',
 				links: [
-          {
-            title: 'О нас',
-            childs: [
-              {
-                name: 'О компании',
-                href: '/about_us'
-              }
-            ]
-          },
-          {
-            title: 'Адрес',
-            childs: [
-              {
-                name: 'Чешская Республика, г. Прага, ул. Таборитска 1000/23',
-                href: 'geo:50.0828583,14.4552392,17'
-              }
-            ]
-          },
           {
             title: 'Контакты',
             childs: [
@@ -434,15 +470,6 @@ export default
               }
             ]
           },
-          {
-            title: 'Помощь',
-            childs: [
-              {
-                name: 'Поддержка',
-                href: '/'
-              }
-            ]
-          }
         ]
 			}
 		},
@@ -453,7 +480,7 @@ export default
     en: {
 			index: {
 				header: {
-					title: 'Conference ICOSO 2021 Investment Center Project of Single Office',
+					title: 'Conference ICOSO 2021<br>Investment Center Project of Single Office',
 					about: 'Pandemie covid 19',
           calendar: 'on May 20, 2021  10:00 Prague',
 					button: 'Registration for the conference'
@@ -489,7 +516,8 @@ export default
 				],
 				item_link: 'You can place your investment projects on the site',
         item_but: 'Submit a project',
-        item_but2: 'Become a partner',
+        item_but2: 'Become a sponsor',
+        item_but3: 'Become a partner',
 				_bg: [
 					'European companies working in the Kazakhstan market and willing to strengthen their business position.',
 					'Those who are planning to work in the Kazakhstan market.',
@@ -591,6 +619,7 @@ export default
       ],
 			leads: {
 				type: 'Project type:',
+        pdf: 'Download presentation',
 				rows: [
 					'Required investments',
 					'Investment type',
@@ -626,6 +655,7 @@ export default
           }
         ],
         pdf: "Attach PDF presentation in English",
+        logo: "Upload logo",
 				inputs: [
           {
             title: 'Company name',
@@ -637,14 +667,64 @@ export default
             type: 'select',
             data: '',
             childs: [
-              {
-                id: 'Казахстан',
-                name: 'Казахстан'
-              },
-              {
-                id: 'Чешская Республика',
-                name: 'Чешская Республика'
-              },
+              {id: "Azerbaijan", name: "Azerbaijan"},
+              {id: "Armenia", name: "Armenia"},
+              {id: "Belarusgeorgia", name: "Belarusgeorgia"},
+              {id: "Kazakhstan", name: "Kazakhstan"},
+              {id: "Kyrgyzstan", name: "Kyrgyzstan"},
+              {id: "Moldova", name: "Moldova"},
+              {id: "Tadjikistan", name: "Tadjikistan"},
+              {id: "Turkmenistan", name: "Turkmenistan"},
+              {id: "Ukraine", name: "Ukraine"},
+              {id: "Uzbekistan", name: "Uzbekistan"},
+              {id: "Albania", name: "Albania"},
+              {id: "Andorra", name: "Andorra"},
+              {id: "Austria", name: "Austria"},
+              {id: "Belarus", name: "Belarus"},
+              {id: "Belgium", name: "Belgium"},
+              {id: "Bosnia and Herzegovina", name: "Bosnia and Herzegovina"},
+              {id: "Bulgaria", name: "Bulgaria"},
+              {id: "Croatia", name: "Croatia"},
+              {id: "Cypruse", name: "Cypruse"},
+              {id: "Czech Republic", name: "Czech Republic"},
+              {id: "Denmark", name: "Denmark"},
+              {id: "Estonia", name: "Estonia"},
+              {id: "Finland", name: "Finland"},
+              {id: "Franceh", name: "Franceh"},
+              {id: "Germany", name: "Germany"},
+              {id: "Greece", name: "Greece"},
+              {id: "Hungary", name: "Hungary"},
+              {id: "Iceland", name: "Iceland"},
+              {id: "Ireland", name: "Ireland"},
+              {id: "Italy", name: "Italy"},
+              {id: "Kosovo", name: "Kosovo"},
+              {id: "Latvia", name: "Latvia"},
+              {id: "Liechtenstein", name: "Liechtenstein"},
+              {id: "Lithuania", name: "Lithuania"},
+              {id: "Luxembourg", name: "Luxembourg"},
+              {id: "North Macedonia", name: "North Macedonia"},
+              {id: "Malta", name: "Malta"},
+              {id: "Moldova", name: "Moldova"},
+              {id: "Monaco", name: "Monaco"},
+              {id: "Montenegro", name: "Montenegro"},
+              {id: "Netherlands", name: "Netherlands"},
+              {id: "Norway", name: "Norway"},
+              {id: "Poland", name: "Poland"},
+              {id: "Portugal", name: "Portugal"},
+              {id: "Romania", name: "Romania"},
+              {id: "Russia", name: "Russia"},
+              {id: "San marino", name: "San marino"},
+              {id: "Serbia", name: "Serbia"},
+              {id: "Slovakia", name: "Slovakia"},
+              {id: "Slovenia", name: "Slovenia"},
+              {id: "Spain", name: "Spain"},
+              {id: "Sweden", name: "Sweden"},
+              {id: "Switzerland", name: "Switzerland"},
+              {id: "Turkey", name: "Turkey"},
+              {id: "Ukraine", name: "Ukraine"},
+              {id: "United Kingdom", name: "United Kingdom"},
+              {id: "Vatican City", name: "Vatican City"},
+              {id: "The United States of America", name: "The United States of America"}
             ]
           },
           {
@@ -821,7 +901,7 @@ export default
 				text_1: `Payment error`
 			},
 			success:{
-				text_1: `Successful payment`,
+				text_1: `Successful registration`,
 				text_2: `Your project will soon be available on the site`,
 			},
 			header: {
@@ -901,10 +981,10 @@ export default
 		},
 
     
-    cs: {
+    cz: {
 			index: {
 				header: {
-					title: 'Konference ICOSO 2021 Centrum pro investiční projekty na principu „jediné kanceláře',
+					title: 'Konference ICOSO 2021<br>Centrum pro investiční projekty na principu „jediné kanceláře',
 					about: 'Pandemie covid 19',
           calendar: '20. května 2021  10:00 Praha',
 					button: 'Registrace na konferenci'
@@ -939,7 +1019,8 @@ export default
 				],
 				item_link: 'Na web můžete umístit své investiční projekty',
         item_but: 'Umístit projekt',
-        item_but2: 'Stát se partnerem',
+        item_but2: 'Stát se sponzorem',
+        item_but3: 'Stát se partnerem',
 				_bg: [
 					'Evropské společnosti působící na kazašském trhu, které chtějí posílit své obchodní postavení.',
 					'Zájemce o zahájení a plánování práce na kazašském trhu.',
@@ -1041,6 +1122,7 @@ export default
       ],
 			leads: {
 				type: 'Typ projektu:',
+        pdf: 'Stáhnout prezentaci',
 				rows: [
 					'Požadované investice',
 					'Typ investice',
@@ -1053,7 +1135,7 @@ export default
 				about: '',
 				ending: 'Celková cena:',
         send: 'Zaregistrujte se nyní',
-        link: '<span>Potvrzuji svůj souhlas se </span><a style="display: inline" target="_blank" href="/static/pp/privacy_policy_cs.htm"zpracováním osobních údajů</a>',
+        link: '<span>Potvrzuji svůj souhlas se </span><a style="display: inline" target="_blank" href="/static/pp/privacy_policy_cz.htm"zpracováním osobních údajů</a>',
 				if_title: 'V případě potíží s registrací?',
 				rout: 'Kontaktujte nás!'
 			},
@@ -1076,6 +1158,7 @@ export default
           }
         ],
         pdf: "Přiložit PDF prezentaci v angličtině",
+        logo: "Nahrát logo",
 				inputs: [
           {
             title: 'Název společnosti',
@@ -1087,14 +1170,64 @@ export default
             type: 'select',
             data: '',
             childs: [
-              {
-                id: 'Казахстан',
-                name: 'Казахстан'
-              },
-              {
-                id: 'Чешская Республика',
-                name: 'Чешская Республика'
-              },
+              {id: "Azerbaijan", name: "Azerbaijan"},
+              {id: "Armenia", name: "Armenia"},
+              {id: "Belarusgeorgia", name: "Belarusgeorgia"},
+              {id: "Kazakhstan", name: "Kazakhstan"},
+              {id: "Kyrgyzstan", name: "Kyrgyzstan"},
+              {id: "Moldova", name: "Moldova"},
+              {id: "Tadjikistan", name: "Tadjikistan"},
+              {id: "Turkmenistan", name: "Turkmenistan"},
+              {id: "Ukraine", name: "Ukraine"},
+              {id: "Uzbekistan", name: "Uzbekistan"},
+              {id: "Albania", name: "Albania"},
+              {id: "Andorra", name: "Andorra"},
+              {id: "Austria", name: "Austria"},
+              {id: "Belarus", name: "Belarus"},
+              {id: "Belgium", name: "Belgium"},
+              {id: "Bosnia and Herzegovina", name: "Bosnia and Herzegovina"},
+              {id: "Bulgaria", name: "Bulgaria"},
+              {id: "Croatia", name: "Croatia"},
+              {id: "Cypruse", name: "Cypruse"},
+              {id: "Czech Republic", name: "Czech Republic"},
+              {id: "Denmark", name: "Denmark"},
+              {id: "Estonia", name: "Estonia"},
+              {id: "Finland", name: "Finland"},
+              {id: "Franceh", name: "Franceh"},
+              {id: "Germany", name: "Germany"},
+              {id: "Greece", name: "Greece"},
+              {id: "Hungary", name: "Hungary"},
+              {id: "Iceland", name: "Iceland"},
+              {id: "Ireland", name: "Ireland"},
+              {id: "Italy", name: "Italy"},
+              {id: "Kosovo", name: "Kosovo"},
+              {id: "Latvia", name: "Latvia"},
+              {id: "Liechtenstein", name: "Liechtenstein"},
+              {id: "Lithuania", name: "Lithuania"},
+              {id: "Luxembourg", name: "Luxembourg"},
+              {id: "North Macedonia", name: "North Macedonia"},
+              {id: "Malta", name: "Malta"},
+              {id: "Moldova", name: "Moldova"},
+              {id: "Monaco", name: "Monaco"},
+              {id: "Montenegro", name: "Montenegro"},
+              {id: "Netherlands", name: "Netherlands"},
+              {id: "Norway", name: "Norway"},
+              {id: "Poland", name: "Poland"},
+              {id: "Portugal", name: "Portugal"},
+              {id: "Romania", name: "Romania"},
+              {id: "Russia", name: "Russia"},
+              {id: "San marino", name: "San marino"},
+              {id: "Serbia", name: "Serbia"},
+              {id: "Slovakia", name: "Slovakia"},
+              {id: "Slovenia", name: "Slovenia"},
+              {id: "Spain", name: "Spain"},
+              {id: "Sweden", name: "Sweden"},
+              {id: "Switzerland", name: "Switzerland"},
+              {id: "Turkey", name: "Turkey"},
+              {id: "Ukraine", name: "Ukraine"},
+              {id: "United Kingdom", name: "United Kingdom"},
+              {id: "Vatican City", name: "Vatican City"},
+              {id: "The United States of America", name: "The United States of America"}
             ]
           },
           {
@@ -1271,7 +1404,7 @@ export default
 				text_1: `Chyba platby`
 			},
 			success:{
-				text_1: `Úspěšná platba`,
+				text_1: `Úspěšná registrace`,
 				text_2: `Váš projekt bude brzy k dispozici na webu`,
 			},
 			header: {

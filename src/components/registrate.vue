@@ -7,7 +7,7 @@
           <div class="form-body-content-item" v-for="(member, i) in members">
             <div class="close" @click="removeMember" v-if="members.length > 1"><img src="/static/img/exit.svg"></div>
             <div class="form-body-content-item-pre">{{$languages.registrate.member}} {{i+1}}</div>
-            <v-input :required="true" :title="input.title" type="text" v-model="input.data" v-for="input in member"/>
+            <v-input :required="true" :title="input.title" :type="j ? 'email' : 'text'" v-model="input.data" v-for="(input, j) in member"/>
           </div>
           <v-button class="__pluses my-8" @click="addMember()" :title="$languages.registrate.member"/>
 

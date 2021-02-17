@@ -7,7 +7,7 @@
         <div class="content">
           <div class="item-main">
             <div class="item-main-column">
-              <div class="item-main-column-title">{{$languages.index.header.title}}</div>
+              <div class="item-main-column-title" v-html="$languages.index.header.title"></div>
               <div class="item-main-column-about">{{$languages.index.header.about}}</div>
               <div class="item-main-column-calendar">
                 <img src="/static/img/calendar.svg">
@@ -203,6 +203,7 @@
               </div>
             </div>
           </div>
+          <v-button :title="$languages.index.item_but2" @click="$router.push('/request')" />
         </div>
       </div>
       <div class="index-item __transpatent">
@@ -212,11 +213,13 @@
           <div class="item-main">
             <div class="item-main-cell cell-4 __min" v-for="partner in partners">
               <div class="item-main-cell-body">
-                <div class="item-main-cell-body-sponsor"><img :src="'/static/img/'+partner.logo"></div>
+                <div class="item-main-cell-body-sponsor">
+                  <img v-if="partner.Image" class="ava" :src="'https://admin.suleimanpartners.com:9002/suleiman-api/v1/uploads/' + partner.Image.replace(/<\/?[a-zA-Z]+>/gi,'')">
+                </div>
               </div>
             </div>
           </div>
-          <v-button :title="$languages.index.item_but2" @click="$router.push('/request')" />
+          <v-button :title="$languages.index.item_but3" @click="$router.push('/request')" />
         </div>
       </div>
 
@@ -229,7 +232,7 @@
   export default {
     data: () => {
       return{
-        end_time: new Date(2021,4,20),
+        end_time: new Date(2021,4,20,10),
         now: {days: 0, hours: 0, minuts: 0, seconds: 0},
         sponsors: [
           {
@@ -261,33 +264,33 @@
           }
         ],
         partners: [
-          {
-            logo: 'sponsor_0.png'
-          },
-          {
-            logo: 'sponsor_1.png'
-          },
-          {
-            logo: 'sponsor_2.png'
-          },
-          {
-            logo: 'sponsor_2.png'
-          },
-          {
-            logo: 'sponsor_0.png'
-          },
-          {
-            logo: 'sponsor_1.png'
-          },
-          {
-            logo: 'sponsor_1.png'
-          },
-          {
-            logo: 'sponsor_2.png'
-          },
-          {
-            logo: 'sponsor_0.png'
-          }
+          // {
+          //   logo: 'sponsor_0.png'
+          // },
+          // {
+          //   logo: 'sponsor_1.png'
+          // },
+          // {
+          //   logo: 'sponsor_2.png'
+          // },
+          // {
+          //   logo: 'sponsor_2.png'
+          // },
+          // {
+          //   logo: 'sponsor_0.png'
+          // },
+          // {
+          //   logo: 'sponsor_1.png'
+          // },
+          // {
+          //   logo: 'sponsor_1.png'
+          // },
+          // {
+          //   logo: 'sponsor_2.png'
+          // },
+          // {
+          //   logo: 'sponsor_0.png'
+          // }
         ],
         projects: [],
         speakers: [[
@@ -329,7 +332,7 @@
       this.types = this.$languages.index.types
 
       this.getSpeakers()
-
+      console.log(this.end_time)
       this.now.seconds = this.end_time.getSeconds() - new Date().getSeconds()
       this.now.minuts = this.end_time.getMinutes() - new Date().getMinutes()
       this.now.hours = this.end_time.getHours() - new Date().getHours()
@@ -390,6 +393,7 @@
         this.$axios.get('leads')
         .then(res => {
           console.log(res.data)
+          this.partners = res.data.data.filter(x =>x.Price === 50 || x.Price === 150)
           for(let lead of res.data.data){
             console.log(lead)
             for(let project of this.$languages.projects){
@@ -566,7 +570,7 @@
     }
     &-about{
       display: block;
-      text-align: left;
+      text-align: justify;
       font-weight: 800;
       font-size: 18px;
       line-height: 24.6px;

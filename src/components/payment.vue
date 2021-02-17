@@ -156,7 +156,7 @@
     		.then(res => {
     			data = {
 					cryptogram: result.packet,
-					return_url: top.location.origin + '/success/'
+					return_url: top.location.origin + '/#/success/'
 				}
 				console.log(data)
     			this.$axios.post('/orders/pay/' + res.data.ID, data)

@@ -6,12 +6,19 @@
         <div class="form-body-content">
           <div class="form-body-content-item" v-for="(input, i) in inputs">
             <v-input :required="true" :maxlength="input.maxlength" :id="('input-' + ((Math.random() * 10000)^0) + '-data[' + ((Math.random() * 10000)^0) + ']')":childs="input.childs" :title="input.title" :type="input.type" v-model="input.data"/>
+            
+            <label class="pdf" v-if="!i">
+              <input type="file" @change="e => addLogo(e)" accept="image/png, image/jpeg, image/jpg" class="hidden">
+              <span v-if="logo !== 'load'">{{logo ? logo :$languages.request.logo}}</span>
+              <img src="/static/img/load.svg" v-else>
+            </label>
           </div>
         </div>
       </div>
       <label class="pdf">
         <input type="file" @change="e => addFile(e)" accept="application/pdf" class="hidden">
-        <span>{{$languages.request.pdf}}</span>
+        <span v-if="file !== 'load'">{{file ? file : $languages.request.pdf}}</span>
+        <img src="/static/img/load.svg" v-else>
       </label>
       <div class="form-pretitle">{{$languages.request.who}}</div>
       <div class="form-body">
@@ -47,6 +54,7 @@
         inputs_who: [],
         packages: [],
         file: null,
+        logo: null,
         check: false
       }
     },
@@ -66,9 +74,19 @@
       this.packages = this.$languages.request.packages
     },
     methods: {
+      addLogo(e){
+        if(e.target && e.target.files.length){
+          let data = new FormData()
+          this.logo = "load"
+          data.append("uploadFile", e.target.files[0])
+          this.$axios.post("/image/save", data)
+          .then(res => this.logo = res.data.file)
+        }
+      },
       addFile(e) {
         if(e.target && e.target.files.length){
           let data = new FormData()
+          this.file = "load"
           data.append("uploadFile", e.target.files[0])
           this.$axios.post("/orders/pdf/save", data)
           .then(res => this.file = res.data.file)
@@ -77,6 +95,7 @@
       createLead(){
         if(this.getPrice && this.check){
           var data = {}
+          data.image = this.logo
           data.file = this.file
           data.company_name = this.inputs[0].data
           data.country = this.inputs[1].data
@@ -140,5 +159,10 @@
     line-height: 22px;
     color: #000D1A;
     cursor: pointer;
+    &>img{
+      max-height: 32px;
+      position: absolute;
+    }
+
   }
 </style>

@@ -122,6 +122,9 @@
     }
     &-column{
       align-items: flex-start;
+      &:last-child{
+        align-items: flex-end;
+      }
       &.center{
         max-width: 100vw;
         align-items: center;
@@ -159,13 +162,13 @@
       }
       &-icons{
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: flex-end;
         &-icon{
           height: 50px;
           width: 50px;
           border-radius: 50%;
           background-color: #4A5C7830;
-          margin-right: 14px;
+          // margin-right: 14px;
           &:hover{
             background-color: $blue_l;
           }
