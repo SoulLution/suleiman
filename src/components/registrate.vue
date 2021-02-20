@@ -19,8 +19,8 @@
       </div>
       <div class="form-footer">
         <v-button :title="$languages.registrate.send" @click="pay()" />
-        <div class="registrate-title">{{$languages.registrate.if_title}}</div>
-        <a href="http://suleimanpartners.com" target="_blank" class="registrate-router">{{$languages.registrate.rout}}</a>
+        <div class="registrate-title">{{$languages.support}}</div>
+        <a href="mailto:conference@suleimanpartners.com" target="_blank" class="registrate-router">conference@suleimanpartners.com</a>
       </div>
     </form>
   </div>
@@ -58,7 +58,7 @@
       addMember(){
         this.members.push([
           {
-            title: 'Наименование компании или ФИО *',
+            title: this.$languages.registrate.fio,
             data: this.members.length ? this.members[this.members.length-1][0].data : ''
           },
           {
@@ -75,6 +75,7 @@
   @import "@/assets/main.scss";
   .registrate{
     padding: 15px 15px 40px;
+    margin-top: 70px;
     min-height: 100vh;
     justify-content: flex-start;
     background-color: $white;

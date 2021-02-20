@@ -29,8 +29,8 @@
         </div>
       </div>
       <div class="form-pretitle">{{$languages.request._package}}</div>
-      <div class="form-flex-row my-8" v-for="_package in packages">
-        <v-check-box v-model="_package.data" :checked="_package.data" :id="_package.value" />
+      <div class="form-flex-row my-8" v-for="(_package, j) in packages">
+        <v-check-box v-model="_package.data" @input="e => changeMe(j ,e)" :checked="_package.data" :id="_package.value" />
         <label style="" :for="_package.value" v-html="_package.key"></label>
       </div>
       <label class="my-2">{{$languages.request.final}} <strong>{{getPrice}}€</strong></label>
@@ -41,6 +41,8 @@
       <div class="form-footer">
         <input type="submit" style="display: none;" ref="send" @click.prevent="createLead()">
         <v-button :title="$languages.request.button" @click="$refs['send'].click()"/>
+        <div class="registrate-title">{{$languages.support}}</div>
+        <a href="mailto:conference@suleimanpartners.com" target="_blank" class="registrate-router">conference@suleimanpartners.com</a>
       </div>
     </form>
   </div>
@@ -74,6 +76,13 @@
       this.packages = this.$languages.request.packages
     },
     methods: {
+      changeMe(index){
+        this.packages[index].data = true
+        this.packages.forEach((x, i) => {
+          if(i !== index)
+            x.data = false
+        })
+      },
       addLogo(e){
         if(e.target && e.target.files.length){
           let data = new FormData()
@@ -122,6 +131,7 @@
   .request{
     padding: 15px 15px 40px;
     min-height: 100vh;
+    margin-top: 70px;
     justify-content: flex-start;
     background-color: $white;
   }

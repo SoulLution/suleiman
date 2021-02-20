@@ -2,7 +2,7 @@
 	<label class="input" :for="id" @click="type === 'select' ? checkInp(!focus) : ''">
 		<div class="input-title" :class="{ 'active': focus || data }">{{title}}</div>
 		<input class="input-input" :class="{focused: focus_check}" :required="!!required" :type="type" :id="id" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="sendData" v-model="data" v-if="type !== 'select' && type !== 'textarea'">
-		<div class="input-select" :class="{ 'active': focus }" :id="id" v-else-if="type === 'select'">{{data}}</div>
+		<div class="input-select" :class="{ 'active': focus }" :id="id" :required="!!required" v-else-if="type === 'select'">{{data}}</div>
 		<textarea class="input-textarea" :class="{focused: focus_check}" :required="!!required" :id="id" :maxlength="maxlength" @focus="checkInp(true)" @blur="checkInp(false)" @keyup="sendData" v-model="data" v-else>
 			
 		</textarea>

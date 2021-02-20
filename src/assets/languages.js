@@ -4,7 +4,7 @@ export default
 			index: {
 				header: {
 					title: 'Конференция ICOSO 2021<br>Центр инвестиционных проектов по принципу «единого офиса»',
-					about: 'Pandemie covid 19',
+					about: 'Pandemie COVID 19',
           calendar: '20 Мая 2021  10:00 Прага',
 					button: 'Регистрация на конференцию'
 				},
@@ -40,8 +40,8 @@ export default
         item_but2: 'Стать спонсором',
         item_but3: 'Стать партнёром',
 				_bg: [
-					'Для Европейских компаний, работающих на Евразийском рынке и желающих усилить свою бизнес позицию.',
-					'•	Для начинающих и планирующих работать на рынке Казахстана.',
+					'Для Европейских компаний, работающих на рынке Казахстана и желающих усилить свою бизнес позицию.',
+					'Для начинающих и планирующих работать на рынке Казахстана.',
 					'Для тех, кому необходимо получить ответ в спорной ситуации.',
 					'Насыщенная программа конференции',
 					'Уникальная площадка для поиска ответов',
@@ -68,7 +68,7 @@ export default
           },
           {
             number: 3,
-            content: `3.	Риски инвестирования в Казахстан - взгляд европейского предпринимателя.`
+            content: `Риски инвестирования в Казахстан - взгляд европейского предпринимателя.`
           },
           {
             number: 4,
@@ -147,11 +147,13 @@ export default
 					'Стадия проекта'
 				]
 			},
+      support: 'Если у Вас возникли какие либо проблемы просим связаться с нами',
 			registrate: {
 				title: 'Регистрация на конференцию',
 				member: 'Участник',
 				about: '',
 				ending: 'Итоговая сумма:',
+        fio: 'Наименование компании или Титул ФИО*',
         send: 'Зарегистрироваться',
         link: '<span>Подтверждаю согласие на </span><a style="display: inline" target="_blank" href="/static/pp/privacy_policy_ru.htm">обработку персональных данных</a>',
 				if_title: 'в случае невозможности оплатить',
@@ -170,8 +172,8 @@ export default
             data: true,
           },
           {
-            key: 'бегущая строка и живая презентация инвестиционного проекта после выступлений спикеров <strong>100€</strong>',
-            value: 100,
+            key: 'Размещение вашего проекта и логотипа в качестве партнёра и живая презентация инвестиционного проекта после выступлений спикеров <strong>150€</strong>',
+            value: 150,
             data: false,
           }
         ],
@@ -304,7 +306,7 @@ export default
           ]
           },
           {
-            title: 'Требуемые инвестиции:',
+            title: 'Требуемые инвестиции (укажите сумму в евро):',
             type: 'textarea',
             data: ''
           },
@@ -340,7 +342,7 @@ export default
             ]
           },
           {
-            title: 'Стадия проекта:',
+            title: 'Этап проекта:',
             type: 'select',
             data: '',
             childs: [
@@ -391,6 +393,7 @@ export default
           }
         ]
 			},
+      sponsor_us: 'Как стать спонсором?<br>Свяжитесь с нами для более подробной информации',
 			about_us:{
 				title: 'О нас',
 				text: `Казахстанская юридическая компания Suleiman&Partners является одной из наиболее опытных компаний в Казахстане, специализирующаяся на решении налоговых и инвестиционных споров, сделок по приобретению и продажи бизнеса, а также на комплексном сопровождении сложных проектов, реструктуризации и оптимизации корпоративного управления.
@@ -481,7 +484,7 @@ export default
 			index: {
 				header: {
 					title: 'Conference ICOSO 2021<br>Investment Center Project of Single Office',
-					about: 'Pandemie covid 19',
+					about: 'Pandemie COVID 19',
           calendar: 'on May 20, 2021  10:00 Prague',
 					button: 'Registration for the conference'
 				},
@@ -515,7 +518,7 @@ export default
           'Partners'
 				],
 				item_link: 'You can place your investment projects on the site',
-        item_but: 'Submit a project',
+        item_but: 'Registration a project',
         item_but2: 'Become a sponsor',
         item_but3: 'Become a partner',
 				_bg: [
@@ -626,11 +629,13 @@ export default
 					'Stage of the project'
 				]
 			},
+      support: 'If you have any problems, please contact us',
 			registrate: {
 				title: 'Registration for the conference',
 				member: 'Participant ',
 				about: '',
 				ending: 'Total price:',
+        fio: 'Company name or Title, Full name*',
         send: 'Register now',
         link: '<span>I agree that </span><a style="display: inline" target="_blank" href="/static/pp/privacy_policy_en.htm">my personal data be processed</a>',
 				if_title: 'Difficulties with registration?',
@@ -649,8 +654,8 @@ export default
             data: true,
           },
           {
-            key: 'Running line display and live presentation of the investment project after the speeches of the announcers <strong>100€</strong>',
-            value: 100,
+            key: 'Placing your project and active logo as a partner on the conference and live presentation of the investment project other speeches of the announcers <strong>150€</strong>',
+            value: 150,
             data: false,
           }
         ],
@@ -728,7 +733,7 @@ export default
             ]
           },
           {
-            title: 'Отрасль',
+            title: 'Industry',
             type: 'select',
             data: '',
             childs: [
@@ -870,6 +875,7 @@ export default
           }
         ]
 			},
+      sponsor_us: 'How to become a sponsor? <br> Contact us for more details',
 			about_us:{
 				title: 'About us',
 				text: `The Kazakhstan law firm Suleiman & Partners is one of the most experienced companies in Kazakhstan, specializing in tax and investment disputes resolution, selling and purchasing of businesses, as well as overall support for complex projects, restructuring and optimization of corporate management.
@@ -935,24 +941,6 @@ export default
 				soc: 'Find us on social networks',
 				links: [
           {
-            title: 'About us',
-            childs: [
-              {
-                name: 'About the company',
-                href: '/about_us'
-              }
-            ]
-          },
-          {
-            title: 'Address',
-            childs: [
-              {
-                name: 'Czech Republic, Prague, st. Taboritska 1000/23',
-                href: 'geo:50.0828583,14.4552392,17'
-              }
-            ]
-          },
-          {
             title: 'Contacts',
             childs: [
               {
@@ -984,8 +972,8 @@ export default
     cz: {
 			index: {
 				header: {
-					title: 'Konference ICOSO 2021<br>Centrum pro investiční projekty na principu „jediné kanceláře',
-					about: 'Pandemie covid 19',
+					title: 'Konference ICOSO 2021<br>Centrum pro investiční projekty na principu „jediné kanceláře“',
+					about: 'Pandemie COVID 19',
           calendar: '20. května 2021  10:00 Praha',
 					button: 'Registrace na konferenci'
 				},
@@ -995,7 +983,7 @@ export default
 					minuts: 'minuty',
 					secconds: 'sekundy'
 				},
-        conf: `Kazašská právnická společnost  Suleiman & Partners Vás srdečně zve k účasti na konferenci Centrum pro investiční projekty na principu „jediné kanceláře“ ICOSO 2021, která se bude konat 20. května 2021.
+        conf: `Kazašská právnická společnost Suleiman & Partners Vás srdečně zve k účasti na konferenci Centrum pro investiční projekty na principu „jediné kanceláře“ ICOSO 2021, která se bude konat 20. května 2021.
         <br><br>
         Tato konference se bude konat online v Praze a umožní evropským společnostem jako prvním investovat svůj kapitál v Kazachstánu prostřednictvím řízení kontroly z území Prahy.
         <br><br>
@@ -1018,7 +1006,7 @@ export default
           'Partneři'
 				],
 				item_link: 'Na web můžete umístit své investiční projekty',
-        item_but: 'Umístit projekt',
+        item_but: 'Registrace projektů',
         item_but2: 'Stát se sponzorem',
         item_but3: 'Stát se partnerem',
 				_bg: [
@@ -1129,11 +1117,13 @@ export default
 					'Fáze projektu'
 				]
 			},
+      support: 'Pokud máte nějaké problémy, kontaktujte nás',
 			registrate: {
 				title: 'Registrace na konferenci',
 				member: 'Účastník  ',
 				about: '',
 				ending: 'Celková cena:',
+        fio: 'Název společnosti nebo Titul Jméno a Příjmení*',
         send: 'Zaregistrujte se nyní',
         link: '<span>Potvrzuji svůj souhlas se </span><a style="display: inline" target="_blank" href="/static/pp/privacy_policy_cz.htm"zpracováním osobních údajů</a>',
 				if_title: 'V případě potíží s registrací?',
@@ -1152,8 +1142,8 @@ export default
             data: true,
           },
           {
-            key: 'Plíživá linka a živá prezentace Vašeho investičního projektu po vystoupení řečníka <strong>100€</strong>',
-            value: 100,
+            key: 'Umístění Vašeho projektu a loga jako partnera na konferenci a plíživá linka a živá prezentace Vašeho investičního projektu po vystoupení řečníka <strong>150€</strong>',
+            value: 150,
             data: false,
           }
         ],
@@ -1373,9 +1363,10 @@ export default
           }
         ]
 			},
+      sponsor_us: 'Jak se mohu stát sponzorem? <br> Kontaktujte nás pro více informací',
 			about_us:{
 				title: 'O nás',
-				text: `Kazachstánská právní kancelář Suleiman & Partners je jednou z nejzkušenějších společností v Kazachstánu, která se specializuje na řešení daňových a investičních sporů, prodej a nákup podniků a také na celkovou podporu komplexních projektů, restrukturalizaci a optimalizaci řízení a správy společností.
+				text: `Kazašská právnická společnost Suleiman & Partners je jednou z nejzkušenějších společností v Kazachstánu, která se specializuje na řešení daňových a investičních sporů, prodej a nákup podniků a také na celkovou podporu komplexních projektů, restrukturalizaci a optimalizaci řízení a správy společností.
         <br><br>
         Na základě svých rozsáhlých zkušeností naši právníci nepřetržitě usilují o rozvoj a co nejefektivnější spolupráci mezi vládou a podniky.
         <br><br>
@@ -1438,24 +1429,6 @@ export default
 				soc: 'Jsme na sociálních sítích',
 				links: [
           {
-            title: 'O nás',
-            childs: [
-              {
-                name: 'O společnosti',
-                href: '/about_us'
-              }
-            ]
-          },
-          {
-            title: 'Adresa',
-            childs: [
-              {
-                name: 'Česká republika, Praha, st. Taboritska 1000/23',
-                href: 'geo:50.0828583,14.4552392,17'
-              }
-            ]
-          },
-          {
             title: 'Kontakty',
             childs: [
               {
@@ -1483,4 +1456,481 @@ export default
 			}
 		},
 
+    
+		kz: {
+			index: {
+				header: {
+					title: 'ICOSO конференциясы 2021<br>«Бір кеңсе» қағидаты бойынша инвестициялық жобалар орталығы',
+					about: 'Pandemie COVID 19',
+          calendar: '20 мамыр 2021 10:00 Прага',
+					button: 'Конференцияға тіркелу'
+				},
+				date: {
+					days: 'Күндер',
+					hours: 'сағат ',
+					minuts: 'минуттар ',
+					secconds: 'Секунд'
+				},
+        conf: `Suleiman & Partners қазақстандық заң фирмасы сізді 2021 жылы 20 мамырда өтетін ICOSO 2021 «Бір кеңсе» қағидаты бойынша инвестициялық жобалар орталығы »конференциясына қатысуға шақырады.
+        <br><br>
+        Бұл конференция онлайн режимінде Прагада өтеді және еуропалық компанияларға Прага аумағынан басқару және бақылау арқылы өз капиталын Қазақстанға бірінші болып салуға мүмкіндік береді.
+        <br><br>
+        ICOSO 2021 конференциясы бірінші кезекте Прагада қазақстандық инвестициялық жобалармен танысу үшін Қазақстан мен Чехия бизнес қауымдастығының орталық іс-шарасына айналады. COVID-19 пандемиясы және шектеулі еркін қозғалыс тудырған қазіргі заманғы шындықта бизнес секторы үшін Прагада орналасқан және «бір кеңсе» қағидасы бойынша инвестицияларды басқаруға мүмкіндік беретін бірыңғай Инвестициялық Жобалар Орталығының болуы өте маңызды.
+        <br><br>
+        «Бір кеңсе» қағидаты<br>
+        - Suleiman & Partners Прагада инвестициялық жобалар орталығын орналастырғандықтан, Қазақстан мен Чехия арасындағы сағаттық айырмашылықты жояды.<br>
+        - инвестициялық жобаны қарау басталғаннан бастап күрделі мәселені шешуге мүмкіндік береді, оны инвестициялауға дайындық және оны толық бақылау жүйесімен құқықтық қамтамасыз ету, инвесторға күнделікті есеп беру, инвестицияның барлық кезеңінде сәйкестікті бақылау.        
+        <br><br>
+        Біз ICOSO 2021 конференциясы кезінде ескі достармен кездесуге және жаңа таныстарға қуанышты боламыз.`,
+				item_titles: [
+          'Конференция',
+					'Конференция тақырыбы:',
+					'Бұған кім мүдделі',
+					'Спикерлер',
+					'Конференцияға қатысу себептері',
+					'Инвестициялық жобалар',
+					'Демеушілер',
+          'Серіктестер'
+				],
+				item_link: 'Сіз өзіңіздің инвестициялық жобаларыңызды сайтқа орналастыра аласыз',
+        item_but: 'Жобаны орналастырыңыз',
+        item_but2: 'Демеуші болыңыз',
+        item_but3: 'Серіктес бол',
+				_bg: [
+          'Қазақстандық нарықта жұмыс істейтін және өзінің іскери жағдайын нығайтуды қалайтын еуропалық компаниялар үшін.',
+          'Жаңадан бастағандарға және Қазақстан нарығында жұмыс істегісі келетіндерге.',
+          'Даулы жағдайда жауап алу қажет болғандар үшін.',
+          'Конференцияның бай бағдарламасы',
+          'Жауап іздеуге арналған бірегей платформа',
+          'Корпоративті коммуникация алаңы',
+          'Атмосфера'
+				],
+        undefined_speaker: 'Спикер расталуда',
+        yes_project: 'жоба',
+        no_project: 'Өңдеу кезінде',
+        _blue: [
+          'Пікірталас',
+          'сіз спикерлерден кәсіпкерлікті ұйымдастыру бойынша жеке кеңестер аласыз',
+          'Қазақстанның және Еуропаның және басқа елдердің жетекші аймақтарының өкілдерімен іскери байланыстарды кеңейту. Конференция өз орныңыздағы адамдарды табуға және бизнесті дұрыс бағытта кеңейтуге көмектеседі',
+          'Іскерлік және пайдалы байланыс атмосферасы'
+        ],
+        types: [
+          {
+            number: 1,
+            content: `Қазақстандағы инвестициялық мүмкіндіктер.`
+          },
+          {
+            number: 2,
+            content: `Қазақстандағы инвестициялық тәуекелдер.`
+          },
+          {
+            number: 3,
+            content: `Қазақстанға инвестициялау тәуекелдері - еуропалық кәсіпкердің көзқарасы.`
+          },
+          {
+            number: 4,
+            content: `Инвесторларға ұсыныстар және инвестицияларды қорғау.`
+          },
+          {
+            number: 5,
+            content: `Астана халықаралық қаржы орталығы юрисдикциясының артықшылықтары.`
+          },
+          {
+            number: 6,
+            content: `Инвестициялық жобалардың презентациясы.`
+          },
+          {
+            number: 7,
+            content: `Сұрақтар мен жауаптар.`
+          }
+        ],
+			},
+			projects: [
+        {
+          data: 'Сельское хозяйство',
+          name: 'Ауыл шаруашылығы'
+        },
+        {
+          data: 'Промышленность',
+          name: 'Өнеркәсіп'
+        },
+        {
+          data: 'Фармацевтика и медицина',
+          name: 'Фармацевтика және медицина'
+        },
+        {
+          data: 'Туризм',
+          name: 'Туризм'
+        },
+        {
+          data: 'Транспорт',
+          name: 'Көлік'
+        },
+        {
+          data: 'Нефтехимия',
+          name: 'Мұнай химиясы'
+        },
+        {
+          data: 'Энергетика',
+          name: 'Энергия'
+        },
+        {
+          data: 'Логистика',
+          name: 'Логистика'
+        },
+        {
+          data: 'Инновации и высокие технологии',
+          name: 'Инновация және жоғары технологиялар'
+        },
+        {
+          data: 'Недвижимость и строительство',
+          name: 'Жылжымайтын мүлік және құрылыс'
+        },
+        {
+          data: 'Продажа бизнеса',
+          name: 'Бизнесті сату'
+        },
+        {
+          data: 'Другое',
+          name: 'Басқа'
+        }
+      ],
+			leads: {
+				type: 'Жоба түрі:',
+        pdf: 'Презентацияны жүктеңіз',
+				rows: [
+					'Қажетті инвестициялар ',
+					'Инвестиция түрі',
+					'Жобаның кезеңі'
+				]
+			},
+      support: 'Егер сізде қандай да бір проблема туындаса, бізге хабарласыңыз',
+			registrate: {
+				title: 'Конференцияға тіркелу',
+				member: 'Қатысушы',
+				about: '',
+				ending: 'Жалпы сома:',
+        fio: 'Компания атауы немесе атауы',
+        send: 'Қазір тіркеліңіз',
+        link: '<span>Мен жеке деректерді өңдеуге </span><a style="display: inline" target="_blank" href="/static/pp/privacy_policy_ru.htm">келісімімді растаймын</a>',
+				if_title: 'тіркеуде қиындық туындаған жағдайда',
+				rout: 'Бізбен байланысыңыз'
+			},
+			request: {
+				title: 'Инвестициялық жобаға өтініш',
+        button: 'Төлеңіз',
+        who: 'Жауапты өкіл',
+        final: 'Жалпы сома: ',
+        _package: 'Пакетті таңдаңыз',
+        packages: [
+          {
+            key: 'Сіздің жобаңызды және логотипті серіктес ретінде конференцияға орналастыру <strong>50€</strong>',
+            value: 50,
+            data: true,
+          },
+          {
+            key: 'Сіздің жобаңызды және логотипті серіктес ретінде конференцияға орналастыру және спикердің сөзінен кейін сіздің инвестициялық жобаңыздың сызығы және тікелей презентациясы <strong>150€</strong>',
+            value: 150,
+            data: false,
+          }
+        ],
+        pdf: "Ағылшын тіліндегі PDF презентациясын тіркеңіз",
+        logo: "Логотипті жүктеңіз",
+				inputs: [
+          {
+            title: 'Компанияның Аты',
+            type: 'text',
+            data: ''
+          },
+          {
+            title: 'Ел',
+            type: 'select',
+            data: '',
+            childs: [
+              {id: "Azerbaijan", name: "Azerbaijan"},
+              {id: "Armenia", name: "Armenia"},
+              {id: "Belarusgeorgia", name: "Belarusgeorgia"},
+              {id: "Kazakhstan", name: "Kazakhstan"},
+              {id: "Kyrgyzstan", name: "Kyrgyzstan"},
+              {id: "Moldova", name: "Moldova"},
+              {id: "Tadjikistan", name: "Tadjikistan"},
+              {id: "Turkmenistan", name: "Turkmenistan"},
+              {id: "Ukraine", name: "Ukraine"},
+              {id: "Uzbekistan", name: "Uzbekistan"},
+              {id: "Albania", name: "Albania"},
+              {id: "Andorra", name: "Andorra"},
+              {id: "Austria", name: "Austria"},
+              {id: "Belarus", name: "Belarus"},
+              {id: "Belgium", name: "Belgium"},
+              {id: "Bosnia and Herzegovina", name: "Bosnia and Herzegovina"},
+              {id: "Bulgaria", name: "Bulgaria"},
+              {id: "Croatia", name: "Croatia"},
+              {id: "Cypruse", name: "Cypruse"},
+              {id: "Czech Republic", name: "Czech Republic"},
+              {id: "Denmark", name: "Denmark"},
+              {id: "Estonia", name: "Estonia"},
+              {id: "Finland", name: "Finland"},
+              {id: "Franceh", name: "Franceh"},
+              {id: "Germany", name: "Germany"},
+              {id: "Greece", name: "Greece"},
+              {id: "Hungary", name: "Hungary"},
+              {id: "Iceland", name: "Iceland"},
+              {id: "Ireland", name: "Ireland"},
+              {id: "Italy", name: "Italy"},
+              {id: "Kosovo", name: "Kosovo"},
+              {id: "Latvia", name: "Latvia"},
+              {id: "Liechtenstein", name: "Liechtenstein"},
+              {id: "Lithuania", name: "Lithuania"},
+              {id: "Luxembourg", name: "Luxembourg"},
+              {id: "North Macedonia", name: "North Macedonia"},
+              {id: "Malta", name: "Malta"},
+              {id: "Moldova", name: "Moldova"},
+              {id: "Monaco", name: "Monaco"},
+              {id: "Montenegro", name: "Montenegro"},
+              {id: "Netherlands", name: "Netherlands"},
+              {id: "Norway", name: "Norway"},
+              {id: "Poland", name: "Poland"},
+              {id: "Portugal", name: "Portugal"},
+              {id: "Romania", name: "Romania"},
+              {id: "Russia", name: "Russia"},
+              {id: "San marino", name: "San marino"},
+              {id: "Serbia", name: "Serbia"},
+              {id: "Slovakia", name: "Slovakia"},
+              {id: "Slovenia", name: "Slovenia"},
+              {id: "Spain", name: "Spain"},
+              {id: "Sweden", name: "Sweden"},
+              {id: "Switzerland", name: "Switzerland"},
+              {id: "Turkey", name: "Turkey"},
+              {id: "Ukraine", name: "Ukraine"},
+              {id: "United Kingdom", name: "United Kingdom"},
+              {id: "Vatican City", name: "Vatican City"},
+              {id: "The United States of America", name: "The United States of America"}
+            ]
+          },
+          {
+            title: 'Өнеркәсіп',
+            type: 'select',
+            data: '',
+            childs: [
+              {
+                id: 'Сельское хозяйство',
+                name: 'Ауыл шаруашылығы'
+              },
+              {
+                id: 'Промышленность',
+                name: 'Өнеркәсіп'
+              },
+              {
+                id: 'Фармацевтика и медицина',
+                name: 'Фармацевтика және медицина'
+              },
+              {
+                id: 'Туризм',
+                name: 'Туризм'
+              },
+              {
+                id: 'Транспорт',
+                name: 'Көлік'
+              },
+              {
+                id: 'Нефтехимия',
+                name: 'Мұнай химиясы'
+              },
+              {
+                id: 'Энергетика',
+                name: 'Энергия'
+              },
+              {
+                id: 'Логистика',
+                name: 'Логистика'
+              },
+              {
+                id: 'Инновации и высокие технологии',
+                name: 'Инновация және жоғары технологиялар'
+              },
+              {
+                id: 'Недвижимость и строительство',
+                name: 'Жылжымайтын мүлік және құрылыс'
+              },
+              {
+                id: 'Продажа бизнеса',
+                name: 'Бизнесті сату'
+              },
+              {
+                id: 'Другое',
+                name: 'Басқа'
+              }
+          ]
+          },
+          {
+            title: 'Қажетті инвестициялар (соманы EUR-да көрсетіңіз):',
+            type: 'textarea',
+            data: ''
+          },
+          {
+            title: 'Инвестиция түрі',
+            type: 'select',
+            data: '',
+            childs: [
+              {
+                id: "Создание совместного предприятия",
+                name: "Бірлескен кәсіпорын құру"
+              },
+              {
+                id: "Участие в капитале",
+                name: "Үлестік қатысу"
+              },
+              {
+                id: "Кредитование",
+                name: "Несиелеу"
+              },
+              {
+                id: "Лизинг",
+                name: "Лизинг"
+              },
+              {
+                id: "Консорциум",
+                name: "Консорциум"
+              },
+              {
+                id: "Иная форма участия",
+                name: "Қатысудың тағы бір түрі"
+              },
+            ]
+          },
+          {
+            title: 'Жобаның кезеңі:',
+            type: 'select',
+            data: '',
+            childs: [
+              {
+                id: 'Идея',
+                name: 'Идея'
+              },
+              {
+                id: 'Разработка',
+                name: 'Даму'
+              },
+              {
+                id: 'Исполнение',
+                name: 'Орындау'
+              },
+              {
+                id: 'Завершение',
+                name: 'Аяқтау'
+              },
+              {
+                id: 'Реализация',
+                name: 'Іске асыру'
+              },
+            ]
+          },
+          {
+            title: 'Ағылшын тіліндегі қысқаша сипаттама',
+            type: 'textarea',
+            maxlength: 2500,
+            data: ''
+          },
+        ],
+        inputs_who: [
+          {
+            title: 'Толық аты',
+            type: 'text',
+            data: ''
+          },
+          {
+            title: 'Байланыстар',
+            type: 'text',
+            data: ''
+          },
+          {
+            title: 'E-mail',
+            type: 'email',
+            data: ''
+          }
+        ]
+			},
+      sponsor_us: 'Мен қалай демеуші бола аламын?<br>Толығырақ ақпарат алу үшін бізге хабарласыңыз',
+			about_us:{
+				title: 'Біз туралы',
+				text: `Suleiman & Partners қазақстандық заң фирмасы - салық және инвестициялық даулар, бизнесті сатып алу және сату мәмілелері, сондай-ақ күрделі жобаларды кешенді қолдау, корпоративті басқаруды қайта құру және оңтайландыру бойынша мамандандырылған тәжірибелі компаниялардың бірі.
+        <br><br>
+        Біздің заңгерлеріміз өздерінің үлкен тәжірибелерін ескере отырып, мемлекет пен бизнес арасындағы тиімді ынтымақтастық туралы әрдайым өз ұсыныстарын беріп отырады.
+        <br><br>
+        Көптеген жылдар бойы жетекші рейтингтік басылымдар Zákon.kz, NUR. Kz, Tengrinews.kz, 365Info.kz, Kaztag біздің басты серіктесіміз Жангелді Сүлеймановты Қазақстанның құқықтық мәселелер бойынша ең көп ұсынылған сарапшыларының қатарына қосады.
+        <br><br>
+        2020 жылдан бастап Suleiman & Partners - жаңа жұмыс форматына енген және Прагада орналасқан «жалғыз кеңсе» қағидаты бойынша Инвестициялық Жобалар Орталығындағы алғашқы қазақстандық заң фирмасы.
+        <br><br>
+        Suleiman & Partners-тің клиенттері - бұл мұнай-газ секторы, көлік секторы, энергетикалық кешен, тау-кен секторы, жол құрылысы, алкоголь өнеркәсібі, халықаралық компаниялар және Қазақстанда және халықаралық деңгейде танымал брендтерді ұсынатын компаниялар.
+        <br>
+        Біздің жұмысымыздың жоғары бағасы - біздің клиенттер өз инвестициялық жобаларын сізге бірінші қолмен ұсыну құқығын сеніп тапсырды.
+        . 
+        `,
+        // button: 'Читать о компании больше'
+			},
+			payment: {
+				title: 'Төлем',
+				card: [
+					'Карта нөмірі',
+					'Картасының мерзімі',
+          'CVV/ССV',
+          'Картадағы аты'
+				],
+				button: 'Төлеңіз'
+			},
+			error:{
+				text_1: `Төлем қателігі`
+			},
+			success:{
+				text_1: `Сәтті тіркеу`,
+				text_2: `Сіздің жобаңыз жақында сайтта қол жетімді болады`,
+			},
+			header: {
+        links: [
+          {
+            name: 'Конференция'
+          },
+          {
+            name: 'Біз туралы'
+          },
+          {
+            name: 'Спикерлер '
+          },
+          {
+            name: 'Демеушілер/Серіктестер'
+          },
+          {
+            name: 'Инвестициялық жобалар'
+          },
+          {
+            name: 'Байланыстар '
+          },
+        ]
+			},
+			footer: {
+				title: 'Конференцияға қатысыңыз!',
+				buttons: [
+					'Конференцияға тіркелу',
+					'Жобаны орналастырыңыз'
+				],
+				soc: 'Біз әлеуметтік желілердеміз',
+				links: [
+          {
+            title: 'Байланыстар',
+            childs: [
+              {
+                name: '+420 777 182 012',
+                href: 'tel:+420777182012',
+                img: 'phone.svg'
+              },
+              {
+                name: 'conference@suleimanpartners.com',
+                href: 'mailto:conference@suleimanpartners.com',
+                img: 'mail.svg'
+              }
+            ]
+          },
+        ]
+			}
+		}
   }

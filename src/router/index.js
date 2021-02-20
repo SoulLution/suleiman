@@ -8,6 +8,7 @@ import about_us from '@/components/about_us'
 import leads from '@/components/leads'
 import success from '@/components/success'
 import error from '@/components/error'
+import sponsor from '@/components/sponsor'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index
+    },
+    {
+      path: '/sponsor',
+      name: 'sponsor',
+      component: sponsor
     },
     {
       path: '/registrate',

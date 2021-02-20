@@ -8,7 +8,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="leads-header" @click="popup = true">
+		<div class="leads-header" @click="popup = true" v-if="!$route.query.partner">
 			{{$languages.leads.type}} {{projects[$route.params.id].name}}
 		</div>
 		<div class="leads-content">
@@ -74,8 +74,12 @@
 				this.leads = []
 				this.$axios.get('leads')
 				.then(res => {
+					console.log()
 					for(let lead of res.data.data){
-						if(this.$languages.projects[id].data === lead.Industry.IndustryName){
+						if(this.$route.query.partner && this.$route.query.partner == lead.Industry.id){
+							this.leads.push(lead)
+						}
+						else if(this.$languages.projects[id].data === lead.Industry.IndustryName){
 							this.leads.push(lead)
 						}
 					}

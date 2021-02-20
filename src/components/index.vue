@@ -171,7 +171,7 @@
 
       <div class="index-item __main_2" ref="item-4">
         <div class="content">
-          <img class="item-logo" src="static/img/title_1.svg">
+          <!-- <img class="item-logo" src="static/img/title_1.svg"> -->
           <div class="item-title">{{$languages.index.item_titles[5]}}</div>
           <div class="item-main">
             <div class="item-main-cell cell-2" :class="{'op-025': !project.leads}" v-for="(project, i) in projects">
@@ -203,7 +203,7 @@
               </div>
             </div>
           </div>
-          <v-button :title="$languages.index.item_but2" @click="$router.push('/request')" />
+          <v-button :title="$languages.index.item_but2" @click="$router.push('/sponsor')" />
         </div>
       </div>
       <div class="index-item __transpatent">
@@ -213,9 +213,10 @@
           <div class="item-main">
             <div class="item-main-cell cell-4 __min" v-for="partner in partners">
               <div class="item-main-cell-body">
-                <div class="item-main-cell-body-sponsor">
+                <router-link :to="`/leads/0?partner=`+partner.id" class="item-main-cell-body-sponsor">
                   <img v-if="partner.Image" class="ava" :src="'https://admin.suleimanpartners.com:9002/suleiman-api/v1/uploads/' + partner.Image.replace(/<\/?[a-zA-Z]+>/gi,'')">
-                </div>
+                  <span class="no_ava" v-else>{{partner.CompanyName.replace(/<\/?[a-zA-Z]+>/gi,'')}}</span>
+                </router-link>
               </div>
             </div>
           </div>
@@ -265,7 +266,9 @@
         ],
         partners: [
           // {
-          //   logo: 'sponsor_0.png'
+          //   id: 1,
+          //   CompanyName: 'test',
+          //   Image: ''
           // },
           // {
           //   logo: 'sponsor_1.png'
@@ -389,11 +392,10 @@
       async getProjects(){
         for(let project of this.$languages.projects)
           project.leads = 0
-          console.log("lol")
         this.$axios.get('leads')
         .then(res => {
           console.log(res.data)
-          this.partners = res.data.data.filter(x =>x.Price === 50 || x.Price === 150)
+          this.partners = res.data.data
           for(let lead of res.data.data){
             console.log(lead)
             for(let project of this.$languages.projects){
@@ -831,7 +833,7 @@
       &.__min{
         flex: 50% 0 0;
         &:last-child{
-          display: none;
+          // display: none;
         }
       }
     }
@@ -933,5 +935,12 @@
     .index-item.__bg .item-main-col-svg_about{
       margin: 12px 0;
     }
+  }
+  .no_ava{
+    color: $blue_l;
+    padding: 1rem 0;
+    width: 100%;
+    max-width: 336px;
+    border: 1px solid #001F48;
   }
 </style>
